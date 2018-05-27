@@ -1,0 +1,264 @@
+/*** Settings ***/
+@import "nib"
+@import "../lib/css/css"
+
+global-reset();
+reset-html5();
+form-reset();
+b
+strong
+i
+em
+	font-style normal
+	font-weight normal
+
+$transitionAnimation = cubic-bezier(0.250, 0.460, 0.450, 0.940)
+
+$colorSend = #c69c6d
+$colorMain = #333333
+
+/* fonts */
+
+@font-face
+	font-family "HarmoniaSansProCyrRegular"
+	src url("../fonts/HarmoniaSansProCyrRegular.woff") format("woff")
+
+/* //fonts */
+html
+	height 100%
+body
+	position relative
+	width 100%
+	height 100%
+	min-height 100vh
+	line-height 1
+	font-size 14px
+	cursor default
+	color $colorMain
+
+/*** main style ***/
+.page
+	display block
+	width 100%
+
+	min-height 100%
+
+	margin 0 auto
+
+.page-inner
+	position relative
+	display block
+	margin 0 auto
+	box-sizing border-box
+
+	&--w1
+		max-width 100%
+		padding 0 20px
+
+/** header **/
+
+.page-header
+	width 100%
+	padding 20px 20px 0 20px
+	box-sizing border-box
+	display flex
+	justify-content space-between
+	align-items center
+
+.header-logo--mini
+	display flex
+	max-width 180px
+	justify-content flex-start
+	align-items center
+
+	.header-logo-icon
+		display block
+
+		&:nth-child(1)
+			width 35px
+			margin-right 15px
+
+		&:nth-child(2)
+			width 130px
+
+		svg
+			display block
+			width 100%
+
+.header-menu
+	max-width 470px
+	width 100%
+
+	.header-menu-inner
+		display flex
+		justify-content space-between
+		align-items center
+
+	.header-menu-item
+		color $colorSend
+		font-family "HarmoniaSansProCyrRegular"
+		font-size 14px
+
+		text-transform uppercase
+
+.header-form
+	max-width 235px
+
+	.form-row--search
+		width 100%
+
+		.header-form-search
+			position absolute
+			top 50%
+			right 1px
+
+			display block
+			width 22px
+			height 22px
+
+			margin-top -11px
+
+			transition transform 0.3s $transitionAnimation
+
+			svg
+				display block
+				width 100%
+
+				path
+					stroke-width 7px
+
+		&:hover
+			.header-form-search
+				transform translate(-195px)
+
+		.form-item
+			transition background 0.3s $transitionAnimation
+			background transparent
+
+		&:hover
+			.form-item
+				background #fff
+
+/** //header **/
+
+
+/** footer **/
+
+.page-footer
+	padding 100px 0 30px 0
+	box-sizing border-box
+
+	background $colorMain
+
+.footer-logo
+	max-width 200px
+	margin 0 auto 60px auto
+
+	svg
+		display block
+		width 100%
+
+.footer-sub
+	display block
+	margin 0 auto 40px auto
+
+	.footer-sub-title
+		display block
+		width 100%
+		margin-bottom 20px
+
+		font-size 14px
+		font-family "HarmoniaSansProCyrRegular"
+		text-align center
+		text-transform uppercase
+
+		color #fff
+
+	.footer-sub-list
+		display flex
+		align-items center
+		justify-content space-between
+
+		max-width 110px
+		width 100%
+		margin 0 auto
+
+		.footer-sub-item
+			display block
+			max-width 20px
+			height 20px
+
+			svg
+				display block
+				width 100%
+				height 100%
+
+				transition fill 0.3s $transitionAnimation
+
+				&:hover
+					fill #fff
+
+.footer-creators
+	display block
+	width 100%
+	text-align center
+
+	.footer-creators-link
+		display block
+		width 400px
+		margin 0 auto
+		font-size 14px
+		font-family "HarmoniaSansProCyrRegular"
+		text-align center
+
+	.footer-creators-name
+		color $colorSend
+		text-transform uppercase
+
+		border-bottom 1px solid transparent
+		transition border-bottom-color 0.3s $transitionAnimation
+
+	&:hover
+		.footer-creators-name
+			border-bottom-color $colorSend
+/** //footer **/
+
+
+/** link and button **/
+
+.link
+	text-decoration none
+
+.link-white
+	color #fff
+.link--white
+	transition color 0.3s $transitionAnimation
+	&:hover
+		color #fff
+
+/** //link and button **/
+
+
+/** form **/
+
+.form
+	.form-row
+		position relative
+		display flex
+		justify-content space-between
+
+	.form-item
+		display block
+		width 100%
+
+		padding 10px 25px
+		box-sizing border-box
+
+		font-size 14px
+
+		border-radius 5px
+
+		background #fff
+
+		color $colorMain
+/** //form **/

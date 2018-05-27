@@ -1,0 +1,139 @@
+include ../lib/html/html.jade
+doctype html
+<!--[if IE 7]><html lang="ru" prefix="og: http://ogp.me/ns#" class="ie8 no-js"><![endif]-->
+<!--[if IE 8]><html lang="ru" prefix="og: http://ogp.me/ns#" class="ie8 no-js"><![endif]-->
+<!--[if IE 9]><html lang="ru" prefix="og: http://ogp.me/ns#" class="ie9 no-js"><![endif]-->
+<!--[if !IE]><!-->
+html(lang="ru", class="no-js", prefix="og:http://ogp.me/ns#")
+	<!--<![endif]-->
+	head
+		+headerMeta({
+			charset: "utf-8",
+			keywords: info.keywords,
+			description: info.description,
+			title: info.title,
+			robots: "index, follow",
+			viewport: "width=device-width, initial-scale=1.0"
+		})
+		+openGraph({ 
+			type: "website",
+			siteName: info.siteName,
+			title: info.title,
+			description: info.description,
+			url: info.productionUrl,
+			image: info.image
+		}) 
+		+webIcons({
+			favicon: {
+				src: "i/favicon.ico"
+			},
+			appleTouchIcon: [
+				{
+					src: "../i/icons/apple-touch-icon.jpg"
+				}, {
+					src: "../i/icons/apple-touch-icon-76.jpg",
+					size: "76x76"
+				}, {
+					src: "../i/icons/apple-touch-icon-140.jpg",	
+					size: "140x140"
+				}, {
+					src: "../i/icons/apple-touch-icon-152.jpg",
+					size: "152x152"
+				}
+			]
+		})
+		+addCSS([
+			{
+				media: "screen",
+				href: "../css/" + info.code + ".css",
+				noCache: true,
+			}, {
+				media: "screen",
+				href: "../css/" + info.code + ".responsive.css",
+				noCache: true
+			}
+		])
+
+	body(itemscope, itemtype="http://schema.org/WebPage")
+		div(class="page")
+			header(class="page-header", itemscope, itemtype="http://schema.org/WPHeader")
+				if page.code == "home"
+					div(class="header-logo--mini")
+						div(class="header-logo-icon")
+							include ../../prod/svg/logo_mini.svg
+						div(class="header-logo-icon")
+							include ../../prod/svg/logo_name.svg
+
+				else
+					a(href="home.html", class="header-logo--mini") 
+						div(class="header-logo-icon")
+							include ../../prod/svg/logo_mini.svg
+						div(class="header-logo-icon")
+							include ../../prod/svg/logo_name.svg
+				+menu({
+					rootClass: "header-menu",
+					items: [
+						{
+							name: "О проекте",
+							href: "about.html",
+							linkClass: "link link--white active",
+							title: "",
+						}, {
+							name: "Регионы",
+							href: "regions.html",
+							linkClass: "link link--white",
+							title: "",
+						}, {
+							name: "Продукты",
+							href: "products.html",
+							linkClass: "link link--white",
+							title: "",
+						}, {
+							name: "Качество",
+							href: "quality.html",
+							linkClass: "link link--white",
+							title: "",
+						}
+					]
+				})
+				form(action="", class="form header-form")
+					div(class="form-row form-row--search")
+						input(type="text", placeholder="", class="form-item form--text")
+						button(type="button", class="header-form-search")
+							include ../../prod/svg/loupe.svg
+
+			main(class="page-content") 
+				block content
+				div(class="dispatch")
+					form(class="form")
+						div(class="form-row")
+							div(class="form-row--60")
+								input(type="text", placeholder="Ваш е-майл", class="form-item form--text")
+							div(class="form-row--40")
+								button(type="submit", class="button button--dark form-send") Отправить
+
+		footer(class="page-footer", itemscope, itemtype="http://schema.org/WPFooter")
+			div(class="footer-logo")
+				include ../../prod/svg/logo.svg
+			div(class="footer-sub")
+				div(class="footer-sub-title") Следуйте за нами
+				div(class="footer-sub-list")
+					a(href="#", class="footer-sub-item")
+						include ../../prod/svg/instagram.svg
+					a(href="#", class="footer-sub-item")
+						include ../../prod/svg/fb.svg
+					a(href="#", class="footer-sub-item")
+						include ../../prod/svg/vk.svg
+					a(href="#", class="footer-sub-item")
+						include ../../prod/svg/twitter.svg
+			div(class="footer-creators")
+				a(href="http://aheadstudio.ru", target="_blank", class="link link-white footer-creators-link")
+					span(class="footer-creators-title") &#169; 2017 &#171; География еды &#187; Сделано в 
+					span(class="footer-creators-name") Aheadstudio
+		+addJS([
+			{
+				src: "../js/jquery-3.2.1.min.js"
+			}, {
+				src: "../js/" + info.code + ".js"
+			}
+		])
