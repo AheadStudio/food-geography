@@ -23,6 +23,10 @@ $colorMain = #333333
 	font-family "HarmoniaSansProCyrRegular"
 	src url("../fonts/HarmoniaSansProCyrRegular.woff") format("woff")
 
+@font-face
+	font-family "LeksaPro"
+	src url("../fonts/LeksaPro.woff") format("woff")
+
 /* //fonts */
 html
 	height 100%
@@ -33,6 +37,7 @@ body
 	min-height 100vh
 	line-height 1
 	font-size 14px
+	font-family "HarmoniaSansProCyrRegular"
 	cursor default
 	color $colorMain
 
@@ -58,12 +63,18 @@ body
 /** header **/
 
 .page-header
-	width 100%
-	padding 20px 20px 0 20px
-	box-sizing border-box
-	display flex
-	justify-content space-between
-	align-items center
+    position fixed
+    top 0
+    right 0
+    left 0
+    width 100%
+    padding 8px 20px
+    box-sizing border-box
+    display flex
+    justify-content space-between
+    align-items center
+    z-index 100
+
 
 .header-logo--mini
 	display flex
@@ -103,6 +114,7 @@ body
 
 .header-form
 	max-width 235px
+    min-width 200px
 
 	.form-row--search
 		width 100%
@@ -126,7 +138,7 @@ body
 
 				path
 					stroke-width 7px
-
+        .active
 		&:hover
 			.header-form-search
 				transform translate(-195px)
@@ -135,10 +147,153 @@ body
 			transition background 0.3s $transitionAnimation
 			background transparent
 
+			&:focus
+				border-right 5px
+
+		.active
 		&:hover
 			.form-item
 				background #fff
 
+.fixed-header
+	.page-header
+		position fixed
+		top 0
+		left 0
+		right 0
+		width 100%
+		padding 8px 20px
+		box-sizing border-box
+		background #333
+		opacity 0
+		transform translateY(-100px)
+		transition transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94)
+		z-index 1010
+
+	.fixed-header--show
+		.page-header
+			opacity 1
+			transform translateY(0)
+
+.header-burger
+	position relative
+	display none
+	width 25px
+	height 20px
+	cursor pointer
+
+.header-burger
+	.header-burger-layout
+		position absolute
+		top 9px
+		left 0
+		right 0
+		display block
+		width 100%
+		height 2px
+		background #c69c6d
+		transition transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94)
+
+	&:before
+		content ""
+		position absolute
+		top 0px
+		left 0
+		right 0
+		display block
+		width 100%
+		height 2px
+		background #c69c6d
+		transition transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94)
+
+	&:after
+		content ""
+		position absolute
+		bottom 0px
+		left 0
+		right 0
+		display block
+		width 100%
+		height 2px
+		background #c69c6d
+		transition transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94)
+
+.header-burger.active .header-burger-layout
+	transform: scale(0);
+
+.header-burger.active:before
+	transform: rotate(40deg) translate(5px, 6px);
+
+.header-burger.active:after
+	transform: rotate(-40deg) translate(6px, -8px);
+
+.mobile-menu
+	position: fixed;
+	top: 0;
+	right: 0;
+	left: 0;
+	bottom: 0;
+	display: none;
+	width: 100%;
+	height: 100vh;
+	transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94), opacity 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+	z-index: 99;
+
+.mobile-menu
+	.mobile-menu-background
+		position: absolute;
+		top: 0;
+		right: 0;
+		left: 0;
+		bottom: 0;
+		display: block;
+		width: 100%;
+		height: 100%;
+		background: #333;
+		transform: translateY(-100%);
+		transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94), opacity 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+		transition-delay: 0.3s;
+
+.mobile-menu
+	.mobile-menu-container
+		padding: 80px 0 0 20px;
+		box-sizing: border-box;
+		opacity: 0;
+		transform: translateX(-50px);
+		transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94), opacity 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+		transition-delay: 0s;
+
+.mobile-menu
+	&.active-block
+    	display: block;
+
+.mobile-menu
+	&.active-show
+		.mobile-menu-background
+		transform: translateY(0);
+		transition-delay: 0s;
+
+		.mobile-menu-container
+			transform: translateX(0);
+			opacity: 1;
+			transition-delay: 0.3s;
+
+.mobile-menu-top
+	.mobile-menu-top-item-holder
+		margin-bottom 20px
+
+	.mobile-menu-top-item
+    	font-size: 20px;
+.open-menu
+	.page-header
+		padding 20px 20px 0 20px
+		opacity 1
+		-ms-filter none
+		filter none
+		transform translateY(0)
+.mobile-menu
+	.header-form
+    	display block
 /** //header **/
 
 

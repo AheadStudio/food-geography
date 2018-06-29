@@ -56,7 +56,7 @@ html(lang="ru", class="no-js", prefix="og:http://ogp.me/ns#")
 
 	body(itemscope, itemtype="http://schema.org/WebPage")
 		div(class="page")
-			header(class="page-header", itemscope, itemtype="http://schema.org/WPHeader")
+			header(class=page.code == "home" ? "page-header active" : "page-header", itemscope, itemtype="http://schema.org/WPHeader")
 				if page.code == "home"
 					div(class="header-logo--mini")
 						div(class="header-logo-icon")
@@ -101,20 +101,63 @@ html(lang="ru", class="no-js", prefix="og:http://ogp.me/ns#")
 						input(type="text", placeholder="", class="form-item form--text")
 						button(type="button", class="header-form-search")
 							include ../../prod/svg/loupe.svg
-
+				div(class="header-burger")
+					span(class="header-burger-layout")
+					
 			main(class="page-content") 
 				block content
-				div(class="dispatch")
-					form(class="form")
-						div(class="form-row")
-							div(class="form-row--60")
-								input(type="text", placeholder="Ваш е-майл", class="form-item form--text")
-							div(class="form-row--40")
-								button(type="submit", class="button button--dark form-send") Отправить
-
+				
+		div(class="dispatch")
+			div(class="dispatch-title") Хотите получать интересную информацию с сайта?
+				br
+				| Подпишитесь на нашу рассылку
+			form(class="form")
+				div(class="form-row")
+					div(class="form-row--60")
+						input(type="text", placeholder="Ваш е-майл", class="form-item form--text")
+					div(class="form-row--40")
+						button(type="submit", class="button button--dark form-send") Отправить
+		
+		
+		div(class="mobile-menu")
+			div(class="mobile-menu-background")
+				div(class="mobile-menu-container")
+					+menu({
+						rootClass: "mobile-menu-top",
+						items: [
+							{
+								name: "О проекте",
+								href: "about.html",
+								linkClass: "link link-white link--opacity",
+								title: "",
+							}, {
+								name: "Регионы",
+								href: "regions.html",
+								linkClass: "link link-white link--opacity",
+								title: "",
+							}, {
+								name: "Продукты",
+								href: "products.html",
+								linkClass: "link link-white link--opacity",
+								title: "",
+							}, {
+								name: "Качество",
+								href: "quality.html",
+								linkClass: "link link-white link--opacity",
+								title: "",
+							}
+						]
+					})
+					form(action="", class="form header-form")
+						div(class="form-row form-row--search notshow active")
+							input(type="text", placeholder="", class="form-item form--text")
+							button(type="button", class="header-form-search")
+								include ../../prod/svg/loupe.svg
+		
+				
 		footer(class="page-footer", itemscope, itemtype="http://schema.org/WPFooter")
 			div(class="footer-logo")
-				include ../../prod/svg/logo.svg
+				include ../../prod/svg/logo_white.svg 
 			div(class="footer-sub")
 				div(class="footer-sub-title") Следуйте за нами
 				div(class="footer-sub-list")
@@ -128,11 +171,15 @@ html(lang="ru", class="no-js", prefix="og:http://ogp.me/ns#")
 						include ../../prod/svg/twitter.svg
 			div(class="footer-creators")
 				a(href="http://aheadstudio.ru", target="_blank", class="link link-white footer-creators-link")
-					span(class="footer-creators-title") &#169; 2017 &#171; География еды &#187; Сделано в 
+					span(class="footer-creators-title") &#169; 2017 &#171;География еды&#187; Сделано в 
 					span(class="footer-creators-name") Aheadstudio
 		+addJS([
 			{
 				src: "../js/jquery-3.2.1.min.js"
+			}, {
+				src: "http://api-maps.yandex.ru/2.0/?load=package.full&amp;lang=ru-RU"
+			}, {
+				src: "https://maps.googleapis.com/maps/api/js?key=AIzaSyDOtcx9Sm_hunFMGzh4eqe_XRkFUYMWIao&amp;amp;sensor=true"
 			}, {
 				src: "../js/" + info.code + ".js"
 			}

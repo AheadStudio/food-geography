@@ -26,6 +26,14 @@
         "home": {
             "name": "Главная",
             "progress": {
+                "desktop": "100",
+                "tablet": "100",
+                "mobile": "100"
+            }
+        },
+        "regions": {
+            "name": "Регионы",
+            "progress": {
                 "desktop": "0",
                 "tablet": "0",
                 "mobile": "0"
