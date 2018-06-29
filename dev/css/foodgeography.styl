@@ -63,18 +63,17 @@ body
 /** header **/
 
 .page-header
-    position fixed
-    top 0
-    right 0
-    left 0
-    width 100%
-    padding 8px 20px
-    box-sizing border-box
-    display flex
-    justify-content space-between
-    align-items center
-    z-index 100
-
+	position fixed
+	top 0
+	right 0
+	left 0
+	width 100%
+	padding 8px 20px
+	box-sizing border-box
+	display flex
+	justify-content space-between
+	align-items center
+	z-index 100
 
 .header-logo--mini
 	display flex
@@ -218,83 +217,102 @@ body
 		background #c69c6d
 		transition transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94)
 
-.header-burger.active .header-burger-layout
-	transform: scale(0);
 
-.header-burger.active:before
-	transform: rotate(40deg) translate(5px, 6px);
+	&.active
+		.header-burger-layout
+			transform scale(0)
 
-.header-burger.active:after
-	transform: rotate(-40deg) translate(6px, -8px);
+		&:before
+			transform rotate(40deg) translate(5px, 6px)
 
-.mobile-menu
-	position: fixed;
-	top: 0;
-	right: 0;
-	left: 0;
-	bottom: 0;
-	display: none;
-	width: 100%;
-	height: 100vh;
-	transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94), opacity 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-	z-index: 99;
+		&:after
+			transform rotate(-40deg) translate(6px, -8px)
 
 .mobile-menu
+	position fixed
+	top 0
+	right 0
+	left 0
+	bottom 0
+	display none
+	width 100%
+	height 100vh
+	transition transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94), opacity 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94)
+	z-index 99
+
 	.mobile-menu-background
-		position: absolute;
-		top: 0;
-		right: 0;
-		left: 0;
-		bottom: 0;
-		display: block;
-		width: 100%;
-		height: 100%;
-		background: #333;
-		transform: translateY(-100%);
-		transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94), opacity 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-		transition-delay: 0.3s;
+		position absolute
+		top 0
+		right 0
+		left 0
+		bottom 0
+		display block
+		width 100%
+		height 100%
+		background #333
+		transform translateY(-100%)
+		transition transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94), opacity 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94)
+		transition-delay 0.3s
 
-.mobile-menu
 	.mobile-menu-container
-		padding: 80px 0 0 20px;
-		box-sizing: border-box;
-		opacity: 0;
-		transform: translateX(-50px);
-		transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94), opacity 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-		transition-delay: 0s;
+		padding 80px 0 0 20px
+		box-sizing border-box
+		opacity 0
+		transform translateX(-50px)
+		transition transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94), opacity 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94)
+		transition-delay: 0s
 
 .mobile-menu
 	&.active-block
-    	display: block;
+		display block
 
 .mobile-menu
 	&.active-show
 		.mobile-menu-background
-		transform: translateY(0);
-		transition-delay: 0s;
+			transform translateY(0)
+			transition-delay 0s
 
 		.mobile-menu-container
-			transform: translateX(0);
-			opacity: 1;
-			transition-delay: 0.3s;
+			transform translateX(0)
+			opacity 1
+			transition-delay 0.3s
 
 .mobile-menu-top
 	.mobile-menu-top-item-holder
 		margin-bottom 20px
 
 	.mobile-menu-top-item
-    	font-size: 20px;
+		font-size: 20px;
 .open-menu
 	.page-header
 		padding 20px 20px 0 20px
 		opacity 1
-		-ms-filter none
-		filter none
 		transform translateY(0)
+
 .mobile-menu
 	.header-form
-    	display block
+		display block
+
 /** //header **/
+
+/** dispatch **/
+.dispatch
+	padding 100px 0
+	box-sizing border-box
+	background #c69c6d
+
+	&.dispatch-title
+		margin-bottom 70px
+		line-height 32px
+		font-size 24px
+		text-align center
+		color #fff
+
+	.form
+		max-width 640px
+		margin 0 auto
+
+/** //dispatch **/
 
 
 /** footer **/
@@ -380,40 +398,379 @@ body
 
 
 /** link and button **/
-
 .link
 	text-decoration none
 
 .link-white
 	color #fff
+
+.link-black
+	color #4a4a4a
+
+.link-black--bottom
+	border-bottom 1px solid #4a4a4a
+	transition border-bottom-color 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94)
+
+	&:hover
+		border-bottom-color transparent
+
+.link--opacity
+    transition opacity 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94)
+
+	&:hover
+		opacity 0.6
+
+.link-darkgray
+	color #4A4A4A
+
+.link-gray
+	color #a9a9a9
+
+.link-gray--bottom
+	border-bottom: 1px solid #a9a9a9
+	transition: border-bottom-color 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94)
+
+	&:hover
+		border-bottom-color transparent
+
+.link-gray--bottom-reverse
+	border-bottom-color transparent
+
+	transition border-bottom-color 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94)
+
+	&:hover
+		border-bottom 1px solid #a9a9a9
+
 .link--white
-	transition color 0.3s $transitionAnimation
+	transition color 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94)
+
 	&:hover
 		color #fff
 
+.button
+	width 100%
+	padding 15px 0
+	box-sizing border-box
+	border-radius 5px
+	text-align center
+	text-transform uppercase
+	font-size 16px
+	transition background 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94), color 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94), border-radius 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94), opacity 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+
+.button--dark
+	background #333
+	color #fff
+
+	&:hover
+		opacity 0.8
+		border-radius 15px
+
 /** //link and button **/
-
-
 /** form **/
-
 .form
 	.form-row
 		position relative
 		display flex
 		justify-content space-between
 
+.form
+	.form-row--60
+		width 58%
+
+.form
+	.form-row--40
+		width 38%
+
+.form
 	.form-item
 		display block
 		width 100%
-
-		padding 10px 25px
+		padding 16px 25px
 		box-sizing border-box
-
 		font-size 14px
-
 		border-radius 5px
-
 		background #fff
+		color #4a4a4a
+		transition border-radius 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94)
 
-		color $colorMain
+.form
+	.form-item:focus
+		border-radius 15px
+
 /** //form **/
+/*** general style ***/
+.page-text
+	font-size: 16px;
+	line-height: 28px;
+
+.page-text
+	h1
+		color: #4a4a4a;
+		font-size: 44px;
+		line-height: 1;
+
+.page-text
+	h2
+		color: #4c4c4c;
+		line-height: 36px;
+		font-size: 28px;
+		font-family: "LeksaPro";
+
+.page-text
+	p
+		color: #4c4c4c;
+		line-height: 28px;
+		text-align: left;
+		font-size: 18px;
+		font-family: "LeksaPro";
+
+.img
+	display: block;
+	width: 100%;
+
+.main-bcg
+	position: relative;
+	display: block;
+	min-height: 100vh;
+	background-attachment: fixed;
+	background-position: center;
+	background-repeat: no-repeat;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	background-size: cover;
+
+.main-bcg:after
+	content: "";
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	display: block;
+	width: 100%;
+	height: 100%;
+	background: rgba(0,0,0,0.52);
+	z-index: 10;
+
+.main-bcg .main-logo
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	display: block;
+	max-width: 405px;
+	width: 100%;
+	margin: -120px 0 0 -202.5px;
+	z-index: 20;
+
+.main-bcg .main-logo svg
+	display: block;
+	width: 100%;
+
+.home-intro
+	width: 100%;
+	padding: 100px 0 140px 0;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+
+.home-intro-text
+	max-width: 700px;
+	width: 100%;
+	margin: 0 auto;
+	text-align: center;
+
+.home-intro-text h1,
+.home-intro-text h2
+	margin-bottom: 50px;
+
+.home-intro-text
+	h2
+		max-width: 650px;
+		margin: 0 auto 50px auto;
+
+.home-intro-text
+	p
+		margin-bottom: 25px;
+
+.home-intro-text
+	.home-intro-more
+		padding-bottom: 5px;
+		text-transform: uppercase;
+		font-size: 14px;
+		border-bottom: 1px solid #979797;
+		transition: border-bottom-color 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+
+.home-intro-text
+	.home-intro-more:hover
+		border-bottom-color: transparent;
+
+.home-regions
+	h1
+		display: block;
+		width: 100%;
+		margin-bottom: 70px;
+		text-align: center;
+
+.home-regions
+	.home-regions-map
+		height: 620px;
+
+.home-products
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-flow: column;
+	padding: 100px 0 140px 0;
+
+.home-products
+	h1
+		display: block;
+		width: 100%;
+		margin-bottom: 70px;
+		text-align: center;
+
+.home-products
+	.home-products-list
+		display: flex
+		align-items: end
+		justify-content: space-between;
+		flex-wrap: wrap;
+		max-width: 1250px;
+		width: 100%;
+		margin-bottom: 65px;
+
+.home-products-list
+	.home-products-item
+		display: block;
+		width: 100%;
+		max-width: 30%;
+		margin-bottom: 50px;
+
+.home-products-item
+	.home-products-container
+		display: flex
+		align-items: center
+		justify-content: center;
+		width: 100%;
+		height: 280px;
+		padding: 20px;
+		margin-bottom: 35px
+		box-sizing: border-box;
+		background: rgba(245,246,249,1);
+		background: -moz-radial-gradient(center, ellipse cover, rgba(245,246,249,1) 0%, rgba(245,246,249,1) 19%, rgba(245,246,249,1) 51%, rgba(245,246,249,1) 71%, rgba(227,228,237,1) 96%, rgba(227,228,237,1) 100%);
+		background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, rgba(245,246,249,1)), color-stop(19%, rgba(245,246,249,1)), color-stop(51%, rgba(245,246,249,1)), color-stop(71%, rgba(245,246,249,1)), color-stop(96%, rgba(227,228,237,1)), color-stop(100%, rgba(227,228,237,1)));
+		background: -webkit-radial-gradient(center, ellipse cover, rgba(245,246,249,1) 0%, rgba(245,246,249,1) 19%, rgba(245,246,249,1) 51%, rgba(245,246,249,1) 71%, rgba(227,228,237,1) 96%, rgba(227,228,237,1) 100%);
+		background: -o-radial-gradient(center, ellipse cover, rgba(245,246,249,1) 0%, rgba(245,246,249,1) 19%, rgba(245,246,249,1) 51%, rgba(245,246,249,1) 71%, rgba(227,228,237,1) 96%, rgba(227,228,237,1) 100%);
+		background: -ms-radial-gradient(center, ellipse cover, rgba(245,246,249,1) 0%, rgba(245,246,249,1) 19%, rgba(245,246,249,1) 51%, rgba(245,246,249,1) 71%, rgba(227,228,237,1) 96%, rgba(227,228,237,1) 100%);
+		background: radial-gradient(ellipse at center, rgba(245,246,249,1) 0%, rgba(245,246,249,1) 19%, rgba(245,246,249,1) 51%, rgba(245,246,249,1) 71%, rgba(227,228,237,1) 96%, rgba(227,228,237,1) 100%);
+
+.home-products-item
+	.home-products-container
+		.img
+			width: auto;
+			height: 60%;
+			transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94), opacity 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+
+.home-products-item
+	.home-products-container:hover
+		img
+			transform scale(1.1)
+			opacity 0.6
+
+.home-rubric
+	line-height: 20px;
+	margin-bottom: 20px;
+	text-transform: uppercase;
+	text-align: center;
+
+.home-rubric
+	.point-delimiter
+		color #a9a9a9
+
+.home-products-item
+	.home-products-name
+		font-size: 18px;
+		font-weight: 600;
+		text-align: center;
+
+.home-products
+	.home-products-more
+		padding-bottom: 5px;
+		text-transform: uppercase;
+		font-size: 14px;
+		border-bottom: 1px solid #979797;
+		transition: border-bottom-color 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+
+.home-products
+	.home-products-more
+		&:hover
+			border-bottom-color transparent
+
+.home-records
+	background: #FAFAFA;
+	padding: 100px 0 140px 0;
+
+.home-records
+	h1
+		display: block;
+		width: 100%;
+		margin-bottom: 70px;
+		text-align: center;
+
+.home-records-list
+	display: flex;
+	align-items: end;
+	justify-content: flex-start;
+	max-width: 1140px;
+	margin: 0 auto;
+	width: 100%;
+	flex-wrap: wrap;
+
+.home-records-list
+	.home-records-item
+		display: block;
+		max-width: 30%;
+		margin-right: 5%;
+		margin-bottom: 30px;
+
+.home-records-list
+	.home-records-item:nth-child(3n)
+		margin-right: 0;
+
+.home-records-list
+	.home-records-item:last-child
+		margin-right: 0;
+
+.home-records-item
+	.home-records-container
+		display: block;
+		width: 100%;
+		margin-bottom: 30px;
+		overflow: hidden;
+
+.home-records-item
+	.home-records-container
+		img
+			transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+
+.home-records-item
+	.home-records-container:hover
+		img
+			transform: scale(1.05);
+
+.home-records-item
+	.home-records-name
+		margin-bottom: 25px;
+		font-size: 18px;
+		font-weight: 600;
+		text-align: center;
+
+.home-records-item
+	.home-records-text
+		padding: 10px;
+		font-size: 16px;
+		font-family: "LeksaPro";
+		text-align: center;
+		line-height: 24px;
+
+/*** //general style ***/
