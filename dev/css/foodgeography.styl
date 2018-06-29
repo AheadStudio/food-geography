@@ -113,7 +113,7 @@ body
 
 .header-form
 	max-width 235px
-    min-width 200px
+	min-width 200px
 
 	.form-row--search
 		width 100%
@@ -129,7 +129,7 @@ body
 
 			margin-top -11px
 
-			transition transform 0.3s $transitionAnimation
+			transition transform 0.6s $transitionAnimation
 
 			svg
 				display block
@@ -137,19 +137,21 @@ body
 
 				path
 					stroke-width 7px
-        .active
+		&.active
 		&:hover
 			.header-form-search
 				transform translate(-195px)
 
 		.form-item
+			padding 10px 45px
 			transition background 0.3s $transitionAnimation
 			background transparent
 
 			&:focus
 				border-right 5px
 
-		.active
+
+		&.active
 		&:hover
 			.form-item
 				background #fff
@@ -217,7 +219,6 @@ body
 		background #c69c6d
 		transition transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94)
 
-
 	&.active
 		.header-burger-layout
 			transform scale(0)
@@ -260,7 +261,7 @@ body
 		opacity 0
 		transform translateX(-50px)
 		transition transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94), opacity 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94)
-		transition-delay: 0s
+		transition-delay 0s
 
 .mobile-menu
 	&.active-block
@@ -301,7 +302,7 @@ body
 	box-sizing border-box
 	background #c69c6d
 
-	&.dispatch-title
+	.dispatch-title
 		margin-bottom 70px
 		line-height 32px
 		font-size 24px
@@ -411,11 +412,11 @@ body
 	border-bottom 1px solid #4a4a4a
 	transition border-bottom-color 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94)
 
-	&:hover
-		border-bottom-color transparent
+&:hover
+	border-bottom-color transparent
 
 .link--opacity
-    transition opacity 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94)
+	transition opacity 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94)
 
 	&:hover
 		opacity 0.6
@@ -504,13 +505,13 @@ body
 	line-height: 28px;
 
 .page-text
-	h1
+	h2
 		color: #4a4a4a;
 		font-size: 44px;
 		line-height: 1;
 
 .page-text
-	h2
+	h3
 		color: #4c4c4c;
 		line-height: 36px;
 		font-size: 28px;
@@ -518,75 +519,70 @@ body
 
 .page-text
 	p
-		color: #4c4c4c;
-		line-height: 28px;
-		text-align: left;
-		font-size: 18px;
-		font-family: "LeksaPro";
+		color #4c4c4c
+		line-height 28px
+		text-align left
+		font-size 18px
+		font-family "LeksaPro"
 
 .img
-	display: block;
-	width: 100%;
+	display block
+	width 100%
 
 .main-bcg
-	position: relative;
-	display: block;
-	min-height: 100vh;
-	background-attachment: fixed;
-	background-position: center;
-	background-repeat: no-repeat;
-	-webkit-background-size: cover;
-	-moz-background-size: cover;
-	background-size: cover;
+	position relative
+	display block
+	min-height 100vh
+	background-attachment fixed
+	background-position center
+	background-repeat no-repeat
+	background-size cover
 
 .main-bcg:after
-	content: "";
-	position: absolute;
-	top: 0;
-	right: 0;
-	bottom: 0;
-	left: 0;
-	display: block;
-	width: 100%;
-	height: 100%;
-	background: rgba(0,0,0,0.52);
-	z-index: 10;
+	content: ""
+	position: absolute
+	top: 0
+	right 0
+	bottom 0
+	left: 0
+	display block
+	width 100%
+	height 100%
+	background rgba(0,0,0,0.52)
+	z-index 10
 
-.main-bcg .main-logo
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	display: block;
-	max-width: 405px;
-	width: 100%;
-	margin: -120px 0 0 -202.5px;
-	z-index: 20;
+.main-bcg
+	.main-logo
+		position: absolute
+		top: 50%
+		left: 50%
+		display: block
+		max-width: 405px
+		width: 100%
+		margin: -120px 0 0 -202.5px
+		z-index: 20
 
-.main-bcg .main-logo svg
-	display: block;
-	width: 100%;
+	svg
+		display: block;
+		width: 100%;
 
 .home-intro
-	width: 100%;
-	padding: 100px 0 140px 0;
-	-webkit-box-sizing: border-box;
-	-moz-box-sizing: border-box;
-	box-sizing: border-box;
+	width 100%
+	padding 100px 0 140px 0
+	box-sizing border-box
 
 .home-intro-text
-	max-width: 700px;
-	width: 100%;
-	margin: 0 auto;
-	text-align: center;
+	max-width 700px
+	width 100%
+	margin 0 auto
+	text-align center
 
-.home-intro-text h1,
-.home-intro-text h2
-	margin-bottom: 50px;
-
-.home-intro-text
 	h2
-		max-width: 650px;
-		margin: 0 auto 50px auto;
+		margin-bottom: 50px
+
+	h3
+		max-width: 650px
+		margin: 0 auto 50px auto
 
 .home-intro-text
 	p
@@ -605,7 +601,7 @@ body
 		border-bottom-color: transparent;
 
 .home-regions
-	h1
+	h2
 		display: block;
 		width: 100%;
 		margin-bottom: 70px;
@@ -623,13 +619,12 @@ body
 	padding: 100px 0 140px 0;
 
 .home-products
-	h1
+	h2
 		display: block;
 		width: 100%;
 		margin-bottom: 70px;
 		text-align: center;
 
-.home-products
 	.home-products-list
 		display: flex
 		align-items: end
@@ -664,15 +659,13 @@ body
 		background: -ms-radial-gradient(center, ellipse cover, rgba(245,246,249,1) 0%, rgba(245,246,249,1) 19%, rgba(245,246,249,1) 51%, rgba(245,246,249,1) 71%, rgba(227,228,237,1) 96%, rgba(227,228,237,1) 100%);
 		background: radial-gradient(ellipse at center, rgba(245,246,249,1) 0%, rgba(245,246,249,1) 19%, rgba(245,246,249,1) 51%, rgba(245,246,249,1) 71%, rgba(227,228,237,1) 96%, rgba(227,228,237,1) 100%);
 
-.home-products-item
-	.home-products-container
 		.img
 			width: auto;
 			height: 60%;
 			transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94), opacity 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 
-.home-products-item
-	.home-products-container:hover
+
+	&:hover
 		img
 			transform scale(1.1)
 			opacity 0.6
@@ -683,7 +676,6 @@ body
 	text-transform: uppercase;
 	text-align: center;
 
-.home-rubric
 	.point-delimiter
 		color #a9a9a9
 
@@ -701,8 +693,6 @@ body
 		border-bottom: 1px solid #979797;
 		transition: border-bottom-color 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 
-.home-products
-	.home-products-more
 		&:hover
 			border-bottom-color transparent
 
@@ -711,7 +701,7 @@ body
 	padding: 100px 0 140px 0;
 
 .home-records
-	h1
+	h2
 		display: block;
 		width: 100%;
 		margin-bottom: 70px;
