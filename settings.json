@@ -34,6 +34,22 @@
         "regions": {
             "name": "Регионы",
             "progress": {
+                "desktop": "100",
+                "tablet": "100",
+                "mobile": "100"
+            }
+        },
+        "regions-load": {
+            "name": "Регионы-Подгрузка",
+            "progress": {
+                "desktop": "100",
+                "tablet": "100",
+                "mobile": "100"
+            }
+        },
+        "regions-detail": {
+            "name": "Регионы Детальная",
+            "progress": {
                 "desktop": "0",
                 "tablet": "0",
                 "mobile": "0"

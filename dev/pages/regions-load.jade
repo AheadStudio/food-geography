@@ -1,0 +1,58 @@
+extends ../templates/base
+
+block content
+    div(class="regions-list", id="regions-list-load")
+        a(href="regions-detail.html",class="link link-black regions-item")
+            div(class="regions-container")
+                img(src="../dummy/regions/regions_1.jpg", class="regions-img")
+                div(class="regions-about-list")
+                    div(class="regions-about-item")
+                        span(class="link") География
+                    div(class="regions-about-item")
+                        span(class="link") История
+                    div(class="regions-about-item")
+                        span(class="link") Достопримечательности
+                    div(class="regions-about-item")
+                        span(class="link") Культура и обычаи
+                    div(class="regions-about-item")
+                        span(class="link") Кухня
+                    div(class="regions-about-item")
+                        span(class="link") Продукты
+            div(class="regions-name") Адыгея
+        a(href="regions-detail.html",class="link link-black regions-item")
+            div(class="regions-container")
+                img(src="../dummy/regions/regions_2.jpg", class="regions-img")
+                div(class="regions-about-list")
+                    div(class="regions-about-item")
+                        span(class="link") География
+                    div(class="regions-about-item")
+                        span(class="link") История
+                    div(class="regions-about-item")
+                        span(class="link") Достопримечательности
+                    div(class="regions-about-item")
+                        span(class="link") Культура и обычаи
+                    div(class="regions-about-item")
+                        span(class="link") Кухня
+                    div(class="regions-about-item")
+                        span(class="link") Продукты
+            div(class="regions-name") Сахалин
+        a(href="regions-detail.html",class="link link-black regions-item")
+            div(class="regions-container")
+                img(src="../dummy/regions/regions_3.jpg", class="regions-img")
+                div(class="regions-about-list")
+                    div(class="regions-about-item")
+                        span(class="link") География
+                    div(class="regions-about-item")
+                        span(class="link") История
+                    div(class="regions-about-item")
+                        span(class="link") Достопримечательности
+                    div(class="regions-about-item")
+                        span(class="link") Культура и обычаи
+                    div(class="regions-about-item")
+                        span(class="link") Кухня
+                    div(class="regions-about-item")
+                        span(class="link") Продукты
+            div(class="regions-name") Мурманская область
+    div(class="regions-more load")
+        a(href="regions-load.html?PAGE=test", data-container="#regions-list-load", data-itemsselector=".regions-item", class="link load-more")
+                

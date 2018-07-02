@@ -1,0 +1,40 @@
+extends ../templates/base
+
+block content
+    div(class="content-top")
+        div(class="region-detail")
+            div(class="region-detail-logo")
+                include ../../prod/svg/regions-logo.svg
+            div(class="region-detail-back") Регионы
+            div(class="region-detail-name") Адыгея
+            div(class="region-detail-sections")
+                a(href="region-geography") География
+                a(href="region-geography") История
+                a(href="region-geography") Достопримечательности
+                a(href="region-geography") Культура и обычаи
+                a(href="region-geography") Кухня
+            div(class="region-container")
+                img(src="../dummy/regions/regions-img.jpg", class="region-img")
+            div(class="region-about")
+                div(class="page-text")
+                    h2 О проекте
+                    h3 Адыгея славится плодородием своей земли, мягким климатом, щедростью и гостеприимством местных жителей.
+                    p Республика Адыгея — один из живописных уголков Российской Федерации, расположена в центральной части Северо-Западного Кавказа, в бассейнах рек Кубани, Лабы и Белой. Адыгея на севере и северо-востоке ограничена рекой Кубанью и ее притоком Лабой, на юге — Главным Кавказским хребтом, на юго-востоке и юго-западе граница проходит изломанной линией, отражающей особенности расселения адыгов в бассейнах рек Чехрак, Фарс, Белая, Пшиш, Псекупс, Афипс и других.
+                    p Более одной трети площади Адыгеи занимают особо охраняемые природные территории различного статуса и категорий. 
+                    p Поистине Адыгея – это уникальный райский уголок: западная часть Большого Кавказа по разнообразию флоры и фауны, их сохранности, не имеет себе равных не только в Кавказском регионе, но и среди других горных районов Европы и Западной Азии. Это территория, где сосредоточено большое количество находящихся под угрозой исчезновения редких, эндемичных и реликтовых видов растений и животных. 
+                    div(class="slider owl-carousel")
+                        div(class="slider-item")
+                            img(class="owl-lazy", data-src="../dummy/regions/regions_slider_1.jpg", src="../dummy/regions/regions_slider_1.jpg")
+                        div(class="slider-item")
+                            img(class="owl-lazy", data-src="../dummy/regions/regions_slider_2.jpg", src="../dummy/regions/regions_slider_2.jpg")
+                        div(class="slider-item")
+                            img(class="owl-lazy", data-src="../dummy/regions/regions_slider_1.jpg", src="../dummy/regions/regions_slider_1.jpg")
+                        div(class="slider-item")
+                            img(class="owl-lazy", data-src="../dummy/regions/regions_slider_2.jpg", src="../dummy/regions/regions_slider_2.jpg")
+                        div(class="slider-item")
+                            img(class="owl-lazy", data-src="../dummy/regions/regions_slider_1.jpg", src="../dummy/regions/regions_slider_1.jpg")
+                        div(class="slider-item")
+                            img(class="owl-lazy", data-src="../dummy/regions/regions_slider_2.jpg", src="../dummy/regions/regions_slider_2.jpg")
+                    a(href="#", target="_blank", class="link link-black link-black--bottom region-info-more") Читать далее
+
+            

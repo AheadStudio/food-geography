@@ -45,6 +45,12 @@ html(lang="ru", class="no-js", prefix="og:http://ogp.me/ns#")
 		+addCSS([
 			{
 				media: "screen",
+				href: "../css/plugins/owl.carousel.min.css",
+			}, {
+				media: "screen",
+				href: "../css/plugins/owl.theme.default.min.css",
+			}, {
+				media: "screen",
 				href: "../css/" + info.code + ".css",
 				noCache: true,
 			}, {
@@ -56,14 +62,13 @@ html(lang="ru", class="no-js", prefix="og:http://ogp.me/ns#")
 
 	body(itemscope, itemtype="http://schema.org/WebPage")
 		div(class="page")
-			header(class=page.code == "home" ? "page-header active" : "page-header", itemscope, itemtype="http://schema.org/WPHeader")
+			header(class=page.code == "home" ? "page-header" : "page-header active", itemscope, itemtype="http://schema.org/WPHeader")
 				if page.code == "home"
 					div(class="header-logo--mini")
 						div(class="header-logo-icon")
 							include ../../prod/svg/logo_mini.svg
 						div(class="header-logo-icon")
 							include ../../prod/svg/logo_name.svg
-
 				else
 					a(href="home.html", class="header-logo--mini") 
 						div(class="header-logo-icon")
@@ -179,7 +184,9 @@ html(lang="ru", class="no-js", prefix="og:http://ogp.me/ns#")
 			}, {
 				src: "http://api-maps.yandex.ru/2.0/?load=package.full&amp;lang=ru-RU"
 			}, {
-				src: "https://maps.googleapis.com/maps/api/js?key=AIzaSyDOtcx9Sm_hunFMGzh4eqe_XRkFUYMWIao&amp;amp;sensor=true"
+			    src: "https://maps.googleapis.com/maps/api/js?key=AIzaSyDOtcx9Sm_hunFMGzh4eqe_XRkFUYMWIao&amp;amp;sensor=true"
+			}, {
+			    src: "../js/plugins/owl.carousel.js"
 			}, {
 				src: "../js/" + info.code + ".js"
 			}

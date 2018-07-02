@@ -154,6 +154,7 @@
 
 			},
 
+
 			maps: {
 				googleMap: function() {
 					$("#mapGoogle", $sel.body).each(function() {
@@ -286,6 +287,173 @@
 			},
 
 
+			toggleTabs: {
+
+				showEl: [],
+
+				init: function() {
+					var self = this,
+						$tabItem = $("[data-tab]");
+
+					$tabItem.each(function functionName() {
+						var el = $(this);
+						if (!el.hasClass("active")) {
+							var hideTab = $("[data-item *='"+ el.data("tab") +"']");
+
+							el.removeClass("active-tab");
+							hideTab.addClass("hide-block");
+							hideTab.addClass("hide");
+
+						} else {
+							el.addClass("active-tab");
+						}
+					});
+					$tabItem.on("click", function(e) {
+						var item = $(this),
+							dataItem = item.data("tab"),
+							$allTabs = $("[data-tab *='" + dataItem.split("_")[0] + "']"),
+							$allItem = $("[data-item *= '" + dataItem.split("_")[0] + "']"),
+							$showItem;
+
+						if (dataItem.indexOf("reset") !== -1) {
+							self.hideAll($allItem);
+							item.removeClass("active-tab");
+							item.removeClass("active");
+							event.preventDefault();
+						}
+
+						$allTabs.removeClass("active");
+						$allTabs.removeClass("active-tab");
+
+						setTimeout(function() {
+							item.addClass("active");
+							item.addClass("active-tab");
+						}, 50);
+
+						$showItem = $("[data-item='" + dataItem + "']");
+
+						self.show($showItem, $allItem);
+
+					});
+
+				},
+
+				show: function(el, elements) {
+					var self = this;
+
+					elements.addClass("hide");
+					setTimeout(function() {
+						elements.addClass("hide-block");
+						el.removeClass("hide-block");
+
+						setTimeout(function() {
+							el.removeClass("hide");
+						},50);
+
+					},300);
+
+				},
+
+				hideAll: function(elements) {
+					var self = this;
+
+					elements.addClass("hide");
+					elements.addClass("hide-block");
+
+				}
+
+			},
+
+
+			ajaxLoader: function() {
+				$sel.body.on("click", ".load-more", function(event) {
+					var $linkAddress = $(this),
+						href = $linkAddress.attr("href"),
+						selector = $linkAddress.data("itemsselector"),
+						$container = $($linkAddress.data("container"));
+
+					$linkAddress.addClass("loading");
+
+					(function(href, $container, $link, selector) {
+						$.ajax({
+							url: href,
+							success: function(data) {
+								var $data = $('<div />').append(data),
+									$items = $data.find(selector),
+									$preloader = $data.find(".load");
+
+								$items.addClass("load-events-item");
+								$container.append($items);
+								$link.parent().remove();
+
+								if($preloader && $preloader.length) {
+									$container.parent().append($preloader);
+								}
+
+								setTimeout(function() {
+									$container.find(".load-events-item").removeClass("load-events-item");
+									$linkAddress.removeClass("loading");
+								}, 100);
+
+								setTimeout(function() {
+									FOODGEOGRAPHY.reload();
+								},200)
+							}
+						})
+					})(href, $container, $linkAddress, selector);
+					event.preventDefault();
+				})
+			},
+
+
+			sliders: {
+				init: function() {
+					var self = this;
+
+					self.owlSlider();
+				},
+
+				owlSlider: function() {
+					var self = this,
+						$owlSlider = $('.owl-carousel');
+
+					$owlSlider.owlCarousel({
+						margin: 50,
+						loop: true,
+						autoWidth: true,
+						nav: true,
+						smartSpeed: 1000,
+						dots: false,
+						lazyLoad: true,
+						lazyLoadEager: 1,
+						autoplayHoverPause: true,
+						slideTransition: "cubic-bezier(0.250, 0.460, 0.450, 0.940)",
+						navText: [
+							'<svg data-name="Слой 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 164 160"><path d="M78 120l3.52-3.53-34-33.92 73.92-.12v-5l-73.92.11 33.92-34L77.91 40 41.49 76.53 38 80.07l3.53 3.52L62 104z" fill="#4a4a4a"/><path d="M82 156A76 76 0 1 0 6 80a76 76 0 0 0 76 76z" fill="none" stroke="#4a4a4a"/></svg>',
+							'<svg data-name="Слой 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 164 160"><path d="M81.44 40l-3.52 3.53 34 34H38v5h73.92l-34 34 3.52 3.47 36.48-36.47 3.52-3.53-3.52-3.53L97.48 56z" fill="#4a4a4a"/><path d="M82 156A76 76 0 1 0 6 80a76 76 0 0 0 76 76z" fill="none" stroke="#4a4a4a"/></svg>'
+						],
+						responsive : {
+							0: {
+								items: 1,
+								autoWidth: false,
+							},
+							780: {
+								items: 2,
+							},
+							1200: {
+								items: 4,
+							},
+							1600: {
+								items: 5,
+							}
+						}
+					});
+
+				}
+
+			},
+
+
 		};
 
 	})();
@@ -293,8 +461,16 @@
 	FOODGEOGRAPHY.header.init();
 	FOODGEOGRAPHY.maps.googleMap();
 	FOODGEOGRAPHY.mobileMenu.init();
+	FOODGEOGRAPHY.toggleTabs.init();
+	FOODGEOGRAPHY.sliders.init();
+	FOODGEOGRAPHY.ajaxLoader();
 
 	ymaps.ready(function() {
 		FOODGEOGRAPHY.maps.yandexMap.init();
 	});
+
+	FOODGEOGRAPHY.reload = function() {
+		FOODGEOGRAPHY.toggleTabs.init();
+	}
+
 })(jQuery);

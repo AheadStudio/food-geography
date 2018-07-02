@@ -1,0 +1,11 @@
+<svg id="Слой_1" data-name="Слой 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 102 102">
+  <defs>
+    <clipPath id="clip-path">
+      <rect x="-3001" y="-897" width="5760" height="7572" fill="none"/>
+    </clipPath>
+  </defs>
+  <title>grid</title>
+  <g clip-path="url(#clip-path)">
+    <path d="M3,3H27V27H3ZM39,3H63V27H39ZM99,3H75V27H99ZM3,39H27V63H3Zm60,0H39V63H63Zm12,0H99V63H75ZM27,75H3V99H27Zm12,0H63V99H39Zm60,0H75V99H99Z" fill="#c69c6d"/>
+  </g>
+</svg>
