@@ -473,13 +473,13 @@
 
 					$sel.window.on("load", function() {
 
-						setTimeout(function() {
+						/*setTimeout(function() {
 							self.preloaderContainer.addClass("hide");
 						}, 600);
 
 						setTimeout(function() {
 							self.preloaderContainer.remove();
-						}, 1000);
+						}, 1000);*/
 					})
 				}
 

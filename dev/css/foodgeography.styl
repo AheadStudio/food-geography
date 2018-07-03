@@ -22,6 +22,7 @@ $colorMain = #333333
 @font-face
 	font-family "HarmoniaSansProCyrRegular"
 	src url("../fonts/HarmoniaSansProCyrRegular.woff") format("woff")
+
 @font-face
 	font-family "HarmoniaSansProCyrBold"
 	src url("../fonts/HarmoniaSansProCyr-Bold.woff") format("woff")
@@ -29,6 +30,10 @@ $colorMain = #333333
 @font-face
 	font-family "LeksaPro"
 	src url("../fonts/LeksaPro.woff") format("woff")
+
+@font-face
+	font-family "LeksaProItalic"
+	src url("../fonts/LeksaProItalic.woff") format("woff")
 
 /* //fonts */
 html
@@ -64,15 +69,42 @@ body
 
 	z-index 10000
 
+	overflow hidden
+
+	.body-preloader-bcg
+		position absolute
+		top 50%
+		left 50%
+
+		display block
+		width 500px
+		height 500px
+
+		background #ffffff
+		border-radius 50%
+
+		opacity 1
+
+		z-index 10001
+
+		transition opacity 0.3s $transitionAnimation, transform 0.3s $transitionAnimation
+		
 	.body-preloader-container
+		position relative
 		max-width 500px
 		width 100%
 		opacity 0
 		transition opacity 0.3s $transitionAnimation, transform 0.3s $transitionAnimation
 
+		z-index 10002
 		svg
 			display block
 			width 100%
+
+	&.active
+		.body-preloader-bcg
+			transform scale(100)
+
 	&.active
 		.body-preloader-container
 			opacity 1
@@ -84,7 +116,11 @@ body
 			transform scale(0.8)
 			opacity 0
 
-/*** main style ***/
+		.body-preloader-bcg
+			opacity 0
+/*** //Settings ***/
+
+/*** General style ***/
 .page
 	display block
 	width 100%
@@ -106,6 +142,7 @@ body
 	&--w2
 		max-width 1290px
 		padding 0 20px
+
 
 /** header **/
 
@@ -326,9 +363,12 @@ body
 	.header-form
 		display block
 
+
 /** //header **/
 
+
 /** dispatch **/
+
 .dispatch
 	padding 100px 0
 	box-sizing border-box
@@ -426,10 +466,12 @@ body
 	&:hover
 		.footer-creators-name
 			border-bottom-color $colorSand
+
 /** //footer **/
 
 
 /** link and button **/
+
 .link
 	text-decoration none
 
@@ -451,6 +493,15 @@ body
 	transition border-bottom-color 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94)
 
 	&:hover
+		border-bottom-color #4a4a4a
+
+.link-black--top-bottom-reverse
+	border-bottom 1px solid transparent
+	border-top 1px solid transparent
+	transition border-color 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94)
+
+	&:hover
+		border-top-color #4a4a4a
 		border-bottom-color #4a4a4a
 
 .link--opacity
@@ -525,7 +576,10 @@ body
 		 color #FFF
 
 /** //link and button **/
+
+
 /** form **/
+
 .form
 	.form-row
 		position relative
@@ -557,13 +611,20 @@ body
 		border-radius 15px
 
 /** //form **/
-/*** general style ***/
+
+.more-container
+	text-align center
 
 .more
-	padding-bottom 5px
-	text-transform uppercase
-	font-size 14px
+	padding-bottom 3px
+
 	border-bottom 1px solid #979797
+
+	text-transform uppercase
+
+	font-size 14px
+	font-family "HarmoniaSansProCyrBold"
+
 	transition border-bottom-color 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94)
 
 .more:hover
@@ -586,7 +647,7 @@ body
 		color #4c4c4c
 		line-height 36px
 		font-size 28px
-		font-family "LeksaPro"
+		font-family "LeksaProItalic"
 
 	p
 		margin-bottom 25px
@@ -604,6 +665,204 @@ body
 .img
 	display block
 	width 100%
+
+.slider
+	padding 0 90px
+	margin-bottom 85px
+	box-sizing border-box
+
+.owl-nav
+	.owl-prev
+		position absolute
+		top 50%
+		left 20px
+
+		width 50px
+
+		opacity 1
+		transform translateY(-25px)
+		z-index 100
+
+		svg
+			display block
+			width 100%
+
+			path
+				stroke-width 4px
+
+				&.arrow
+					transition transform 0.3s $transitionAnimation
+		&:hover
+			svg
+				path
+					&.arrow
+						transform translateX(-15px)
+
+	.owl-next
+		position absolute
+		top 50%
+		right 20px
+
+		width 50px
+
+		opacity 1
+		transform translateY(-25px)
+		z-index 100
+
+		svg
+			display block
+			width 100%
+
+			path
+				stroke-width 4px
+
+				&.arrow
+					transition transform 0.3s $transitionAnimation
+		&:hover
+			svg
+				path
+					&.arrow
+						transform translateX(15px)
+
+/** //region **/
+
+
+/** load **/
+
+.load
+	position relative
+	width 100%
+	height 45px
+	text-align center
+
+	.load-more
+		position absolute
+
+		left 50%
+		margin-left -25px
+
+		display block
+		width 45px
+		height 45px
+
+		cursor pointer
+
+		transition transform 0.3s $transitionAnimation
+
+		&:hover
+			transform rotate(360deg)
+
+		&:before
+			content ""
+			position absolute
+			width 100%
+			height 100%
+			top 0
+			left 0
+			background-image url(../svg/circle-arrow.svg)
+			background-repeat no-repeat
+			background-size cover
+
+		&.loading
+			animation-name spin
+			animation-duration 300ms
+			animation-iteration-count infinite
+			animation-timing-function linear
+
+/** //load **/
+
+
+.flex-list
+	display flex
+	justify-content flex-start
+	align-items flex-start
+	flex-wrap wrap
+
+	margin-bottom 45px
+
+	.flex-item
+		display inline-block
+		max-width 48%
+		width 100%
+
+		margin-bottom 65px
+
+		&--30
+			max-width 30%
+			width 100%
+
+			margin-right 4%
+
+			&:nth-child(3n)
+			&:last-child
+				margin-right 0
+
+		&--48
+			max-width 48%
+			width 100%
+
+			margin-right 3.4%
+
+			&:nth-child(2n)
+			&:last-child
+				margin-right 0
+
+		.flex-container
+			display block
+			margin-bottom 40px
+
+			overflow hidden
+
+			img
+				display block
+				width 100%
+
+				transition transform 0.3s $transitionAnimation
+
+		.flex-name
+			display block
+			margin-bottom 30px
+
+			font-size 24px
+			font-family "HarmoniaSansProCyrBold"
+
+			text-align center
+
+			transition opacity 0.3s $transitionAnimation
+
+			color #000
+
+		.flex-text
+			display block
+			width 100%
+
+			padding 0 20px
+			box-sizing border-box
+
+			line-height 24px
+
+			text-align center
+
+			font-size 16px
+
+			color #4A4A4A
+
+		.flex-date
+			display block
+			margin-bottom 20px
+			text-align center
+			font-size 12px
+			color #9B9B9B
+		&:hover
+			.flex-container
+				img
+					transform scale(1.1)
+
+			.flex-name
+				opacity 0.6
+
+/*** //general style ***/
+
 
 .main-bcg
 	position relative
@@ -689,24 +948,24 @@ body
 		margin-bottom: 70px;
 		text-align: center;
 
-	.home-products-list
-		display: flex
-		align-items: end
-		justify-content: space-between;
-		flex-wrap: wrap;
-		max-width: 1250px;
-		width: 100%;
-		margin-bottom: 65px;
+.products-list
+	display: flex
+	align-items: end
+	justify-content: space-between;
+	flex-wrap: wrap;
+	max-width: 1250px;
+	width: 100%;
+	margin-bottom: 65px;
 
-.home-products-list
-	.home-products-item
+.products-list
+	.products-item
 		display: block;
 		width: 100%;
 		max-width: 30%;
 		margin-bottom: 50px;
 
-.home-products-item
-	.home-products-container
+.products-item
+	.products-container
 		display: flex
 		align-items: center
 		justify-content: center;
@@ -743,11 +1002,15 @@ body
 	.point-delimiter
 		color #a9a9a9
 
-.home-products-item
-	.home-products-name
-		font-size: 18px;
-		font-weight: 600;
-		text-align: center;
+.products-name
+	line-height 26px
+
+	font-size 18px
+	font-family "HarmoniaSansProCyrBold"
+	text-align center
+
+	a
+		color #000
 
 .home-records
 	background: #FAFAFA;
@@ -819,7 +1082,6 @@ body
 .content-top
 	padding-top 60px
 	box-sizing border-box
-/*** //general style ***/
 
 
 /** regions **/
@@ -1019,123 +1281,6 @@ body
 		text-align left
 /** //regions **/
 
-
-
-/** region **/
-
-
-.region-detail
-	text-align center
-
-	.region-about
-		padding 0 115px
-		box-sizing border-box
-
-.slider
-	padding 0 90px
-	margin-bottom 85px
-	box-sizing border-box
-
-.owl-nav
-	.owl-prev
-		position absolute
-		top 50%
-		left 20px
-
-		width 50px
-
-		opacity 1
-		transform translateY(-25px)
-		z-index 100
-
-		svg
-			display block
-			width 100%
-
-			path
-				stroke-width 4px
-
-				&.arrow
-					transition transform 0.3s $transitionAnimation
-		&:hover
-			svg
-				path
-					&.arrow
-						transform translateX(-15px)
-
-	.owl-next
-		position absolute
-		top 50%
-		right 20px
-
-		width 50px
-
-		opacity 1
-		transform translateY(-25px)
-		z-index 100
-
-		svg
-			display block
-			width 100%
-
-			path
-				stroke-width 4px
-
-				&.arrow
-					transition transform 0.3s $transitionAnimation
-		&:hover
-			svg
-				path
-					&.arrow
-						transform translateX(15px)
-/** //region **/
-
-
-/** load **/
-
-.load
-	position relative
-	width 100%
-	height 45px
-	text-align center
-
-	.load-more
-		position absolute
-
-		left 50%
-		margin-left -25px
-
-		display block
-		width 45px
-		height 45px
-
-		cursor pointer
-
-		transition transform 0.3s $transitionAnimation
-
-		&:hover
-			transform rotate(360deg)
-
-		&:before
-			content ""
-			position absolute
-			width 100%
-			height 100%
-			top 0
-			left 0
-			background-image url(../svg/circle-arrow.svg)
-			background-repeat no-repeat
-			background-size cover
-
-		&.loading
-			animation-name spin
-			animation-duration 300ms
-			animation-iteration-count infinite
-			animation-timing-function linear
-
-/** //load **/
-
-
 /** regions detail **/
 
 .region-detail
@@ -1155,6 +1300,7 @@ body
 	.region-detail-back
 		margin-bottom 30px
 		text-align center
+		font-size 24px
 
 	.region-detail-name
 		display block
@@ -1171,6 +1317,7 @@ body
 		margin-bottom 45px
 
 		.region-detail-sections-item
+			padding-top 5px
 			padding-bottom 5px
 			margin-right 30px
 			font-size 18px
@@ -1186,7 +1333,6 @@ body
 			display block
 			width 100%
 
-
 	.region-about
 		padding  100px 0 70px 0
 
@@ -1197,10 +1343,87 @@ body
 
 			h2
 				margin-bottom 40px
+				text-align center
 
 			h3
 				margin-bottom 50px
 				font-size 24px
 				text-align center
+
+	.region-sights
+		padding 75px 0 70px 0
+		box-sizing border-box
+
+		h2
+			margin-bottom 70px
+			text-align center
+
+	.region-history
+		padding 105px 0 90px 0
+		box-sizing border-box
+
+		h2
+			margin-bottom 45px
+			text-align center
+
+		h3
+			max-width 770px
+			width 100%
+			margin 0 auto 55px auto
+
+			text-align center
+
+		.history-info
+			display flex
+			justify-content space-between
+			align-items flex-start
+
+			.history-container
+				width 40%
+
+				img
+					display block
+					width 100%
+
+			.history-text
+				width 55%
+				text-align left
+
+	.region-culture
+		padding 75px 0 70px 0
+
+		h2
+			margin-bottom 70px
+			text-align center
+
+	.region-kitchen
+		padding 105px 0 90px 0
+		box-sizing border-box
+
+		h2
+			margin-bottom 45px
+			text-align center
+
+	.region-products
+		padding 70px 0 100px 0
+
+		h2
+			margin-bottom 45px
+			text-align center
+
+		.region-products-series
+			display block
+			width 100%
+
+			margin-bottom 60px
+
+			text-align center
+
+			font-size 18px
+
+			color #4A4A4A
+
+		.products-list
+			margin 0 auto
 
 /** //regions detail **/
