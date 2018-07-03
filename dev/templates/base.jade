@@ -159,6 +159,11 @@ html(lang="ru", class="no-js", prefix="og:http://ogp.me/ns#")
 							button(type="button", class="header-form-search")
 								include ../../prod/svg/loupe.svg
 		
+		
+		div(class="body-preloader")
+			div(class="body-preloader-container")
+				include ../../prod/svg/logo_white.svg
+		
 				
 		footer(class="page-footer", itemscope, itemtype="http://schema.org/WPFooter")
 			div(class="footer-logo")
@@ -178,6 +183,8 @@ html(lang="ru", class="no-js", prefix="og:http://ogp.me/ns#")
 				a(href="http://aheadstudio.ru", target="_blank", class="link link-white footer-creators-link")
 					span(class="footer-creators-title") &#169; 2017 &#171;География еды&#187; Сделано в 
 					span(class="footer-creators-name") Aheadstudio
+		
+			
 		+addJS([
 			{
 				src: "../js/jquery-3.2.1.min.js"

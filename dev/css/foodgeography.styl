@@ -22,6 +22,9 @@ $colorMain = #333333
 @font-face
 	font-family "HarmoniaSansProCyrRegular"
 	src url("../fonts/HarmoniaSansProCyrRegular.woff") format("woff")
+@font-face
+	font-family "HarmoniaSansProCyrBold"
+	src url("../fonts/HarmoniaSansProCyr-Bold.woff") format("woff")
 
 @font-face
 	font-family "LeksaPro"
@@ -40,6 +43,46 @@ body
 	font-family "HarmoniaSansProCyrRegular"
 	cursor default
 	color $colorMain
+
+.body-preloader
+	position fixed
+	top 0
+	right 0
+	bottom 0
+	left 0
+
+	display flex
+	justify-content center
+	align-items center
+
+	width 100%
+	height 100%
+
+	background #333333
+
+	transition background 1s $transitionAnimation
+
+	z-index 10000
+
+	.body-preloader-container
+		max-width 500px
+		width 100%
+		opacity 0
+		transition opacity 0.3s $transitionAnimation, transform 0.3s $transitionAnimation
+
+		svg
+			display block
+			width 100%
+	&.active
+		.body-preloader-container
+			opacity 1
+
+	&.hide
+		background transparent
+
+		.body-preloader-container
+			transform scale(0.8)
+			opacity 0
 
 /*** main style ***/
 .page
@@ -403,6 +446,13 @@ body
 	&:hover
 		border-bottom-color transparent
 
+.link-black--bottom-reverse
+	border-bottom 1px solid transparent
+	transition border-bottom-color 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94)
+
+	&:hover
+		border-bottom-color #4a4a4a
+
 .link--opacity
 	transition opacity 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94)
 
@@ -508,6 +558,17 @@ body
 
 /** //form **/
 /*** general style ***/
+
+.more
+	padding-bottom 5px
+	text-transform uppercase
+	font-size 14px
+	border-bottom 1px solid #979797
+	transition border-bottom-color 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94)
+
+.more:hover
+	border-bottom-color transparent
+
 .page-text
 	font-size 16px
 	line-height 28px
@@ -528,11 +589,14 @@ body
 		font-family "LeksaPro"
 
 	p
-		color #4c4c4c
+		margin-bottom 25px
 		line-height 28px
+
 		text-align left
 		font-size 18px
 		font-family "LeksaPro"
+
+		color #4c4c4c
 
 	.center
 		text-align center
@@ -599,18 +663,6 @@ body
 .home-intro-text
 	p
 		margin-bottom: 25px;
-
-.home-intro-text
-	.home-intro-more
-		padding-bottom: 5px;
-		text-transform: uppercase;
-		font-size: 14px;
-		border-bottom: 1px solid #979797;
-		transition: border-bottom-color 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-
-.home-intro-text
-	.home-intro-more:hover
-		border-bottom-color: transparent;
 
 .home-regions
 	h2
@@ -696,17 +748,6 @@ body
 		font-size: 18px;
 		font-weight: 600;
 		text-align: center;
-
-.home-products
-	.home-products-more
-		padding-bottom: 5px;
-		text-transform: uppercase;
-		font-size: 14px;
-		border-bottom: 1px solid #979797;
-		transition: border-bottom-color 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-
-		&:hover
-			border-bottom-color transparent
 
 .home-records
 	background: #FAFAFA;
@@ -990,42 +1031,63 @@ body
 		padding 0 115px
 		box-sizing border-box
 
+.slider
+	padding 0 90px
+	margin-bottom 85px
+	box-sizing border-box
 
 .owl-nav
-	position absolute
-	top 50%
-	transform: translateY(-50%)
-	left 0
-	right 0
-	width 100%
-	display block
-
 	.owl-prev
-		width: 50px;
-		position: absolute;
-		left: -70px;
-		opacity: 1;
-		z-index: 100;
+		position absolute
+		top 50%
+		left 20px
+
+		width 50px
+
+		opacity 1
+		transform translateY(-25px)
+		z-index 100
 
 		svg
 			display block
 			width 100%
+
 			path
-				stroke-width: 4px;
-				
+				stroke-width 4px
+
+				&.arrow
+					transition transform 0.3s $transitionAnimation
+		&:hover
+			svg
+				path
+					&.arrow
+						transform translateX(-15px)
+
 	.owl-next
-		width: 50px;
-		position: absolute;
-		right: -70px;
-		opacity: 1;
-		z-index: 100;
+		position absolute
+		top 50%
+		right 20px
+
+		width 50px
+
+		opacity 1
+		transform translateY(-25px)
+		z-index 100
 
 		svg
 			display block
 			width 100%
 
 			path
-				stroke-width: 4px;
+				stroke-width 4px
+
+				&.arrow
+					transition transform 0.3s $transitionAnimation
+		&:hover
+			svg
+				path
+					&.arrow
+						transform translateX(15px)
 /** //region **/
 
 
@@ -1072,3 +1134,73 @@ body
 			animation-timing-function linear
 
 /** //load **/
+
+
+/** regions detail **/
+
+.region-detail
+	margin-top 55px
+
+	.region-detail-logo
+
+		display block
+		max-width 100px
+		width 100%
+		margin 0 auto 25px auto
+
+		svg
+			display block
+			width 100%
+
+	.region-detail-back
+		margin-bottom 30px
+		text-align center
+
+	.region-detail-name
+		display block
+		margin-bottom 55px
+		text-align center
+		font-size 60px
+		font-weight 600
+
+	.region-detail-sections
+		display flex
+		justify-content center
+		align-items center
+
+		margin-bottom 45px
+
+		.region-detail-sections-item
+			padding-bottom 5px
+			margin-right 30px
+			font-size 18px
+			font-family "HarmoniaSansProCyrBold"
+
+			&:last-child
+				margin-right 0px
+
+	.region-container
+		width 100%
+
+		.region-img
+			display block
+			width 100%
+
+
+	.region-about
+		padding  100px 0 70px 0
+
+		.region-about-text
+			max-width 755px
+			width 100%
+			margin 0 auto 70px auto
+
+			h2
+				margin-bottom 40px
+
+			h3
+				margin-bottom 50px
+				font-size 24px
+				text-align center
+
+/** //regions detail **/

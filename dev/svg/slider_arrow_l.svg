@@ -1,5 +1,5 @@
 <svg id="Слой_1" data-name="Слой 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 164 160">
   <title>ASAAAAA</title>
-  <path d="M81.44,40l-3.52,3.53,34,34H38v5h73.92l-34,34L81.44,120l36.48-36.47L121.44,80l-3.52-3.53L97.48,56Z" fill="#4a4a4a"/>
+  <path class="arrow" d="M81.44,40l-3.52,3.53,34,34H38v5h73.92l-34,34L81.44,120l36.48-36.47L121.44,80l-3.52-3.53L97.48,56Z" fill="#4a4a4a"/>
   <path d="M82,156A76,76,0,1,0,6,80,76,76,0,0,0,82,156Z" fill="none" stroke="#4a4a4a"/>
 </svg>

@@ -422,15 +422,15 @@
 						loop: true,
 						autoWidth: true,
 						nav: true,
-						smartSpeed: 1000,
+						smartSpeed: 1500,
 						dots: false,
 						lazyLoad: true,
 						lazyLoadEager: 1,
 						autoplayHoverPause: true,
 						slideTransition: "cubic-bezier(0.250, 0.460, 0.450, 0.940)",
 						navText: [
-							'<svg data-name="Слой 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 164 160"><path d="M78 120l3.52-3.53-34-33.92 73.92-.12v-5l-73.92.11 33.92-34L77.91 40 41.49 76.53 38 80.07l3.53 3.52L62 104z" fill="#4a4a4a"/><path d="M82 156A76 76 0 1 0 6 80a76 76 0 0 0 76 76z" fill="none" stroke="#4a4a4a"/></svg>',
-							'<svg data-name="Слой 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 164 160"><path d="M81.44 40l-3.52 3.53 34 34H38v5h73.92l-34 34 3.52 3.47 36.48-36.47 3.52-3.53-3.52-3.53L97.48 56z" fill="#4a4a4a"/><path d="M82 156A76 76 0 1 0 6 80a76 76 0 0 0 76 76z" fill="none" stroke="#4a4a4a"/></svg>'
+							'<svg data-name="Слой 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 164 160"><path class="arrow" d="M78 120l3.52-3.53-34-33.92 73.92-.12v-5l-73.92.11 33.92-34L77.91 40 41.49 76.53 38 80.07l3.53 3.52L62 104z" fill="#4a4a4a"/><path d="M82 156A76 76 0 1 0 6 80a76 76 0 0 0 76 76z" fill="none" stroke="#4a4a4a"/></svg>',
+							'<svg data-name="Слой 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 164 160"><path class="arrow" d="M81.44 40l-3.52 3.53 34 34H38v5h73.92l-34 34 3.52 3.47 36.48-36.47 3.52-3.53-3.52-3.53L97.48 56z" fill="#4a4a4a"/><path d="M82 156A76 76 0 1 0 6 80a76 76 0 0 0 76 76z" fill="none" stroke="#4a4a4a"/></svg>'
 						],
 						responsive : {
 							0: {
@@ -454,10 +454,44 @@
 			},
 
 
+			bodyPreloader: {
+
+				preloaderContainer : null,
+
+				init: function() {
+					var self= this;
+
+					self.preloaderContainer = $(".body-preloader");
+
+					self.hidePreloader();
+				},
+
+
+				hidePreloader: function() {
+					var self = this;
+					self.preloaderContainer.addClass("active");
+
+					$sel.window.on("load", function() {
+
+						setTimeout(function() {
+							self.preloaderContainer.addClass("hide");
+						}, 600);
+
+						setTimeout(function() {
+							self.preloaderContainer.remove();
+						}, 1000);
+					})
+				}
+
+			},
+
+
+
 		};
 
 	})();
 
+	FOODGEOGRAPHY.bodyPreloader.init();
 	FOODGEOGRAPHY.header.init();
 	FOODGEOGRAPHY.maps.googleMap();
 	FOODGEOGRAPHY.mobileMenu.init();
