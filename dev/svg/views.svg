@@ -1,0 +1,11 @@
+<svg id="Слой_1" data-name="Слой 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 104 65">
+  <defs>
+    <clipPath id="clip-path">
+      <rect y="1" width="100.17" height="63.16" fill="none"/>
+    </clipPath>
+  </defs>
+  <title>Group 11@4x</title>
+  <g clip-path="url(#clip-path)">
+    <path d="M50.09,53.91A21.33,21.33,0,1,1,71.23,32.58,21.24,21.24,0,0,1,50.09,53.91M50.09,1C19,1,0,32.58,0,32.58S19,64.16,50.09,64.16s50.08-31.58,50.08-31.58S81.21,1,50.09,1m0,20.91A10.67,10.67,0,1,0,60.66,32.58,10.63,10.63,0,0,0,50.09,21.91" fill="#e3e3e3"/>
+  </g>
+</svg>

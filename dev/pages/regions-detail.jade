@@ -11,11 +11,11 @@ block content
             div(class="region-detail-name") Адыгея
             
             div(class="region-detail-sections")
-                a(href="#", class="link link-black link-black--top-bottom-reverse region-detail-sections-item") География
-                a(href="#", class="link link-black link-black--top-bottom-reverse region-detail-sections-item") История
-                a(href="#", class="link link-black link-black--top-bottom-reverse region-detail-sections-item") Достопримечательности
-                a(href="#", class="link link-black link-black--top-bottom-reverse region-detail-sections-item") Культура и обычаи
-                a(href="#", class="link link-black link-black--top-bottom-reverse region-detail-sections-item") Кухня
+                a(href="#", data-goto=".region-about", class="link link-black link-black--top-bottom-reverse region-detail-sections-item") О регионе
+                a(href="#", data-goto=".region-history", class="link link-black link-black--top-bottom-reverse region-detail-sections-item") История
+                a(href="#", data-goto=".region-sights", class="link link-black link-black--top-bottom-reverse region-detail-sections-item") Достопримечательности
+                a(href="#", data-goto=".region-culture", class="link link-black link-black--top-bottom-reverse region-detail-sections-item") Культура и обычаи
+                a(href="#", data-goto=".region-kitchen", class="link link-black link-black--top-bottom-reverse region-detail-sections-item") Кухня
                 
             div(class="region-container")
                 img(src="../dummy/regions/regions-img.jpg", class="region-img")
@@ -27,7 +27,7 @@ block content
                         h3 Адыгея славится плодородием своей земли, мягким климатом, щедростью и гостеприимством местных жителей.
                         p Республика Адыгея — один из живописных уголков Российской Федерации, расположена в центральной части Северо-Западного Кавказа, в бассейнах рек Кубани, Лабы и Белой. Адыгея на севере и северо-востоке ограничена рекой Кубанью и ее притоком Лабой, на юге — Главным Кавказским хребтом, на юго-востоке и юго-западе граница проходит изломанной линией, отражающей особенности расселения адыгов в бассейнах рек Чехрак, Фарс, Белая, Пшиш, Псекупс, Афипс и других.
                         p Более одной трети площади Адыгеи занимают особо охраняемые природные территории различного статуса и категорий. 
-                    div(class="slider owl-carousel")
+                    div(class="slider slider--full owl-carousel")
                         div(class="slider-item")
                             img(class="owl-lazy", data-src="../dummy/regions/regions_slider_1.jpg", src="../dummy/regions/regions_slider_1.jpg")
                         div(class="slider-item")
@@ -44,7 +44,8 @@ block content
                         p Поистине Адыгея – это уникальный райский уголок: западная часть Большого Кавказа по разнообразию флоры и фауны, их сохранности, не имеет себе равных не только в Кавказском регионе, но и среди других горных районов Европы и Западной Азии. Это территория, где сосредоточено большое количество находящихся под угрозой исчезновения редких, эндемичных и реликтовых видов растений и животных.
                     div(class="more-container")
                         a(href="#", class="link link-black link-black--bottom more") Читать далее
-            
+
+        
             div(class="region-sights", style="background: #fafafa;")
                 div(class="page-inner page-inner--w2")
                     div(class="page-text")
@@ -67,7 +68,8 @@ block content
                             div(class="flex-text") Существует легенда, что гора получила свое название от монаха, жившего много лет назад на вершине горы, в маленькой, как келья, пещере. 
                     div(class="more-container")
                         a(href="#", class="link link-black link-black--bottom more") Показать все
-            
+
+        
             div(class="region-history")
                 div(class="page-text")
                     h2 История
@@ -80,7 +82,8 @@ block content
                                 p Древнейшие следы человека в окрестностях современного Майкопа относятся к эпохе нижнего палеолита. Первые знаменитые курганы, в которых найдены великолепные изделия из драгоценных металлов, открыты в Прикубанье в дореволюционное время. В их числе знаменитый курган, раскопанный в г. Майкопе в 1897 году профессором Н.И. Веселовским, давший наименование культуре в целом.
                                 p Предки адыгов (современных адыгейцев, кабардинцев и черкесов) известны в истории под именами меотов,  синдов,  керкетов – в середине I тысячелетия до н. э. они обитали вдоль восточного побережья Азовского и северо-восточного побережья Черного моря, а также в низовьях реки Кубани. В I–III веках н. э. многие адыгские племена смешались с сарматскими, вместе с которыми в IV веке были оттеснены готами на современную территорию. В IV –X веках н. э. адыги занимались земледелием и скотоводством…
                                 a(href="#", class="link link-black link-black--bottom more") Читать далее
-            
+
+
             div(class="region-culture", style="background: #fafafa;")
                 div(class="page-text")
                     h2 Культура и обычаи
@@ -106,6 +109,7 @@ block content
                             div(class="flex-text") Среди знаменитых пород лошадей – ахалтекинских и арабских, орловских и донских – свое почетное место занимает адыгская или черкесская порода лошадей. 
                     div(class="more-container")
                         a(href="#", class="link link-black link-black--bottom more") Показать все
+
             
             div(class="region-kitchen")
                 div(class="page-text")
@@ -144,7 +148,9 @@ block content
                                 img(src="../dummy/kitchen/5.jpg")
                             a(href="#", class="link link-black flex-name") Курица с прянностями
                             div(class="flex-text") Одно из самых простых, но в то же время вкусных блюд. Вы удивитесь как можно так просто приготовить курицу!
-                    a(href="#", class="link link-black link-black--bottom more") Показать все
+                    div(class="more-container")
+                        a(href="#", class="link link-black link-black--bottom more") Показать все
+            
             
             div(class="region-products")
                 div(class="page-inner page-inner--w1")
@@ -154,32 +160,33 @@ block content
                     div(class="products-list")
                         div(class="products-item")
                             a(href="#", class="link products-container")
-                                img(src="../dummy/home/product_1.png", class="img")
+                                div(class="products-holder")
+                                    img(src="../dummy/products/1.jpg", class="img")
                             div(class="home-rubric")
                                 a(href="#", class="link link-gray link-gray--bottom-reverse") Молочная продукция
                             div(class="products-name")
                                 a(href="#", class="link link--opacity") Сыр «Лапша» 
                                     br
                                     | Косичка. Копченый, плетеный  
+                                    
                         div(class="products-item")
                             a(href="#", class="link products-container")
-                                img(src="../dummy/home/product_2.png", class="img")
-                  
+                                div(class="products-holder")
+                                    img(src="../dummy/products/2.jpg", class="img")
                             div(class="home-rubric")
                                 a(href="#", class="link link-gray link-gray--bottom-reverse") Молочная продукция
-                      
                             div(class="products-name")
                                 a(href="#", class="link link--opacity") Сыр «Адыгейский»
                                 
                         div(class="products-item")
                             a(href="#", class="link products-container")
-                                img(src="../dummy/home/product_3.png", class="img")
-                  
+                                div(class="products-holder")
+                                    img(src="../dummy/products/3.jpg", class="img")
                             div(class="home-rubric")
                                 a(href="#", class="link link-gray link-gray--bottom-reverse") Молочная продукция
-                      
                             div(class="products-name")
                                 a(href="#", class="link link--opacity") Сыр «Брынза».
                                     br 
                                     | Рассольный
-                a(href="#", class="link link-darkgray more") показать все продукты региона
+                div(class="more-container")
+                    a(href="#", class="link link-darkgray more") показать все продукты региона

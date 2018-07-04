@@ -23,6 +23,26 @@
 			},
 
 
+			goEl: function() {
+				var self = this;
+					$goEl = $("[data-goto]");
+
+				$goEl.on("click", function(event) {
+					var $nameEl = $sel.body.find($(this).data("goto"));
+
+					if ($nameEl.length === 0) {
+						alert("Возможно вы не правильно указали элемент");
+						return;
+					} else {
+						var posEl = $nameEl.offset().top;
+						FOODGEOGRAPHY.common.go(posEl, 1000);
+					}
+					event.preventDefault();
+				});
+
+			},
+
+
 			mobileMenu: {
 				button: null,
 				menu: null,
@@ -77,26 +97,6 @@
 
 					}, 600);
 				},
-
-			},
-
-
-			goEl: function() {
-				var self = this;
-					$goEl = $("[data-goto]");
-
-				$goEl.on("click", function(event) {
-					var $nameEl = $sel.body.find($(this).data("goto"));
-
-					if ($nameEl.length === 0) {
-						alert("Возможно вы не правильно указали элемент");
-						return;
-					} else {
-						var posEl = $nameEl.offset().top;
-						SUNSOCHI.common.go(posEl-150, 1000);
-					}
-					event.preventDefault();
-				});
 
 			},
 
@@ -415,9 +415,10 @@
 
 				owlSlider: function() {
 					var self = this,
-						$owlSlider = $('.owl-carousel');
+						$owlSliderOne = $(".slider--one"),
+						$owlSliderFull = $(".slider--full");
 
-					$owlSlider.owlCarousel({
+					$owlSliderFull.owlCarousel({
 						margin: 50,
 						loop: true,
 						autoWidth: true,
@@ -449,6 +450,32 @@
 						}
 					});
 
+					$owlSliderOne.owlCarousel({
+						loop: true,
+						nav: true,
+						smartSpeed: 1500,
+						dots: false,
+						lazyLoad: true,
+						lazyLoadEager: 1,
+						autoplayHoverPause: true,
+						slideTransition: "cubic-bezier(0.250, 0.460, 0.450, 0.940)",
+						items: 1,
+						navText: [
+							'<svg data-name="Слой 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 80"><path d="M40.61 80.82l3.52-3.52-33.89-33.89h109.62v-5H10.24L44.13 4.54 40.61 1 4.23 37.4.71 40.92l3.52 3.52z" fill="#211300"/></svg>',
+							'<svg data-name="Слой 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 119.15 79.8"><path d="M79.29-.02l-3.56 3.54 33.88 33.89H0v5h109.61L75.73 76.28l3.56 3.52 36.38-36.38 3.52-3.52-3.52-3.52z" fill="#211300"/></svg>'
+						],
+						onChange: function (el) {
+							var current = el.item.index,
+								all = el.item.count,
+								$parent = $(el.currentTarget).closest(".slider-container"),
+								$currentItem = $parent.find(".slider-nav-counter-current");
+								$allItem = $parent.find(".slider-nav-counter-all");
+							console.log(el);
+							$currentItem.text(current);
+							$allItem.text(all);
+						}
+					});
+
 				}
 
 			},
@@ -473,13 +500,13 @@
 
 					$sel.window.on("load", function() {
 
-						/*setTimeout(function() {
+						setTimeout(function() {
 							self.preloaderContainer.addClass("hide");
-						}, 600);
+						}, 2000);
 
 						setTimeout(function() {
 							self.preloaderContainer.remove();
-						}, 1000);*/
+						}, 2400);
 					})
 				}
 
@@ -492,6 +519,7 @@
 	})();
 
 	FOODGEOGRAPHY.bodyPreloader.init();
+	FOODGEOGRAPHY.goEl();
 	FOODGEOGRAPHY.header.init();
 	FOODGEOGRAPHY.maps.googleMap();
 	FOODGEOGRAPHY.mobileMenu.init();

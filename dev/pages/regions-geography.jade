@@ -1,0 +1,62 @@
+extends ../templates/base
+
+block content
+    div(class="content-top")
+        div(class="region-section")
+            div(class="region-section-bcg")
+                img(src="../dummy/regions/regions-img.jpg")
+            div(class="region-section-logo")
+                include ../../prod/svg/regions-logo-white.svg
+            div(class="region-section-name") Адыгея
+            div(class="page-inner page-inner--w3")
+                div(class="region-section-container")
+                    div(class="region-section-prop")
+                        div(class="region-section-date") 31 Января 2018
+                        div(class="region-section-views")
+                            span(class="region-section-views-icon")
+                                include ../../prod/svg/views.svg
+                            span(class="region-section-views-count") 290
+                        div(class="region-section-topic") Достопримечательности
+                    div(class="region-section-title") Гора Фишт
+                    div(class="region-section-showmap")
+                        button(class="button button--white region-section-button", data-goto="#map")
+                            span(class="button-svg")
+                                include ../../prod/svg/point.svg
+                            span(class="button-text") на карте
+                    div(class="region-section-info")
+                        div(class="page-text")
+                            img(src="../dummy/geography/1.jpg")
+                            h2 О горной группе Фишта часто говорят как об «острове сокровищ», ведь в геологическом прошлом Адыгея была дном океана Тетис, а современные горы – коралловым рифом.  
+                            p Одно из самых известных и красивых мест Кавказа – горный массив в западной части Главного Кавказского хребта, образованный тремя вершинами: Фишт (2867,7 м), высшая точка плато Лаго-Наки, Пшехо-Су (2743 м) и Оштен (2804 м). 
+                            p Своей красотой и богатством природы Фишт покоряет сердца людей, сюда стекаются маршруты туристов, скалолазов и спелеологов. Одной из ярких особенностей Фишта является его строение: внутри он пустотелый, как губка, пронизанный сотнями ходов, галереями карстовых пещер. Одна из пещер получила название «Крестик-турист», она считается самой глубокой в России: глубина 650 метров, длина подземных ходов – более 16 км. Также на Фиште находится водопад высотой около 200 метров, который является одним из самых высоких водопадов России. Фишт переводится как «Седая голова», склоны его славятся скальными обрывами и ледниками, ползущими вниз. У подножия горы Фишта произрастают более 130 видов растений-эндемиков, которые больше нигде в мире не встречаются. Здесь же находится Фиштинская котловина – самое «мокрое» место России, где каждый день после обеда идет снег или дождь.
+                            div(class="slider-container")
+                                div(class="slider slider--one owl-carousel")
+                                    div(class="slider-item")
+                                        div(class="slider-item-holder")
+                                            img(class="owl-lazy", data-src="../dummy/regions/regions_slider_1.jpg", src="../dummy/regions/regions_slider_1.jpg")
+                                        div(class="slider-item-note") Одна из пещер получила название «Крестик-турист», она считается самой глубокой в России
+                                    div(class="slider-item")
+                                        div(class="slider-item-holder")
+                                            img(class="owl-lazy", data-src="../dummy/regions/regions_slider_2.jpg", src="../dummy/regions/regions_slider_2.jpg")
+                                        div(class="slider-item-note") Одна из пещер получила название «Крестик-турист», она считается самой глубокой в России
+                                    div(class="slider-item")
+                                        div(class="slider-item-holder")
+                                            img(class="owl-lazy", data-src="../dummy/regions/regions_slider_1.jpg", src="../dummy/regions/regions_slider_1.jpg")
+                                        div(class="slider-item-note") Одна из пещер получила название «Крестик-турист», она считается самой глубокой в России
+                                    div(class="slider-item")
+                                        div(class="slider-item-holder")
+                                            img(class="owl-lazy", data-src="../dummy/regions/regions_slider_2.jpg", src="../dummy/regions/regions_slider_2.jpg")
+                                        div(class="slider-item-note") Одна из пещер получила название «Крестик-турист», она считается самой глубокой в России
+                                    div(class="slider-item")
+                                        div(class="slider-item-holder")
+                                            img(class="owl-lazy", data-src="../dummy/regions/regions_slider_1.jpg", src="../dummy/regions/regions_slider_1.jpg")
+                                        div(class="slider-item-note") Одна из пещер получила название «Крестик-турист», она считается самой глубокой в России
+                                    div(class="slider-item")
+                                        div(class="slider-item-holder")
+                                            img(class="owl-lazy", data-src="../dummy/regions/regions_slider_2.jpg", src="../dummy/regions/regions_slider_2.jpg")
+                                        div(class="slider-item-note") Одна из пещер получила название «Крестик-турист», она считается самой глубокой в России
+                                div(class="slider-nav-counter")
+                                    span(class="slider-nav-counter-current") 9
+                                    span(class="slider-nav-counter-divider")/
+                                    span(class="slider-nav-counter-all") 17
+                                

@@ -63,7 +63,7 @@ body
 	width 100%
 	height 100%
 
-	background #333333
+	background #ffffff
 
 	transition background 1s $transitionAnimation
 
@@ -80,15 +80,18 @@ body
 		width 500px
 		height 500px
 
-		background #ffffff
+		margin-left -250px
+		margin-top -250px
+
+		background #333333
 		border-radius 50%
 
-		opacity 1
+		opacity 0
 
 		z-index 10001
 
-		transition opacity 0.3s $transitionAnimation, transform 0.3s $transitionAnimation
-		
+		transition opacity 0.3s $transitionAnimation, transform 2s $transitionAnimation
+
 	.body-preloader-container
 		position relative
 		max-width 500px
@@ -103,7 +106,8 @@ body
 
 	&.active
 		.body-preloader-bcg
-			transform scale(100)
+			opacity 1
+			transform scale(5)
 
 	&.active
 		.body-preloader-container
@@ -118,6 +122,7 @@ body
 
 		.body-preloader-bcg
 			opacity 0
+
 /*** //Settings ***/
 
 /*** General style ***/
@@ -141,6 +146,10 @@ body
 
 	&--w2
 		max-width 1290px
+		padding 0 20px
+
+	&--w3
+		max-width 1065px
 		padding 0 20px
 
 
@@ -667,62 +676,111 @@ body
 	width 100%
 
 .slider
-	padding 0 90px
 	margin-bottom 85px
 	box-sizing border-box
 
-.owl-nav
-	.owl-prev
-		position absolute
-		top 50%
-		left 20px
+	.owl-item
+		.slider-item-holder
+			position relative
 
-		width 50px
+			&:before
+				content ""
+				display block
+				padding-top 80%
 
-		opacity 1
-		transform translateY(-25px)
-		z-index 100
+			img
+				position absolute
+				top 0
+				left 0
+				bottom 0
+				right 0
 
-		svg
+				display block
+				width 100%
+				height 100%
+
+				object-fit cover
+
+		.slider-item-note
 			display block
+			max-width 600px
 			width 100%
 
-			path
-				stroke-width 4px
+			margin 50px auto 0 auto
 
-				&.arrow
-					transition transform 0.3s $transitionAnimation
-		&:hover
-			svg
-				path
-					&.arrow
-						transform translateX(-15px)
+			line-height 28px
+			text-align center
 
-	.owl-next
-		position absolute
-		top 50%
-		right 20px
+			font-size 20px
+			font-family "LeksaProItalic"
 
-		width 50px
+			opacity 0
+			transition transform 0.6s $transitionAnimation, opacity 0.6s $transitionAnimation
+			transition-delay 1s
+			transform translateY(50px)
 
-		opacity 1
-		transform translateY(-25px)
-		z-index 100
+			color #4C4C4C
 
-		svg
-			display block
-			width 100%
+		&.active
+			.slider-item-note
+				opacity 1
+				transform translateY(0)
 
-			path
-				stroke-width 4px
+	&--full
+		padding 0 90px
 
-				&.arrow
-					transition transform 0.3s $transitionAnimation
-		&:hover
-			svg
-				path
-					&.arrow
-						transform translateX(15px)
+		.owl-nav
+			.owl-prev
+				position absolute
+				top 50%
+				left 20px
+
+				width 50px
+
+				opacity 1
+				transform translateY(-25px)
+				z-index 100
+
+				svg
+					display block
+					width 100%
+
+					path
+						stroke-width 4px
+
+						&.arrow
+							transition transform 0.3s $transitionAnimation
+				&:hover
+					svg
+						path
+							&.arrow
+								transform translateX(-15px)
+
+			.owl-next
+				position absolute
+				top 50%
+				right 20px
+
+				width 50px
+
+				opacity 1
+				transform translateY(-25px)
+				z-index 100
+
+				svg
+					display block
+					width 100%
+
+					path
+						stroke-width 4px
+
+						&.arrow
+							transition transform 0.3s $transitionAnimation
+				&:hover
+					svg
+						path
+							&.arrow
+								transform translateX(15px)
 
 /** //region **/
 
@@ -874,12 +932,12 @@ body
 	background-size cover
 
 .main-bcg:after
-	content: ""
-	position: absolute
-	top: 0
+	content ""
+	position absolute
+	top 0
 	right 0
 	bottom 0
-	left: 0
+	left 0
 	display block
 	width 100%
 	height 100%
@@ -888,18 +946,18 @@ body
 
 .main-bcg
 	.main-logo
-		position: absolute
-		top: 50%
-		left: 50%
-		display: block
-		max-width: 405px
-		width: 100%
-		margin: -120px 0 0 -202.5px
-		z-index: 20
+		position absolute
+		top 50%
+		left 50%
+		display block
+		max-width 405px
+		width 100%
+		margin -120px 0 0 -202.5px
+		z-index 20
 
 	svg
-		display: block;
-		width: 100%;
+		display block
+		width 100%
 
 .home-intro
 	width 100%
@@ -921,83 +979,104 @@ body
 
 .home-intro-text
 	p
-		margin-bottom: 25px;
+		margin-bottom 25px
 
 .home-regions
 	h2
-		display: block;
-		width: 100%;
-		margin-bottom: 70px;
-		text-align: center;
+		display block
+		width 100%
+		margin-bottom 70px
+		text-align center
 
 .home-regions
 	.home-regions-map
-		height: 620px;
+		height 620px
 
 .home-products
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	flex-flow: column;
-	padding: 100px 0 140px 0;
+	display flex
+	align-items center
+	justify-content center
+	flex-flow column
+	padding 100px 0 140px 0
 
 .home-products
 	h2
-		display: block;
-		width: 100%;
-		margin-bottom: 70px;
-		text-align: center;
+		display block
+		width 100%
+		margin-bottom 70px
+		text-align center
 
 .products-list
-	display: flex
-	align-items: end
-	justify-content: space-between;
-	flex-wrap: wrap;
-	max-width: 1250px;
-	width: 100%;
-	margin-bottom: 65px;
+	display flex
+	align-items end
+	justify-content flex-start
+	flex-wrap wrap
+	width 1050px
+	margin-bottom 65px
 
 .products-list
 	.products-item
-		display: block;
-		width: 100%;
-		max-width: 30%;
-		margin-bottom: 50px;
+		display block
+		width 30%
+		margin-bottom 50px
+
+		margin-right 4%
+
+		&:nth-child(3n)
+		&:last-child
+			margin-right 0
 
 .products-item
 	.products-container
-		display: flex
-		align-items: center
-		justify-content: center;
-		width: 100%;
-		height: 280px;
-		padding: 20px;
-		margin-bottom: 35px
-		box-sizing: border-box;
-		background: rgba(245,246,249,1);
-		background: -moz-radial-gradient(center, ellipse cover, rgba(245,246,249,1) 0%, rgba(245,246,249,1) 19%, rgba(245,246,249,1) 51%, rgba(245,246,249,1) 71%, rgba(227,228,237,1) 96%, rgba(227,228,237,1) 100%);
-		background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, rgba(245,246,249,1)), color-stop(19%, rgba(245,246,249,1)), color-stop(51%, rgba(245,246,249,1)), color-stop(71%, rgba(245,246,249,1)), color-stop(96%, rgba(227,228,237,1)), color-stop(100%, rgba(227,228,237,1)));
-		background: -webkit-radial-gradient(center, ellipse cover, rgba(245,246,249,1) 0%, rgba(245,246,249,1) 19%, rgba(245,246,249,1) 51%, rgba(245,246,249,1) 71%, rgba(227,228,237,1) 96%, rgba(227,228,237,1) 100%);
-		background: -o-radial-gradient(center, ellipse cover, rgba(245,246,249,1) 0%, rgba(245,246,249,1) 19%, rgba(245,246,249,1) 51%, rgba(245,246,249,1) 71%, rgba(227,228,237,1) 96%, rgba(227,228,237,1) 100%);
-		background: -ms-radial-gradient(center, ellipse cover, rgba(245,246,249,1) 0%, rgba(245,246,249,1) 19%, rgba(245,246,249,1) 51%, rgba(245,246,249,1) 71%, rgba(227,228,237,1) 96%, rgba(227,228,237,1) 100%);
-		background: radial-gradient(ellipse at center, rgba(245,246,249,1) 0%, rgba(245,246,249,1) 19%, rgba(245,246,249,1) 51%, rgba(245,246,249,1) 71%, rgba(227,228,237,1) 96%, rgba(227,228,237,1) 100%);
+		position relative
+		display block
+		width 100%
+		margin-bottom 35px
+		background rgba(245,246,249,1)
+		background radial-gradient(ellipse at center, rgba(245,246,249,1) 0%, rgba(245,246,249,1) 19%, rgba(245,246,249,1) 51%, rgba(245,246,249,1) 71%, rgba(227,228,237,1) 96%, rgba(227,228,237,1) 100%)
 
-		.img
-			width: auto;
-			height: 60%;
-			transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94), opacity 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+		.products-holder
+			position absolute
+			top 0
+			left 0
+			right 0
+			bottom 0
 
+			display block
+			width 100%
+			height 100%
+
+			padding 40px
+			box-sizing border-box
+
+			overflow hidden
+
+			img
+				display block
+				width 100%
+				height 100%
+				object-fit contain
+
+				transition transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94), opacity 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94)
+
+		&:before
+			content ""
+			display block
+			padding-top 80%
 
 	&:hover
-		img
-			transform scale(1.1)
-			opacity 0.6
+		.products-holder
+			img
+				transform scale(1.1)
 
+		.products-name
+			a
+				opacity 0.6
 .home-rubric
-	line-height: 20px;
-	margin-bottom: 20px;
-	text-transform: uppercase;
-	text-align: center;
+	line-height 20px
+	margin-bottom 20px
+	text-transform uppercase
+	text-align center
 
 	.point-delimiter
 		color #a9a9a9
@@ -1013,71 +1092,71 @@ body
 		color #000
 
 .home-records
-	background: #FAFAFA;
-	padding: 100px 0 140px 0;
+	background #FAFAFA
+	padding 100px 0 140px 0
 
 .home-records
 	h2
-		display: block;
-		width: 100%;
-		margin-bottom: 70px;
-		text-align: center;
+		display block
+		width 100%
+		margin-bottom 70px
+		text-align center
 
 .home-records-list
-	display: flex;
-	align-items: end;
-	justify-content: flex-start;
-	max-width: 1140px;
-	margin: 0 auto;
-	width: 100%;
-	flex-wrap: wrap;
+	display flex
+	align-items end
+	justify-content flex-start
+	max-width 1140px
+	margin 0 auto
+	width 100%
+	flex-wrap wrap
 
 .home-records-list
 	.home-records-item
-		display: block;
-		max-width: 30%;
-		margin-right: 5%;
-		margin-bottom: 30px;
+		display block
+		max-width 30%
+		margin-right 5%
+		margin-bottom 30px
 
 .home-records-list
 	.home-records-item:nth-child(3n)
-		margin-right: 0;
+		margin-right 0
 
 .home-records-list
 	.home-records-item:last-child
-		margin-right: 0;
+		margin-right 0
 
 .home-records-item
 	.home-records-container
-		display: block;
-		width: 100%;
-		margin-bottom: 30px;
-		overflow: hidden;
+		display block
+		width 100%
+		margin-bottom 30px
+		overflow hidden
 
 .home-records-item
 	.home-records-container
 		img
-			transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+			transition transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94)
 
 .home-records-item
 	.home-records-container:hover
 		img
-			transform: scale(1.05);
+			transform scale(1.05)
 
 .home-records-item
 	.home-records-name
-		margin-bottom: 25px;
-		font-size: 18px;
-		font-weight: 600;
-		text-align: center;
+		margin-bottom 25px
+		font-size 18px
+		font-weight 600
+		text-align center
 
 .home-records-item
 	.home-records-text
-		padding: 10px;
-		font-size: 16px;
-		font-family: "LeksaPro";
-		text-align: center;
-		line-height: 24px;
+		padding 10px
+		font-size 16px
+		font-family "LeksaPro"
+		text-align center
+		line-height 24px
 
 .content-top
 	padding-top 60px
@@ -1405,6 +1484,7 @@ body
 			text-align center
 
 	.region-products
+		border-top 1px solid #e3e3e3
 		padding 70px 0 100px 0
 
 		h2
@@ -1426,4 +1506,66 @@ body
 		.products-list
 			margin 0 auto
 
+		.more-container
+			margin-top 90px
 /** //regions detail **/
+
+.region-section
+	position relative
+
+	.region-section-bcg
+		position absolute
+		top 0
+		left 0
+		right 0
+
+		display block
+		width 100%
+		height 80vh
+
+		z-index -10
+
+		img
+			display block
+			width 100%
+			height 100%
+
+			object-fit cover
+
+		&:before
+			content ''
+			position absolute
+			top 0
+			left 0
+			right 0
+			bottom 0
+
+			display block
+			width 100%
+			height 100%
+
+			background rgba(0, 0, 0, 0.5)
+
+	.region-section-logo
+		display block
+		max-width 100px
+		width 100%
+		padding-top 55px
+		margin 0 auto 35px auto
+
+	.region-section-name
+		display block
+		width 100%
+		margin 30px auto 35px auto
+
+		text-align center
+
+		font-size 54px
+
+		color #ffffff
+
+	.region-section-container
+		padding 60px 20px 80px 20px
+		box-sizing border-box
+
+		background #ffffff
