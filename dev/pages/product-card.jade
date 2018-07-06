@@ -1,0 +1,102 @@
+extends ../templates/base
+
+block content
+    div(class="content-top")
+        div(class="products-detail")
+            div(class="page-inner page-inner--w3")
+                div(class="page-text")
+                    div(class="slider-container")
+                        div(class="slider slider--one owl-carousel")
+                            div(class="slider-item")
+                                div(class="slider-item-holder")
+                                    img(class="owl-lazy", data-src="../dummy/products/7.jpg", src="../dummy/products/7.jpg")
+                            div(class="slider-item")
+                                div(class="slider-item-holder")
+                                    img(class="owl-lazy", data-src="../dummy/products/8.jpg", src="../dummy/products/8.jpg")
+                            div(class="slider-item")
+                                div(class="slider-item-holder")
+                                    img(class="owl-lazy", data-src="../dummy/products/9.jpg", src="../dummy/products/9.jpg")
+                            div(class="slider-item")
+                                div(class="slider-item-holder")
+                                    img(class="owl-lazy", data-src="../dummy/products/10.jpg", src="../dummy/products/10.jpg")
+                        div(class="slider-nav-counter")
+                            span(class="slider-nav-counter-current") 9
+                            span(class="slider-nav-counter-divider") / 
+                            span(class="slider-nav-counter-all") 17
+                    div(class="page-inner page-inner--w4")
+                        h1 Сыр «Нити». Рассольный
+                        div(class="products-category") серия «Адыгея»
+                        div(class="products-section")
+                            div(class="link--sand products-section-item") Описание
+                            div(class="link--sand products-section-item") Где купить
+                            div(class="link--sand products-section-item") Производитель
+                        div(class="products-information")
+                            p Сыр «Нити» является одним из пяти видов волокнистых рассольных сыров серии «Адыгея». Это один из разновидностей сыра Сулугуни.
+                            p Сулугуни – прекрасный источник белка, молочного жира, аминокислот, витаминов и микроэлементов. В комплексе эти вещества способствуют укреплению костной ткани и нервной системы, полезны для сердца, укрепляют иммунитет, нормализуют гормональный фон и обмен веществ.  Сулугуни – прекрасный источник белка, молочного жира, аминокислот, витаминов и микроэлементов. В комплексе эти вещества способствуют укреплению костной ткани и нервной системы, полезны для сердца, укрепляют иммунитет, нормализуют гормональный фон и обмен веществ. 
+                            a(href="#", class="link link-black link-black--bottom more") Читать далее
+                            dl
+                                dt Категория: 
+                                dd рассольные сыры
+                                dt Состав:
+                                dd молоко коровье, молокосвёртывающий фермент животного происхождения, соль поваренная пищевая.
+                                dt Энергетическая ценность (ккал/100г.):
+                                dd белки –18,1 г, жиры - 21,2 г. 
+                                dt Массовая доля жира в пересчете на сухое вещество:
+                                dd 45 ± 3%. 
+                                dt Масса нетто:
+                                dd 100 г.
+                                dt Срок годности:
+                                dd 45 суток при температуре хранения от +2 до +6 °С и относительной влажности воздуха 70 - 90 %. После вскрытия упаковки хранить при температуре от + 2 до +6 °С не более 5 суток.
+                                dt Сертификация:
+                                dd ISO 22000-2007. 
+                                dt ТУ:
+                                dd 9225-002-97534984-17
+                            div(class="region-tags")
+                                div(class="region-tags-title") Теги
+                                a(href="#", class="link link-dark link-black--bottom region-tags-name") Горы
+                                a(href="#", class="link link-dark link-black--bottom region-tags-name") Адыгея
+                                a(href="#", class="link link-dark link-black--bottom region-tags-name") Памятники природы
+                            div(class="social-block")
+                                div(class="social-item")
+                                    div(class="social-item-icon")
+                                        include ../../prod/svg/fb.svg
+                                    div(class="social-item-count") 23
+                                div(class="social-item")
+                                    div(class="social-item-icon")
+                                        include ../../prod/svg/vk.svg
+                                    div(class="social-item-count") 341
+                                div(class="social-item")
+                                    div(class="social-item-icon")
+                                        include ../../prod/svg/tw.svg
+                                    div(class="social-item-count") 10
+            
+            
+            div(class="region-section-similar", style="background: #fafafa;")
+                div(class="page-inner page-inner--w2")
+                    div(class="region-section-similar-more") 
+                        div(class="region-section-similar-title") Еще по теме
+                        div(class="region-section-similar-container")
+                            div(class="region-section-similar-all") Все из категории
+                            a(href="#", class="link link-black link-black--bottom-reverse region-section-similar-category") Достопримечательности
+                    div(class="flex-list")
+                        div(class="flex-item flex-item--30")
+                            a(href="#", class="flex-container")
+                                img(src="../dummy/news/news_1.png")
+                            div(class="rubric")
+                                a(href="#", class="link link-gray link-gray--bottom-reverse") АДЫГЕЯ
+                            a(href="#", class="link link-black flex-name") Легенда о Верблюд-горе
+                            div(class="flex-text") Мы же расскажем легенду о скале, что на северном отроге горы Шидехет в Адыгее.
+                        div(class="flex-item flex-item--30")
+                            a(href="#", class="flex-container")
+                                img(src="../dummy/news/news_2.png")
+                            div(class="rubric")
+                                a(href="#", class="link link-gray link-gray--bottom-reverse") Карачаево-черкессия
+                            a(href="#", class="link link-black flex-name") Плато Бермамыт
+                            div(class="flex-text") Плато Бермамыт как туристический объект пользуется популярностью ещё со времён Лермонтова.
+                        div(class="flex-item flex-item--30")
+                            a(href="#", class="flex-container")
+                                img(src="../dummy/news/news_3.png")
+                            div(class="rubric")
+                                a(href="#", class="link link-gray link-gray--bottom-reverse") АДЫГЕЯ
+                            a(href="#", class="link link-black flex-name") Хаджохская теснина
+                            div(class="flex-text") Каждого гостя Адыгеи обязательно везут сюда, чтобы показать это удивительное чудо природы. 

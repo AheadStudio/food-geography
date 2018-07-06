@@ -1,0 +1,100 @@
+extends ../templates/base
+
+block content
+    div(class="content-top")
+        div(class="region-section")
+            div(class="region-section-bcg")
+                img(src="../dummy/regions/regions-img.jpg")
+            div(class="region-section-logo")
+                include ../../prod/svg/regions-logo-white.svg
+            div(class="region-section-name") Адыгея
+            div(class="page-inner page-inner--w3")
+                div(class="region-section-container")
+                    div(class="page-text")
+                        h1 Продукты
+                    div(class="products-filter")
+                        a(href="#filter", class="link link-gray products-filter-item active", data-filter="all", data-filter-url="products-load.html", data-filter-container="#products-list-load") Все
+                        a(href="#filter", class="link link-gray products-filter-item", data-filter="filter1", data-filter-url="products-load.html", data-filter-container="#products-list-load") Молочная продукция
+                        a(href="#filter", class="link link-gray products-filter-item", data-filter="filter2", data-filter-url="products-load.html", data-filter-container="#products-list-load") Мясо
+                        a(href="#filter", class="link link-gray products-filter-item", data-filter="filter3", data-filter-url="products-load.html", data-filter-container="#products-list-load") Бакалея
+                        a(href="#filter", class="link link-gray products-filter-item", data-filter="filter4", data-filter-url="products-load.html", data-filter-container="#products-list-load") Овощи и фрукты
+                    
+                    div(class="region-section-list")
+                        div(class="products-list", id="products-list-load")
+                            div(class="products-item", data-filter-item="filter1")
+                                a(href="#", class="link products-container")
+                                    div(class="products-holder")
+                                        img(src="../dummy/products/1.png", class="img")
+                                div(class="rubric")
+                                    a(href="#", class="link link-gray link-gray--bottom-reverse") Молочная продукция
+                                div(class="products-name")
+                                    a(href="#", class="link link--opacity") Сыр «Адыгейский»
+                                    
+                            div(class="products-item", data-filter-item="filter1")
+                                a(href="#", class="link products-container")
+                                    div(class="products-holder")
+                                        img(src="../dummy/products/2.png", class="img")
+                                div(class="rubric")
+                                    a(href="#", class="link link-gray link-gray--bottom-reverse") Молочная продукция
+                                div(class="products-name")
+                                    a(href="#", class="link link--opacity") Сыр «Брынза».
+                                        br 
+                                        | Рассольный
+
+                            div(class="products-item", data-filter-item="filter2")
+                                a(href="#", class="link products-container")
+                                    div(class="products-holder")
+                                        img(src="../dummy/products/9.jpg", class="img")
+                                div(class="rubric")
+                                    a(href="#", class="link link-gray link-gray--bottom-reverse") Молочная продукция
+                                div(class="products-name")
+                                    a(href="#", class="link link--opacity") Сыр «Нити»
+                                        br
+                                        | Копченый
+
+                            div(class="products-item", data-filter-item="filter2")
+                                a(href="#", class="link products-container")
+                                    div(class="products-holder")
+                                        img(src="../dummy/products/7.jpg", class="img")
+                                div(class="rubric")
+                                    a(href="#", class="link link-gray link-gray--bottom-reverse") Молочная продукция
+                                div(class="products-name")
+                                    a(href="#", class="link link--opacity") Сыр «Лапша» 
+                                        br
+                                        | Косичка. Копченый, плетеный  
+
+                            div(class="products-item", data-filter-item="filter3")
+                                a(href="#", class="link products-container")
+                                    div(class="products-holder")
+                                        img(src="../dummy/products/10.jpg", class="img")
+                                div(class="rubric")
+                                    a(href="#", class="link link-gray link-gray--bottom-reverse") Молочная продукция
+                                div(class="products-name")
+                                    a(href="#", class="link link--opacity") Сыр «Нити» 
+                                        br
+                                        | Рассольный
+
+                            div(class="products-item", data-filter-item="filter4")
+                                a(href="#", class="link products-container")
+                                    div(class="products-holder")
+                                        img(src="../dummy/products/3.png", class="img")
+                                div(class="rubric")
+                                    a(href="#", class="link link-gray link-gray--bottom-reverse") Молочная продукция
+                                div(class="products-name")
+                                    a(href="#", class="link link--opacity") Сыр «Лапша» 
+                                        br
+                                        | Косичка. Копченый, плетеный  
+
+                            div(class="products-item", data-filter-item="filter3")
+                                a(href="#", class="link products-container")
+                                    div(class="products-holder")
+                                        img(src="../dummy/products/10.jpg", class="img")
+                                div(class="rubric")
+                                    a(href="#", class="link link-gray link-gray--bottom-reverse") Молочная продукция
+                                div(class="products-name")
+                                    a(href="#", class="link link--opacity") Сыр «Охотничий».
+                                        br
+                                        | Золотистый, копченый
+                        
+                        div(class="products-more load")
+                            a(href="products-load.html?PAGE=test", data-container="#products-list-load", data-itemsselector=".products-item", class="link load-more")

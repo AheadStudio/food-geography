@@ -35,7 +35,7 @@
 						return;
 					} else {
 						var posEl = $nameEl.offset().top;
-						FOODGEOGRAPHY.common.go(posEl, 1000);
+						FOODGEOGRAPHY.common.go(posEl-100, 1000);
 					}
 					event.preventDefault();
 				});
@@ -108,7 +108,9 @@
 
 					self.scroll.init();
 					self.inputSearch();
+					self.regionMenu();
 				},
+
 
 				scroll: {
 
@@ -132,6 +134,39 @@
 
 				},
 
+				regionMenu: function() {
+					$sel.window.on("load", function() {
+						var self = this,
+							move = true,
+							$container = $(".region-detail-fixed");
+
+						if ($container.length > 0) {
+							var $nameDirectory = $container.find(".region-detail-name"),
+								nameDirectoryTop = $nameDirectory.offset().top,
+								nameDirectoryLeft = $nameDirectory.offset().left,
+								$firstItem = $container.find(".region-detail-sections-item"),
+								blockOffsetTop = $container.offset().top;
+								firstItemX = $firstItem.offset().left;
+								firstItemY = $firstItem.offset().top;
+
+							$sel.window.on("scroll", function() {
+								var	offsetTop = $sel.window.scrollTop();
+
+								if (offsetTop >= blockOffsetTop-60) {
+									$nameDirectory.css("transform", "translate("+Number(firstItemX-nameDirectoryLeft-95)+"px,"+Number(firstItemY-nameDirectoryTop-112)+"px)");
+									$sel.body.addClass("region-fixed");
+								} else {
+									$sel.body.removeClass("region-fixed");
+									$nameDirectory.css("transform", "translate(0,0)");
+								}
+
+							});
+						}
+
+					})
+
+				},
+
 				inputSearch: function() {
 					var self = this,
 						$input = $(".form-row--search:not(.notshow)");
@@ -150,6 +185,7 @@
 							$input.removeClass("active");
 						}
 					});
+
 				}
 
 			},
@@ -452,6 +488,7 @@
 
 					$owlSliderOne.owlCarousel({
 						loop: true,
+						margin: 20,
 						nav: true,
 						smartSpeed: 1500,
 						dots: false,
@@ -465,8 +502,8 @@
 							'<svg data-name="Слой 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 119.15 79.8"><path d="M79.29-.02l-3.56 3.54 33.88 33.89H0v5h109.61L75.73 76.28l3.56 3.52 36.38-36.38 3.52-3.52-3.52-3.52z" fill="#211300"/></svg>'
 						],
 						onChange: function (el) {
-							var current = el.item.index,
-								all = el.item.count,
+							var current = $(el.currentTarget).find(".owl-item:not(.cloned)").index($(".owl-item.active:not(.cloned)")) + 1,
+								all = $(el.currentTarget).find(".owl-item:not(.cloned)").length,
 								$parent = $(el.currentTarget).closest(".slider-container"),
 								$currentItem = $parent.find(".slider-nav-counter-current");
 								$allItem = $parent.find(".slider-nav-counter-all");
@@ -496,12 +533,15 @@
 
 				hidePreloader: function() {
 					var self = this;
+
+					$sel.body.addClass("open-menu");
 					self.preloaderContainer.addClass("active");
 
 					$sel.window.on("load", function() {
 
 						setTimeout(function() {
 							self.preloaderContainer.addClass("hide");
+							$sel.body.removeClass("open-menu");
 						}, 2000);
 
 						setTimeout(function() {
@@ -513,18 +553,108 @@
 			},
 
 
+			filter: {
+
+				$filterItem: null,
+
+				$containerItem: null,
+
+				init: function() {
+					var self = this;
+
+					self.$filterItem = $("[data-filter]");
+					self.start();
+				},
+
+
+				start: function() {
+					var self = this;
+
+
+					self.$filterItem.on("click", function(event) {
+						var el = $(this),
+							$allEl = $("[data-filter]"),
+							dataItem = el.data("filter"),
+							href = el.data("filterUrl"),
+							$container = $(el.data("filterContainer")),
+							$allItem = $("[data-filter-item]"),
+							$showItem;
+
+						event.preventDefault();
+
+						(function(el, href, $container, $allItem, $allEl) {
+
+							$.ajax({
+								url: href,
+								success: function(data) {
+									var $data = $('<div />').append(data),
+										$items;
+
+									if (dataItem == "all") {
+										$items = $data.find("[data-filter-item]");
+									} else {
+										$items = $data.find("[data-filter-item="+dataItem+"]");
+									}
+
+									// add hide class on new elements
+									$items.addClass("hide");
+									$items.addClass("hide-block");
+
+									// add class old all elements
+									$allItem.addClass("hide");
+
+									// remove class all click elements
+									$allEl.removeClass("active");
+
+									// add class click element
+									el.addClass("active");
+
+									setTimeout(function() {
+										$allItem.addClass("hide-block");
+
+										$container.empty();
+
+										$container.append($items);
+
+										$items.removeClass("hide-block");
+
+										setTimeout(function() {
+											$items.removeClass("hide");
+										}, 200);
+
+									},300);
+
+								}
+							})
+
+						})(el, href, $container, $allItem, $allEl);
+
+					})
+
+				},
+
+
+			},
+
 
 		};
 
 	})();
 
 	FOODGEOGRAPHY.bodyPreloader.init();
+
 	FOODGEOGRAPHY.goEl();
 	FOODGEOGRAPHY.header.init();
+
 	FOODGEOGRAPHY.maps.googleMap();
+
 	FOODGEOGRAPHY.mobileMenu.init();
+
 	FOODGEOGRAPHY.toggleTabs.init();
+	FOODGEOGRAPHY.filter.init();
+
 	FOODGEOGRAPHY.sliders.init();
+
 	FOODGEOGRAPHY.ajaxLoader();
 
 	ymaps.ready(function() {
@@ -532,6 +662,8 @@
 	});
 
 	FOODGEOGRAPHY.reload = function() {
+		FOODGEOGRAPHY.filter.init();
+
 		FOODGEOGRAPHY.toggleTabs.init();
 	}
 

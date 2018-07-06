@@ -62,6 +62,38 @@
                 "tablet": "0",
                 "mobile": "0"
             }
+        },
+        "regions-sights": {
+            "name": "Регион: достопримечательности",
+            "progress": {
+                "desktop": "100",
+                "tablet": "0",
+                "mobile": "0"
+            }
+        },
+        "regions-products": {
+            "name": "Регион: продукты",
+            "progress": {
+                "desktop": "100",
+                "tablet": "0",
+                "mobile": "0"
+            }
+        },
+        "products-load": {
+            "name": "Регион: продукты(подгрузка)",
+            "progress": {
+                "desktop": "100",
+                "tablet": "0",
+                "mobile": "0"
+            }
+        },
+        "product-card": {
+            "name": "Карточка продукта",
+            "progress": {
+                "desktop": "100",
+                "tablet": "0",
+                "mobile": "0"
+            }
         }
     },
     "paths": {

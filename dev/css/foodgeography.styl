@@ -49,6 +49,15 @@ body
 	cursor default
 	color $colorMain
 
+body.open-menu
+	position fixed
+	top 0
+	right 0
+	bottom 0
+	left 0
+	overflow hidden
+	z-index -1
+
 .body-preloader
 	position fixed
 	top 0
@@ -123,6 +132,39 @@ body
 		.body-preloader-bcg
 			opacity 0
 
+
+body.region-fixed
+	.region-detail-back
+		margin-bottom 174px
+
+	.region-detail-fixed
+		position fixed
+		top 60px
+		left 0
+		right 0
+
+		padding 20px 0
+		box-sizing border-box
+
+		background $colorSand
+		border-bottom-color $colorMain
+
+		z-index 100
+
+	.region-detail-name
+		font-size 24px
+		margin-right 25px
+		margin-bottom 0
+
+	.region-detail-sections
+		margin-bottom 0
+		margin-top -20px
+
+		.region-detail-sections-item
+			font-size 16px
+
+			&:first-child
+				margin-left 60px
 /*** //Settings ***/
 
 /*** General style ***/
@@ -152,6 +194,9 @@ body
 		max-width 1065px
 		padding 0 20px
 
+	&--w4
+		max-width 790px
+		padding 0 20px
 
 /** header **/
 
@@ -320,7 +365,7 @@ body
 	bottom 0
 	display none
 	width 100%
-	height 100vh
+	min-height 100vh
 	transition transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94), opacity 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94)
 	z-index 99
 
@@ -490,6 +535,9 @@ body
 .link-black
 	color #4a4a4a
 
+.link-dark
+	color #1A1A1A
+
 .link-black--bottom
 	border-bottom 1px solid #4a4a4a
 	transition border-bottom-color 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94)
@@ -554,6 +602,12 @@ body
 		border-bottom-color $colorSand
 		color $colorSand
 
+.link--sand
+	transition color 0.3s $transitionAnimation, color 0.3s $transitionAnimation
+
+	&:hover
+		color $colorSand
+
 .button
 	width 100%
 	padding 15px 0
@@ -571,6 +625,16 @@ body
 	&:hover
 		opacity 0.8
 		border-radius 15px
+
+.button--white
+	border 2px solid transparent
+	border-radius 25px
+	padding 8px 10px
+	box-sizing border-box
+	transition border-color 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94), color 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94), border-radius 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94), opacity 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+
+	&:hover
+		border-color $colorSand
 
 .button--sand
 	border-radius 20px
@@ -668,15 +732,33 @@ body
 
 		color #4c4c4c
 
+	img
+		display block
+		width 100%
+
 	.center
 		text-align center
 
-.img
-	display block
-	width 100%
+.slider-container
+	position relative
+	margin-top 50px
+
+	overflow hidden
+
+	.slider-nav-counter
+		position absolute
+		bottom 60px
+		left 50%
+
+		margin-left -13.5px
+
+		font-family "LeksaPro"
+		font-size 18px
+
+		line-height 22px
 
 .slider
-	margin-bottom 85px
+	margin-bottom 50px
 	box-sizing border-box
 
 	.owl-item
@@ -686,7 +768,7 @@ body
 			&:before
 				content ""
 				display block
-				padding-top 80%
+				padding-top 63%
 
 			img
 				position absolute
@@ -703,21 +785,21 @@ body
 
 		.slider-item-note
 			display block
-			max-width 600px
+			max-width 60%
 			width 100%
 
 			margin 50px auto 0 auto
 
-			line-height 28px
+			line-height 24px
 			text-align center
 
-			font-size 20px
+			font-size 16px
 			font-family "LeksaProItalic"
 
 			opacity 0
-			transition transform 0.6s $transitionAnimation, opacity 0.6s $transitionAnimation
-			transition-delay 1s
-			transform translateY(50px)
+			transition transform 0.6s $transitionAnimation, opacity 0.3s $transitionAnimation
+			transition-delay 1.5s
+			transform translateY(10px)
 
 			color #4C4C4C
 
@@ -782,6 +864,49 @@ body
 							&.arrow
 								transform translateX(15px)
 
+	&--one
+		.owl-nav
+			position absolute
+			left 0
+			right 0
+			bottom 80px
+
+			display block
+			width 100%
+
+			.owl-prev
+				position absolute
+				top 0
+				left 0
+
+				display block
+				width 30px
+
+				transition opacity 0.3s $transitionAnimation
+
+				svg
+					display block
+					width 100%
+
+				&:hover
+					opacity 0.6
+
+			.owl-next
+				position absolute
+				top 0
+				right  0
+
+				display block
+				width 30px
+
+				transition opacity 0.3s $transitionAnimation
+
+				svg
+					display block
+					width 100%
+
+				&:hover
+					opacity 0.6
 /** //region **/
 
 
@@ -849,7 +974,7 @@ body
 			max-width 30%
 			width 100%
 
-			margin-right 4%
+			margin-right 5%
 
 			&:nth-child(3n)
 			&:last-child
@@ -866,16 +991,31 @@ body
 				margin-right 0
 
 		.flex-container
+			position relative
 			display block
 			margin-bottom 40px
 
 			overflow hidden
 
 			img
+				position absolute
+				top 0
+				left 0
+				right 0
+				bottom 0
+
 				display block
 				width 100%
+				height 100%
+
+				object-fit cover
 
 				transition transform 0.3s $transitionAnimation
+
+			&:before
+				content ""
+				display block
+				padding-top 75%
 
 		.flex-name
 			display block
@@ -1011,7 +1151,7 @@ body
 	align-items end
 	justify-content flex-start
 	flex-wrap wrap
-	width 1050px
+	max-width 1050px
 	margin-bottom 65px
 
 .products-list
@@ -1022,9 +1162,21 @@ body
 
 		margin-right 4%
 
+		transition opacity 0.3s $transitionAnimation, transform 0.3s $transitionAnimation
+
 		&:nth-child(3n)
 		&:last-child
 			margin-right 0
+
+		&.load-events-item
+			opacity 0
+			transform scale(0.8)
+
+		&.hide-block
+			display none
+
+		&.hide
+			transform scale(0.8)
 
 .products-item
 	.products-container
@@ -1072,7 +1224,7 @@ body
 		.products-name
 			a
 				opacity 0.6
-.home-rubric
+.rubric
 	line-height 20px
 	margin-bottom 20px
 	text-transform uppercase
@@ -1136,6 +1288,8 @@ body
 .home-records-item
 	.home-records-container
 		img
+			display block
+			width 100%
 			transition transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94)
 
 .home-records-item
@@ -1365,8 +1519,13 @@ body
 .region-detail
 	margin-top 55px
 
-	.region-detail-logo
+	.region-detail-fixed
+		position relative
+		text-align center
+		border-bottom 1px solid transparent
+		transition background 0.3s $transitionAnimation, border-color 0.3s $transitionAnimation
 
+	.region-detail-logo
 		display block
 		max-width 100px
 		width 100%
@@ -1382,16 +1541,19 @@ body
 		font-size 24px
 
 	.region-detail-name
-		display block
+		display inline-block
 		margin-bottom 55px
 		text-align center
 		font-size 60px
 		font-weight 600
 
+		transition transform 0.6s $transitionAnimation
+
 	.region-detail-sections
 		display flex
 		justify-content center
 		align-items center
+		flex-wrap wrap
 
 		margin-bottom 45px
 
@@ -1403,7 +1565,7 @@ body
 			font-family "HarmoniaSansProCyrBold"
 
 			&:last-child
-				margin-right 0px
+				margin-right 0
 
 	.region-container
 		width 100%
@@ -1508,20 +1670,84 @@ body
 
 		.more-container
 			margin-top 90px
+
 /** //regions detail **/
+.social-block
+	display flex
+	justify-content space-between
+	align-items center
+	flex-wrap wrap
+
+	width 100%
+
+	margin-bottom 50px
+
+	.social-item
+		display flex
+		align-items center
+		justify-content center
+		flex-grow 1
+
+		padding 10px 0
+
+		border-top 1px solid #e3e3e3
+		border-bottom 1px solid #e3e3e3
+		border-left 1px solid #e3e3e3
+
+		cursor pointer
+
+		transition background 0.3s $transitionAnimation, border-color 0.3s $transitionAnimation
+
+		&:last-child
+			border-right 1px solid #e3e3e3
+
+		.social-item-icon
+			display block
+			width auto
+			height 17px
+
+			margin-right 15px
+
+			svg
+				display block
+				width auto
+				max-width 20px
+				height 100%
+
+				path
+					fill #9B9B9B
+					transition fill 0.3s $transitionAnimation
+
+		.social-item-count
+			font-size 16px
+			color #9B9B9B
+			transition color 0.3s $transitionAnimation
+
+		&:hover
+			background $colorSand
+			border-color $colorSand
+
+			svg
+				path
+					fill $colorMain
+
+			.social-item-count
+				color $colorMain
+
+
 
 .region-section
 	position relative
 
 	.region-section-bcg
-		position absolute
+		position fixed
 		top 0
 		left 0
 		right 0
 
 		display block
 		width 100%
-		height 80vh
+		height 100vh
 
 		z-index -10
 
@@ -1565,7 +1791,269 @@ body
 		color #ffffff
 
 	.region-section-container
-		padding 60px 20px 80px 20px
+		padding 60px 0 80px 0px
 		box-sizing border-box
 
 		background #ffffff
+
+	.region-section-prop
+		display flex
+		justify-content center
+		align-items center
+		margin-bottom 50px
+
+		.region-section-date
+			margin-right 20px
+			font-size 12px
+
+			text-transform uppercase
+
+			color #9B9B9B
+
+		.region-section-views
+			display flex
+			align-items center
+			margin-right 20px
+
+			.region-section-views-icon
+				width 30px
+				margin-right 5px
+
+				svg
+					display block
+					width 100%
+
+			.region-section-views-count
+				font-size 12px
+				color #9B9B9B
+
+		.region-section-topic
+			font-size 12px
+			text-transform uppercase
+			color #9B9B9B
+
+	h1
+		text-align center
+		font-family "HarmoniaSansProCyrBold"
+		margin-bottom 35px
+
+	.region-section-showmap
+		text-align center
+
+		.region-section-button
+			display flex
+			align-items center
+			justify-content center
+			max-width 150px
+			width 100%
+
+			margin 0 auto
+
+			.button-svg
+				width 15px
+				margin-right 10px
+				svg
+					display block
+					width 100%
+
+			.button-text
+				font-size 16px
+				font-family "HarmoniaSansProCyrBold"
+
+				text-transform lowercase
+				color #C69C6D
+
+	.region-section-info
+		margin 30px auto 0 auto
+		max-width 750px
+
+		img
+			margin-bottom 50px
+
+		h2
+			display block
+
+			margin-bottom 40px
+
+			padding 0 20px
+			box-sizing border-box
+
+			line-height 36px
+
+			font-size 28px
+			font-family "LeksaPro"
+
+			text-align center
+
+			color #4C4C4C
+
+	.region-tags
+		display flex
+		align-items center
+		margin-bottom 50px
+
+		padding-top 80px
+		box-sizing border-box
+
+		border-top 1px solid #e3e3e3
+
+		.region-tags-title
+			margin-right 100px
+			font-weight 600
+
+		.region-tags-name
+			display block
+			margin-right 30px
+
+			font-family "LeksaPro"
+			font-weight 600
+			color #1A1A1A
+
+			&:last-child
+				margin-right 0
+
+	.region-section-similar
+		padding-top 80px
+
+		.flex-list
+			margin-bottom 0
+
+		.region-section-similar-more
+			display flex
+			justify-content space-between
+			align-items flex-end
+			margin-bottom 50px
+
+			.region-section-similar-title
+				font-size 28px
+				font-weight 600
+				color #000000
+
+			.region-section-similar-container
+				position relative
+				display flex
+				flex-wrap wrap
+				padding-right 55px
+
+				.region-section-similar-all
+					margin-right 20px
+
+					font-family "LeksaProItalic"
+					font-size 16px
+
+					color #4A4A4A
+
+				.region-section-similar-category
+					padding-bottom 5px
+
+					font-size 14px
+					font-weight 600
+
+					text-transform uppercase
+
+					color #4A4A4A
+
+				&:after
+					content ""
+					position absolute
+					top 50%
+					right 0
+
+					display block
+					width 35px
+					height 20px
+					margin-top -10px
+
+					background-image url("../svg/arrow-one-right.svg")
+					background-size contain
+					background-repeat no-repeat
+					background-position center
+
+					transition transform 0.3s $transitionAnimation
+
+				&:hover
+					&:after
+						transform translateX(15px)
+
+	.region-section-list
+		margin-top 50px
+		padding 0 50px
+		box-sizing border-box
+
+	.products-filter
+		display flex
+		justify-content center
+		align-items center
+
+		margin-top 55px
+		margin-bottom 90px
+
+		.products-filter-item
+			margin-right 30px
+			padding-bottom 2px
+			box-sizing border-box
+
+			font-size 18px
+			font-family "HarmoniaSansProCyrBold"
+
+			border-bottom 1px solid transparent
+
+			transition color 0.3s $transitionAnimation, border-bottom-color 0.3s $transitionAnimation
+
+			&:last-child
+				margin-right 0
+
+			&.active
+			&:hover
+				color #333333
+				border-bottom-color #333333
+
+.products-detail
+	.slider-container
+		.slider-nav-counter
+			bottom 35px
+
+	.slider--one
+		margin-bottom 85px
+
+		.owl-nav
+			bottom -30px
+
+			width 200px
+
+			margin 0 auto
+
+	h1
+		margin-bottom 20px
+		text-align center
+
+	.slider
+		.owl-item
+			.slider-item-holder
+				&:before
+					padding-top 50%
+
+	.products-category
+		margin-bottom 60px
+		font-size 12px
+		text-align center
+		color #9B9B9B
+
+	.products-section
+		display flex
+		justify-content center
+		align-items center
+
+		margin-bottom 50px
+
+		padding-bottom 45px
+		box-sizing border-box
+
+		border-bottom 1px solid #929292
+
+		.products-section-item
+			margin-right 60px
+			cursor pointer
+
+			&:last-child
+				margin-right 0

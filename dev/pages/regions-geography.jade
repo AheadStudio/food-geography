@@ -10,22 +10,22 @@ block content
             div(class="region-section-name") Адыгея
             div(class="page-inner page-inner--w3")
                 div(class="region-section-container")
-                    div(class="region-section-prop")
-                        div(class="region-section-date") 31 Января 2018
-                        div(class="region-section-views")
-                            span(class="region-section-views-icon")
-                                include ../../prod/svg/views.svg
-                            span(class="region-section-views-count") 290
-                        div(class="region-section-topic") Достопримечательности
-                    div(class="region-section-title") Гора Фишт
-                    div(class="region-section-showmap")
-                        button(class="button button--white region-section-button", data-goto="#map")
-                            span(class="button-svg")
-                                include ../../prod/svg/point.svg
-                            span(class="button-text") на карте
-                    div(class="region-section-info")
-                        div(class="page-text")
-                            img(src="../dummy/geography/1.jpg")
+                    div(class="page-text")
+                        div(class="region-section-prop")
+                            div(class="region-section-date") 31 Января 2018
+                            div(class="region-section-views")
+                                span(class="region-section-views-icon")
+                                    include ../../prod/svg/views.svg
+                                span(class="region-section-views-count") 290
+                            div(class="region-section-topic") Достопримечательности
+                        h1 Гора Фишт
+                        div(class="region-section-showmap")
+                            button(class="button button--white region-section-button", data-goto="#map")
+                                span(class="button-svg")
+                                    include ../../prod/svg/point.svg
+                                span(class="button-text") на карте
+                        div(class="region-section-info")
+                            img(src="../dummy/geography-img.jpg")
                             h2 О горной группе Фишта часто говорят как об «острове сокровищ», ведь в геологическом прошлом Адыгея была дном океана Тетис, а современные горы – коралловым рифом.  
                             p Одно из самых известных и красивых мест Кавказа – горный массив в западной части Главного Кавказского хребта, образованный тремя вершинами: Фишт (2867,7 м), высшая точка плато Лаго-Наки, Пшехо-Су (2743 м) и Оштен (2804 м). 
                             p Своей красотой и богатством природы Фишт покоряет сердца людей, сюда стекаются маршруты туристов, скалолазов и спелеологов. Одной из ярких особенностей Фишта является его строение: внутри он пустотелый, как губка, пронизанный сотнями ходов, галереями карстовых пещер. Одна из пещер получила название «Крестик-турист», она считается самой глубокой в России: глубина 650 метров, длина подземных ходов – более 16 км. Также на Фиште находится водопад высотой около 200 метров, который является одним из самых высоких водопадов России. Фишт переводится как «Седая голова», склоны его славятся скальными обрывами и ледниками, ползущими вниз. У подножия горы Фишта произрастают более 130 видов растений-эндемиков, которые больше нигде в мире не встречаются. Здесь же находится Фиштинская котловина – самое «мокрое» место России, где каждый день после обеда идет снег или дождь.
@@ -57,6 +57,53 @@ block content
                                         div(class="slider-item-note") Одна из пещер получила название «Крестик-турист», она считается самой глубокой в России
                                 div(class="slider-nav-counter")
                                     span(class="slider-nav-counter-current") 9
-                                    span(class="slider-nav-counter-divider")/
+                                    span(class="slider-nav-counter-divider") / 
                                     span(class="slider-nav-counter-all") 17
-                                
+                            div(class="region-tags")
+                                div(class="region-tags-title") Теги
+                                a(href="#", class="link link-dark link-black--bottom region-tags-name") Горы
+                                a(href="#", class="link link-dark link-black--bottom region-tags-name") Адыгея
+                                a(href="#", class="link link-dark link-black--bottom region-tags-name") Памятники природы
+                            div(class="social-block")
+                                div(class="social-item")
+                                    div(class="social-item-icon")
+                                        include ../../prod/svg/fb.svg
+                                    div(class="social-item-count") 23
+                                div(class="social-item")
+                                    div(class="social-item-icon")
+                                        include ../../prod/svg/vk.svg
+                                    div(class="social-item-count") 341
+                                div(class="social-item")
+                                    div(class="social-item-icon")
+                                        include ../../prod/svg/tw.svg
+                                    div(class="social-item-count") 10
+            
+            div(class="region-section-similar", style="background: #fafafa;")
+                div(class="page-inner page-inner--w2")
+                    div(class="region-section-similar-more") 
+                        div(class="region-section-similar-title") Еще по теме
+                        div(class="region-section-similar-container")
+                            div(class="region-section-similar-all") Все из категории
+                            a(href="#", class="link link-black link-black--bottom-reverse region-section-similar-category") Достопримечательности
+                    div(class="flex-list")
+                        div(class="flex-item flex-item--30")
+                            a(href="#", class="flex-container")
+                                img(src="../dummy/news/news_1.png")
+                            div(class="rubric")
+                                a(href="#", class="link link-gray link-gray--bottom-reverse") АДЫГЕЯ
+                            a(href="#", class="link link-black flex-name") Легенда о Верблюд-горе
+                            div(class="flex-text") Мы же расскажем легенду о скале, что на северном отроге горы Шидехет в Адыгее.
+                        div(class="flex-item flex-item--30")
+                            a(href="#", class="flex-container")
+                                img(src="../dummy/news/news_2.png")
+                            div(class="rubric")
+                                a(href="#", class="link link-gray link-gray--bottom-reverse") Карачаево-черкессия
+                            a(href="#", class="link link-black flex-name") Плато Бермамыт
+                            div(class="flex-text") Плато Бермамыт как туристический объект пользуется популярностью ещё со времён Лермонтова.
+                        div(class="flex-item flex-item--30")
+                            a(href="#", class="flex-container")
+                                img(src="../dummy/news/news_3.png")
+                            div(class="rubric")
+                                a(href="#", class="link link-gray link-gray--bottom-reverse") АДЫГЕЯ
+                            a(href="#", class="link link-black flex-name") Хаджохская теснина
+                            div(class="flex-text") Каждого гостя Адыгеи обязательно везут сюда, чтобы показать это удивительное чудо природы. 
