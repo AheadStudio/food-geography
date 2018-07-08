@@ -659,15 +659,12 @@ body.region-fixed
 		display flex
 		justify-content space-between
 
-.form
 	.form-row--60
 		width 58%
 
-.form
 	.form-row--40
 		width 38%
 
-.form
 	.form-item
 		display block
 		width 100%
@@ -679,7 +676,6 @@ body.region-fixed
 		color #4a4a4a
 		transition border-radius 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94)
 
-.form
 	.form-item:focus
 		border-radius 15px
 
@@ -739,6 +735,35 @@ body.region-fixed
 	.center
 		text-align center
 
+	dl
+		position relative
+		margin-top 60px
+		margin-bottom 55px
+		overflow hidden
+
+		dt
+			width 48%
+			float left
+			margin-right 4%
+			margin-bottom 30px
+
+			line-height 28px
+
+			font-family "HarmoniaSansProCyrBold"
+			font-size 18px
+
+			color #4f4f4f
+
+		dd
+			width 48%
+			float left
+			margin-bottom 30px
+
+			line-height 28px
+
+			font-size 18px
+			color #4c4c4c
+
 .slider-container
 	position relative
 	margin-top 50px
@@ -756,6 +781,11 @@ body.region-fixed
 		font-size 18px
 
 		line-height 22px
+
+.region-section
+	.slider-container
+		.slider-nav-counter
+			bottom 110px
 
 .slider
 	margin-bottom 50px
@@ -909,7 +939,6 @@ body.region-fixed
 					opacity 0.6
 /** //region **/
 
-
 /** load **/
 
 .load
@@ -953,7 +982,6 @@ body.region-fixed
 			animation-timing-function linear
 
 /** //load **/
-
 
 .flex-list
 	display flex
@@ -1059,6 +1087,117 @@ body.region-fixed
 			.flex-name
 				opacity 0.6
 
+.toggle-text-container
+	display none
+	transform translateX(-50px)
+	opacity 0
+
+	transition transform 0.3s $transitionAnimation, opacity 0.3s $transitionAnimation
+
+	&.active
+		display block
+
+	&.active-animation
+		transform translateX(0)
+		opacity 1
+
+/** regions tags **/
+
+.region-tags
+	display flex
+	align-items center
+	margin-bottom 50px
+
+	padding-top 50px
+	box-sizing border-box
+
+	border-top 1px solid #929292
+
+	.region-tags-title
+		margin-right 100px
+		font-weight 600
+
+	.region-tags-name
+		display block
+		margin-right 30px
+
+		font-family "LeksaPro"
+		font-weight 600
+		color #1A1A1A
+
+		&:last-child
+			margin-right 0
+
+/** //region tags **/
+
+
+/** region section similar **/
+
+.region-section-similar
+	padding-top 80px
+
+	.flex-list
+		margin-bottom 0
+
+	.region-section-similar-more
+		display flex
+		justify-content space-between
+		align-items flex-end
+		margin-bottom 50px
+
+		.region-section-similar-title
+			font-size 28px
+			font-weight 600
+			color #000000
+
+		.region-section-similar-container
+			position relative
+			display flex
+			flex-wrap wrap
+			padding-right 55px
+
+			.region-section-similar-all
+				margin-right 20px
+
+				font-family "LeksaProItalic"
+				font-size 16px
+
+				color #4A4A4A
+
+			.region-section-similar-category
+				padding-bottom 5px
+
+				font-size 14px
+				font-weight 600
+
+				text-transform uppercase
+
+				color #4A4A4A
+
+			&:after
+				content ""
+				position absolute
+				top 50%
+				right 0
+
+				display block
+				width 35px
+				height 20px
+				margin-top -10px
+
+				background-image url("../svg/arrow-one-right.svg")
+				background-size contain
+				background-repeat no-repeat
+				background-position center
+
+				transition transform 0.3s $transitionAnimation
+
+			&:hover
+				&:after
+					transform translateX(15px)
+
+/** region section similar **/
+
 /*** //general style ***/
 
 
@@ -1133,10 +1272,6 @@ body.region-fixed
 		height 620px
 
 .home-products
-	display flex
-	align-items center
-	justify-content center
-	flex-flow column
 	padding 100px 0 140px 0
 
 .home-products
@@ -1151,8 +1286,8 @@ body.region-fixed
 	align-items end
 	justify-content flex-start
 	flex-wrap wrap
-	max-width 1050px
-	margin-bottom 65px
+
+	padding-bottom 65px
 
 .products-list
 	.products-item
@@ -1887,94 +2022,6 @@ body.region-fixed
 
 			color #4C4C4C
 
-	.region-tags
-		display flex
-		align-items center
-		margin-bottom 50px
-
-		padding-top 80px
-		box-sizing border-box
-
-		border-top 1px solid #e3e3e3
-
-		.region-tags-title
-			margin-right 100px
-			font-weight 600
-
-		.region-tags-name
-			display block
-			margin-right 30px
-
-			font-family "LeksaPro"
-			font-weight 600
-			color #1A1A1A
-
-			&:last-child
-				margin-right 0
-
-	.region-section-similar
-		padding-top 80px
-
-		.flex-list
-			margin-bottom 0
-
-		.region-section-similar-more
-			display flex
-			justify-content space-between
-			align-items flex-end
-			margin-bottom 50px
-
-			.region-section-similar-title
-				font-size 28px
-				font-weight 600
-				color #000000
-
-			.region-section-similar-container
-				position relative
-				display flex
-				flex-wrap wrap
-				padding-right 55px
-
-				.region-section-similar-all
-					margin-right 20px
-
-					font-family "LeksaProItalic"
-					font-size 16px
-
-					color #4A4A4A
-
-				.region-section-similar-category
-					padding-bottom 5px
-
-					font-size 14px
-					font-weight 600
-
-					text-transform uppercase
-
-					color #4A4A4A
-
-				&:after
-					content ""
-					position absolute
-					top 50%
-					right 0
-
-					display block
-					width 35px
-					height 20px
-					margin-top -10px
-
-					background-image url("../svg/arrow-one-right.svg")
-					background-size contain
-					background-repeat no-repeat
-					background-position center
-
-					transition transform 0.3s $transitionAnimation
-
-				&:hover
-					&:after
-						transform translateX(15px)
-
 	.region-section-list
 		margin-top 50px
 		padding 0 50px
@@ -2035,8 +2082,14 @@ body.region-fixed
 
 	.products-category
 		margin-bottom 60px
+
+		letter-spacing 2px
+
 		font-size 12px
+
 		text-align center
+		text-transform uppercase
+
 		color #9B9B9B
 
 	.products-section
@@ -2055,5 +2108,67 @@ body.region-fixed
 			margin-right 60px
 			cursor pointer
 
+			&.active
+				color #c69c6d
+
 			&:last-child
 				margin-right 0
+
+	.products-information-container
+		display none
+
+		transform scale(0.8)
+		opacity 0
+
+		transition transform 0.3s $transitionAnimation, opacity 0.3s $transitionAnimation
+
+		&.active
+			display block
+
+		&.active-animation
+			opacity 1
+			transform scale(1)
+
+	.products-shops
+		padding-bottom 40px
+		margin-bottom 50px
+
+		border-bottom 1px solid #929292
+
+		.products-shops-title
+			margin-bottom 50px
+
+			font-size 14px
+
+			text-transform uppercase
+			color #4A4A4A
+
+		.products-shops-list
+			display flex
+			justify-content space-between
+			align-items center
+
+			.products-shops-item
+				width 32%
+				height 112px
+
+				margin-right 2%
+
+				&:nth-child(3n)
+					margin-right 0
+
+				&:last-child
+					margin-right 0
+
+				img
+					height 100%
+					object-fit contain
+
+			.page-text
+				width 100%
+
+			dl
+				margin 0
+
+			.products-link
+				white-space nowrap

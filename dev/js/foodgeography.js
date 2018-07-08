@@ -541,8 +541,11 @@
 
 						setTimeout(function() {
 							self.preloaderContainer.addClass("hide");
-							$sel.body.removeClass("open-menu");
 						}, 2000);
+
+						setTimeout(function() {
+							$sel.body.removeClass("open-menu");
+						}, 2400);
 
 						setTimeout(function() {
 							self.preloaderContainer.remove();
@@ -637,6 +640,99 @@
 			},
 
 
+			toggleElements: {
+
+				init: function() {
+					var self = this;
+
+					self.toggleBlock();
+					self.toggleText();
+				},
+
+				toggleText: function() {
+					var self = this,
+						$toggle = $(".toggle-text");
+
+					$toggle.each(function() {
+						(function(el) {
+
+							el.on("click", function(e) {
+								var $toggleEl = $(this),
+									toggleName = $toggleEl.data("toggleLink"),
+									toggleLinkTextNew = $toggleEl.attr("data-toggle-text"),
+									toggleLinkTextOld = $toggleEl.text();
+									$container = $sel.body.find("[data-toggle-text='"+toggleName+"']");
+
+								if ($toggleEl.hasClass("active")) {
+									$toggleEl.attr("data-toggle-text", toggleLinkTextOld);
+									$toggleEl.text(toggleLinkTextNew);
+
+									$container.removeClass("active-animation");
+
+									setTimeout(function() {
+										$toggleEl.removeClass("active");
+										$container.removeClass("active");
+									}, 300);
+
+								} else {
+									$toggleEl.addClass("active");
+									$container.addClass("active");
+
+									$toggleEl.attr("data-toggle-text", toggleLinkTextOld);
+									$toggleEl.text(toggleLinkTextNew);
+
+									setTimeout(function() {
+										$container.addClass("active-animation");
+									}, 300);
+
+								}
+
+								e.preventDefault();
+							});
+
+						})($(this));
+					})
+
+				},
+
+				toggleBlock: function() {
+					var self = this,
+						$toggle = $(".toggle");
+
+					$toggle.each(function() {
+						(function(el) {
+							el.on("click", function(e) {
+								var $toggleEl = $(this),
+									toggleId = $toggleEl.attr("id"),
+									$allContainer = $sel.body.find("[data-toggle]"),
+									$container = $sel.body.find("[data-toggle='"+toggleId+"']");
+
+								if (!$toggleEl.hasClass("active")) {
+									$toggle.removeClass("active");
+
+									$allContainer.removeClass("active");
+									$allContainer.removeClass("active-animation");
+
+									$toggleEl.addClass("active");
+									$container.addClass("active");
+
+									setTimeout(function() {
+										$container.addClass("active-animation");
+									}, 300);
+								} else {
+									FOODGEOGRAPHY.common.go($container.offset().top-100, 1000);
+								}
+
+								e.preventDefault();
+							})
+						})($(this));
+					})
+				},
+
+			}
+
+
+
 		};
 
 	})();
@@ -656,6 +752,8 @@
 	FOODGEOGRAPHY.sliders.init();
 
 	FOODGEOGRAPHY.ajaxLoader();
+
+	FOODGEOGRAPHY.toggleElements.init();
 
 	ymaps.ready(function() {
 		FOODGEOGRAPHY.maps.yandexMap.init();
