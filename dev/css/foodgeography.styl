@@ -385,6 +385,7 @@ body.region-fixed
 		transform translateY(-100%)
 		transition transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94), opacity 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94)
 		transition-delay 0.3s
+		overflow-y auto
 
 	.mobile-menu-container
 		padding 80px 0 0 20px
@@ -427,9 +428,11 @@ body.region-fixed
 /** dispatch **/
 
 .dispatch
+	position relative
 	padding 100px 0
 	box-sizing border-box
 	background #c69c6d
+	overflow hidden
 
 	.dispatch-title
 		margin-bottom 70px
@@ -442,6 +445,21 @@ body.region-fixed
 		max-width 640px
 		margin 0 auto
 
+	&:before
+		content ""
+		position absolute
+		top 50%
+		left 0
+		right 0
+
+		width 100%
+		height 70%
+
+		background url("../svg/fill_.svg")
+		background-size contain
+
+		transform translateY(-50%)
+		opacity 0.1
 
 /** //dispatch **/
 
@@ -609,6 +627,14 @@ body.region-fixed
 		border-bottom-color $colorSand
 		color $colorSand
 
+.link--sand-bottom-reverse
+	border-bottom 1px solid $colorSand
+	transition border-bottom-color 0.3s $transitionAnimation, color 0.3s $transitionAnimation
+
+	&:hover
+		border-bottom-color transparent
+		color $colorSand
+
 .link--sand
 	transition color 0.3s $transitionAnimation, color 0.3s $transitionAnimation
 
@@ -697,9 +723,14 @@ body.region-fixed
 			border-radius 15px
 
 	label.error
+		position absolute
+		bottom -20px
+		left 0
+
 		display block
-		font-size 14px
 		margin-top 5px
+
+		font-size 14px
 
 		color #ff0303
 
@@ -1002,6 +1033,16 @@ body.region-fixed
 
 				&:hover
 					opacity 0.6
+
+	.owl-item
+		.slider-item-holder
+			img
+				opacity 0.5 !important
+
+	.owl-item.active
+		.slider-item-holder
+			img
+				opacity 1 !important
 /** //region **/
 
 /** load **/
@@ -1103,7 +1144,7 @@ body.region-fixed
 
 				object-fit cover
 
-				transition transform 0.3s $transitionAnimation
+				transition transform 0.3s $transitionAnimation, opacity 0.3s $transitionAnimation
 
 			&:before
 				content ""
@@ -1144,10 +1185,12 @@ body.region-fixed
 			text-align center
 			font-size 12px
 			color #9B9B9B
+
 		&:hover
 			.flex-container
 				img
-					transform scale(1.1)
+					opacity 0.75
+					transform scale(1.1) translateY(20px)
 
 			.flex-name
 				opacity 0.6
@@ -1385,31 +1428,15 @@ body.region-fixed
 		width 100%
 		margin-bottom 35px
 		background rgba(245,246,249,1)
-		background radial-gradient(ellipse at center, rgba(245,246,249,1) 0%, rgba(245,246,249,1) 19%, rgba(245,246,249,1) 51%, rgba(245,246,249,1) 71%, rgba(227,228,237,1) 96%, rgba(227,228,237,1) 100%)
+		overflow hidden
 
-		.products-holder
-			position absolute
-			top 0
-			left 0
-			right 0
-			bottom 0
-
+		img
 			display block
 			width 100%
 			height 100%
+			object-fit contain
 
-			padding 40px
-			box-sizing border-box
-
-			overflow hidden
-
-			img
-				display block
-				width 100%
-				height 100%
-				object-fit contain
-
-				transition transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94), opacity 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94)
+			transition transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94), opacity 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94)
 
 		&:before
 			content ""
@@ -1458,29 +1485,6 @@ body.region-fixed
 	.flex-list
 		max-width 1140px
 		margin 0 auto
-.home-records-list
-	display flex
-	align-items end
-	justify-content flex-start
-	max-width 1140px
-	margin 0 auto
-	width 100%
-	flex-wrap wrap
-
-.home-records-list
-	.home-records-item
-		display block
-		max-width 30%
-		margin-right 5%
-		margin-bottom 30px
-
-.home-records-list
-	.home-records-item:nth-child(3n)
-		margin-right 0
-
-.home-records-list
-	.home-records-item:last-child
-		margin-right 0
 
 .home-records-item
 	.home-records-container
@@ -2263,12 +2267,16 @@ body.region-fixed
 			margin 0 auto
 
 	h1
-		margin-bottom 20px
+		margin-bottom 30px
 		text-align center
 
+		font-weight 600
+
 	h3
-		text-align center
 		margin-bottom 60px
+		text-align center
+
+		font-family "LeksaPro"
 
 	h4
 		max-width 80%
@@ -2297,12 +2305,17 @@ body.region-fixed
 	padding-top 100px
 
 	h1
-		margin-bottom 20px
+		margin-bottom 60px
+		font-weight 600
 		text-align center
 
 	h3
+		margin-bottom 30px
+
+		font-family "LeksaPro"
+
 		text-align center
-		margin-bottom 60px
+
 
 	h4
 		max-width 80%
@@ -2332,6 +2345,8 @@ body.region-fixed
 		.certificates-item
 			max-width 20%
 			margin-right 6.6666%
+
+			cursor pointer
 
 			&:nth-child(4n)
 			&:last-child

@@ -507,7 +507,7 @@
 								$parent = $(el.currentTarget).closest(".slider-container"),
 								$currentItem = $parent.find(".slider-nav-counter-current");
 								$allItem = $parent.find(".slider-nav-counter-all");
-							
+
 							$currentItem.text(current);
 							$allItem.text(all);
 						}
@@ -774,11 +774,6 @@
 									}
 								});
 
-								$("[data-number]", $form).each(function() {
-									var $item = $(this);
-									$item.mask($item.data("number"));
-								});
-
 								if($form.data("success")) {
 								}
 								$form.validate(formParams);
@@ -790,7 +785,33 @@
 
 				},
 
-			}
+			},
+
+
+			popup: {
+
+				init: function() {
+					var self = this;
+					self.fancyBox();
+				},
+				fancyBox: function() {
+					var $popupItems = $('[data-fancybox="certificate"]');
+
+					$popupItems.fancybox({
+						arrows : true,
+						keyboard : true,
+						buttons : [
+							'close'
+						],
+						defaultType : 'image',
+						animationEffect: "zoom-in-out",
+					});
+
+				}
+			},
+
+
+
 
 		};
 
@@ -812,6 +833,8 @@
 	FOODGEOGRAPHY.filter.init();
 
 	FOODGEOGRAPHY.sliders.init();
+
+	FOODGEOGRAPHY.popup.init();
 
 	FOODGEOGRAPHY.ajaxLoader();
 

@@ -4,6 +4,8 @@ block content
     div(style="background-image: url(../dummy/home/main_bcg.jpg)", class="main-bcg")
         div(class="main-logo")
             include ../../prod/svg/logo.svg
+            
+            
     div(class="home-intro")
         div(class="home-intro-text")
             div(class="page-inner page-inner--w1")
@@ -12,50 +14,48 @@ block content
                     h3 Где-то на востоке – озеро Байкал, Ледовитый океан – очень холодный и он на севере. На Камчатке курятся вулканы, а на Кавказе принято есть шашлык и дарить кинжалы…
                     p Каждый из нас обязательно где-то побывал, увидел что-то новое, необычное, неизведанное... Страна наша огромна, разнообразна и удивительна! Её просторы пропитаны великой историей, исследованы и взлелеяны множеством людей – отчаянных путешественников и упрямых земледельцев, бережно сохранены для нас не только героями, но и простыми людьми, чьих имен мы никогда не узнаем.
                     a(href="about.html", class="link link-black link-black--bottom more") Читать далее
+                    
+                    
     div(class="home-regions")
         div(class="page-text")
             h2 Регионы
             //div(id="mapYandex", data-center="[43.60405218, 39.73541935]", data-zoom="12", data-points="[{name:&quot;1&quot;, position: &quot;43.604412115253794,39.73532647212506&quot;, icon: &quot;&quot;, iconW: 55, iconH: 85, description:&quot;Сочи, ул. Пластунская, 81, 3 этаж, офис 17&quot;}]", class="home-regions-map")
             div(id="mapGoogle", data-lat="64.32109853", data-lng="96.1502769", data-zoom="4.5", class="home-regions-map")
+            
+            
     div(class="home-products")
         div(class="page-text")
-            h2 Продукты
+            h2 Продукты    
         div(class="page-inner page-inner--w2")
-            div(class="products-list")
-                div(class="products-item")
-                    a(href="product-card.html", class="link products-container")
-                        div(class="products-holder")
-                            img(src="../dummy/products/7.jpg")
+            div(class="flex-list")
+                div(class="flex-item flex-item--30")
+                    a(href="product-card.html", class="flex-container")
+                        img(src="../dummy/products/2_rez.jpg")
                     div(class="rubric")
                         a(href="#", class="link link-gray link-gray--bottom-reverse") молочные продукты
-                        span(class="point-delimiter") &#8226;
-                        a(href="#", class="link link-gray link-gray--bottom-reverse") серия &#171;Кавказ&#187;
-                    div(class="products-name")
-                        a(href="product-card.html", class="link link-black link--opacity") Сыр «Лапша» 
-                            | Косичка. Копченый, плетеный
+                        span(class="point-delimiter") &#x20;&#8226;&#x20;
+                        a(href="#", class="link link-gray link-gray--bottom-reverse") серия &#171;Адыгея&#187;
+                    a(href="product-card.html", class="link link-black flex-name") Сыр «Нити». Рассольный
+                    
+                div(class="flex-item flex-item--30")
+                    a(href="product-card.html", class="flex-container")
+                        img(src="../dummy/products/3_rez.jpg")
+                    div(class="rubric")
+                        a(href="#", class="link link-gray link-gray--bottom-reverse") молочные продукты
+                        span(class="point-delimiter") &#x20;&#8226;&#x20;
+                        a(href="#", class="link link-gray link-gray--bottom-reverse") серия &#171;Владивосток&#187;
+                    a(href="product-card.html", class="link link-black flex-name") Сыр «Охотничий».
+                        | Золотистый, копченый
                         
-                div(class="products-item")
-                    a(href="product-card.html", class="link products-container")
-                        div(class="products-holder")
-                            img(src="../dummy/products/2.png")
+                div(class="flex-item flex-item--30")
+                    a(href="#", class="flex-container")
+                        img(src="../dummy/products/4_rez.jpg")
                     div(class="rubric")
                         a(href="#", class="link link-gray link-gray--bottom-reverse") молочные продукты
-                        span(class="point-delimiter") &#8226;
-                        a(href="#", class="link link-gray link-gray--bottom-reverse") серия &#171;Вологда&#187;  
-                    div(class="products-name")
-                        a(href="product-card.html", class="link link-black link--opacity") Сыр «Брынза».
-                            | Рассольный
-                        
-                div(class="products-item")
-                    a(href="product-card.html", class="link products-container")
-                        div(class="products-holder")
-                            img(src="../dummy/products/5.png")      
-                    div(class="rubric")
-                        a(href="#", class="link link-gray link-gray--bottom-reverse") молочные продукты
-                        span(class="point-delimiter") &#8226;
-                        a(href="#", class="link link-gray link-gray--bottom-reverse") серия &#171;Воронеж&#187;
-                    div(class="products-name")
-                        a(href="product-card.html", class="link link-black link--opacity") Зеленый творог
+                        span(class="point-delimiter") &#x20;&#8226;&#x20;
+                        a(href="#", class="link link-gray link-gray--bottom-reverse") серия &#171;Адыгея&#187;
+                    a(href="product-card.html", class="link link-black flex-name") Сыр «Брынза». Рассольный
+                    
         div(class="more-container")        
             a(href="regions-products.html", class="link link-darkgray more") показать все продукты
         
@@ -93,94 +93,3 @@ block content
                         a(href="#", class="link link-gray link-gray--bottom-reverse") АДЫГЕЯ
                     a(href="regions-sights.html", class="link link-black flex-name") Гора Фишт
                     div(class="flex-text") Одно из самых известных и красивых мест Кавказа – горный массив в западной части Главного Кавказского хребта, образованный тремя вершинами: Фишт (2867,7 м), высшая точка плато Лаго-Наки, Пшехо-Су (2743 м) и Оштен (2804 м).
-            //- div(class="home-records-list")
-            //-     div(class="home-records-item")
-            //-         a(href="regions-sights.html", class="link home-records-container")
-            //-             img(src="../dummy/sights/sights_5.jpg", class="img")
-            //-         div(class="rubric")
-            //-             a(href="#", class="link link-gray link-gray--bottom-reverse") ДОСТОПРИМЕЧАТЕЛЬНОСТИ
-            //-             span(class="point-delimiter") &#8226;
-            //-             a(href="#", class="link link-gray link-gray--bottom-reverse") АДЫГЕЯ
-            //-         div(class="home-records-name")
-            //-             a(href="regions-sights.html", class="link link-black link--opacity") Пещера Даховская
-            //-         div(class="home-records-text") Пещера Даховская находится неподалеку от одноименной станицы в Адыгее. Еще эту пещеру называют Грязной.
-            //-     div(class="home-records-item")
-            //-         a(href="regions-sights.html", class="link home-records-container")
-            //-             img(src="../dummy/sights/sights_4.jpg", class="img")
-            //-         div(class="rubric")
-            //-             a(href="#", class="link link-gray link-gray--bottom-reverse") ДОСТОПРИМЕЧАТЕЛЬНОСТИ
-            //-             span(class="point-delimiter") &#8226;
-            //-             a(href="#", class="link link-gray link-gray--bottom-reverse") АДЫГЕЯ
-            //-         div(class="home-records-name")
-            //-             a(href="regions-sights.html", class="link link-black link--opacity") Легенда о водопаде Сердце Руфабго
-            //-         div(class="home-records-text") Недалеко от поселка Хаджох в республике Адыгея, на месте впадения Руфабго в реку Белую лежит огромная каменная глыба, перегородившая этот горный ручей. 
-            //-     div(class="home-records-item")
-            //-         a(href="#", class="link home-records-container")
-            //-             img(src="../dummy/news/news_3.png", class="img")
-            //-         div(class="rubric")
-            //-             a(href="#", class="link link-gray link-gray--bottom-reverse") ДОСТОПРИМЕЧАТЕЛЬНОСТИ
-            //-             span(class="point-delimiter") &#8226;
-            //-             a(href="#", class="link link-gray link-gray--bottom-reverse") АДЫГЕЯ
-            //-         div(class="home-records-name")
-            //-             a(href="#", class="link link-black link--opacity") Легенда о Верблюд-горе
-            //-         div(class="home-records-text") Мы же расскажем легенду о скале, что на северном отроге горы Шидехет в Адыгее.
-            //-     div(class="home-records-item")
-            //-         a(href="#", class="link home-records-container")
-            //-             img(src="../dummy/news/news_4.png", class="img")
-            //-         div(class="rubric")
-            //-             a(href="#", class="link link-gray link-gray--bottom-reverse") ДОСТОПРИМЕЧАТЕЛЬНОСТИ
-            //-             span(class="point-delimiter") &#8226;
-            //-             a(href="#", class="link link-gray link-gray--bottom-reverse") АДЫГЕЯ
-            //-         div(class="home-records-name")
-            //-             a(href="#", class="link link-black link--opacity") Легенда о Верблюд-горе
-            //-         div(class="home-records-text") Мы же расскажем легенду о скале, что на северном отроге горы Шидехет в Адыгее.
-            //-     div(class="home-records-item")
-            //-         a(href="#", class="link home-records-container")
-            //-             img(src="../dummy/news/news_5.png", class="img")
-            //-         div(class="rubric")
-            //-             a(href="#", class="link link-gray link-gray--bottom-reverse") ДОСТОПРИМЕЧАТЕЛЬНОСТИ
-            //-             span(class="point-delimiter") &#8226;
-            //-             a(href="#", class="link link-gray link-gray--bottom-reverse") АДЫГЕЯ
-            //-         div(class="home-records-name")
-            //-             a(href="#", class="link link-black link--opacity") Легенда о Верблюд-горе
-            //-         div(class="home-records-text") Мы же расскажем легенду о скале, что на северном отроге горы Шидехет в Адыгее.
-            //-     div(class="home-records-item")
-            //-         a(href="#", class="link home-records-container")
-            //-             img(src="../dummy/news/news_6.png", class="img")
-            //-         div(class="rubric")
-            //-             a(href="#", class="link link-gray link-gray--bottom-reverse") ДОСТОПРИМЕЧАТЕЛЬНОСТИ
-            //-             span(class="point-delimiter") &#8226;
-            //-             a(href="#", class="link link-gray link-gray--bottom-reverse") АДЫГЕЯ
-            //-         div(class="home-records-name")
-            //-             a(href="#", class="link link-black link--opacity") Легенда о Верблюд-горе
-            //-         div(class="home-records-text") Мы же расскажем легенду о скале, что на северном отроге горы Шидехет в Адыгее.
-            //-     div(class="home-records-item")
-            //-         a(href="#", class="link home-records-container")
-            //-             img(src="../dummy/news/news_7.png", class="img")
-            //-         div(class="rubric")
-            //-             a(href="#", class="link link-gray link-gray--bottom-reverse") ДОСТОПРИМЕЧАТЕЛЬНОСТИ
-            //-             span(class="point-delimiter") &#8226;
-            //-             a(href="#", class="link link-gray link-gray--bottom-reverse") АДЫГЕЯ
-            //-         div(class="home-records-name")
-            //-             a(href="#", class="link link-black link--opacity") Легенда о Верблюд-горе
-            //-         div(class="home-records-text") Мы же расскажем легенду о скале, что на северном отроге горы Шидехет в Адыгее.
-            //-     div(class="home-records-item")
-            //-         a(href="#", class="link home-records-container")
-            //-             img(src="../dummy/news/news_8.png", class="img")
-            //-         div(class="rubric")
-            //-             a(href="#", class="link link-gray link-gray--bottom-reverse") ДОСТОПРИМЕЧАТЕЛЬНОСТИ
-            //-             span(class="point-delimiter") &#8226;
-            //-             a(href="#", class="link link-gray link-gray--bottom-reverse") АДЫГЕЯ
-            //-         div(class="home-records-name")
-            //-             a(href="#", class="link link-black link--opacity") Легенда о Верблюд-горе
-            //-         div(class="home-records-text") Мы же расскажем легенду о скале, что на северном отроге горы Шидехет в Адыгее.
-            //-     div(class="home-records-item")
-            //-         a(href="#", class="link home-records-container")
-            //-             img(src="../dummy/news/news_9.png", class="img")
-            //-         div(class="rubric")
-            //-             a(href="#", class="link link-gray link-gray--bottom-reverse") ДОСТОПРИМЕЧАТЕЛЬНОСТИ
-            //-             span(class="point-delimiter") &#8226;
-            //-             a(href="#", class="link link-gray link-gray--bottom-reverse") АДЫГЕЯ
-            //-         div(class="home-records-name")
-            //-             a(href="#", class="link link-black link--opacity") Легенда о Верблюд-горе
-            //-         div(class="home-records-text") Мы же расскажем легенду о скале, что на северном отроге горы Шидехет в Адыгее.
