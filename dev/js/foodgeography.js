@@ -456,7 +456,7 @@
 
 					$owlSliderFull.owlCarousel({
 						margin: 50,
-						loop: true,
+						//loop: true,
 						autoWidth: true,
 						nav: true,
 						smartSpeed: 1500,
@@ -487,7 +487,7 @@
 					});
 
 					$owlSliderOne.owlCarousel({
-						loop: true,
+						//loop: true,
 						margin: 20,
 						nav: true,
 						smartSpeed: 1500,
@@ -507,7 +507,7 @@
 								$parent = $(el.currentTarget).closest(".slider-container"),
 								$currentItem = $parent.find(".slider-nav-counter-current");
 								$allItem = $parent.find(".slider-nav-counter-all");
-							console.log(el);
+							
 							$currentItem.text(current);
 							$allItem.text(all);
 						}
@@ -729,11 +729,71 @@
 					})
 				},
 
+			},
+
+
+			forms:{
+				init: function() {
+					var self = this;
+
+					self.validate.init($(".form"));
+				},
+
+				validate: {
+
+					init: function($form) {
+						var self = this;
+
+						$form.each(function() {
+							(function($form) {
+								var $formFields = $form.find("[data-error]"),
+									formParams = {
+										rules: {
+										},
+										messages: {
+										}
+									};
+
+								$.validator.addMethod("mobileRU", function(phone_number, element) {
+									phone_number = phone_number.replace(/\(|\)|\s+|-/g, "");
+									return this.optional(element) || phone_number.length > 5 && phone_number.match(/^((8|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{6,10}$/);
+								}, "Error");
+
+								$formFields.each(function() {
+									var $field = $(this),
+										fieldPattern = $field.data("pattern"),
+										fieldError = $field.data("error");
+									if(fieldError) {
+										formParams.messages[$field.attr("name")] = $field.data("error");
+									} else {
+										formParams.messages[$field.attr("name")] = "Ошибка заполнения";
+									}
+									if(fieldPattern) {
+										formParams.rules[$field.attr("name")] = {};
+										formParams.rules[$field.attr("name")][fieldPattern] = true;
+									}
+								});
+
+								$("[data-number]", $form).each(function() {
+									var $item = $(this);
+									$item.mask($item.data("number"));
+								});
+
+								if($form.data("success")) {
+								}
+								$form.validate(formParams);
+
+							})($(this))
+						});
+
+					},
+
+				},
+
 			}
 
-
-
 		};
+
 
 	})();
 
@@ -743,6 +803,8 @@
 	FOODGEOGRAPHY.header.init();
 
 	FOODGEOGRAPHY.maps.googleMap();
+
+	FOODGEOGRAPHY.forms.init();
 
 	FOODGEOGRAPHY.mobileMenu.init();
 

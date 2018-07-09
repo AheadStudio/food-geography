@@ -1,0 +1,37 @@
+extends ../templates/base
+
+block content
+    div(class="content-top")
+        div(class="region-section")
+            div(class="region-section-bcg")
+                img(src="../dummy/regions/regions-img.jpg")
+            div(class="region-section-logo")
+                include ../../prod/svg/regions-logo-white.svg
+            div(class="region-section-name") Адыгея
+            div(class="page-inner page-inner--w2")
+                div(class="region-section-container")
+                    div(class="page-text")
+                        h1 Кухня
+                        div(class="region-section-showmap")
+                            button(class="button button--white region-section-button", data-goto="#map")
+                                span(class="button-svg")
+                                    include ../../prod/svg/point.svg
+                                span(class="button-text") на карте
+                    
+                    div(class="region-section-list")    
+                        div(class="flex-list")
+                            div(class="flex-item flex-item--30")
+                                a(href="#", class="flex-container")
+                                    img(src="../dummy/kitchen/1.jpg")
+                                a(href="#", class="link link-black flex-name") Адыгейский сыр
+                                div(class="flex-text") Адыги с древнейших времён вырабатывают кисломолочные и сычужные сыры, вкусные, полезные и практичные в хранении.
+                            div(class="flex-item flex-item--30")
+                                a(href="#", class="flex-container")
+                                    img(src="../dummy/kitchen/2.jpg")
+                                a(href="#", class="link link-black flex-name") Щху – кислое молоко
+                                div(class="flex-text") Самым известным и популярным кисломолочным продуктом адыгейской кухни, без которого не обходится ни один стол, является кислое молоко – щху.
+                            div(class="flex-item flex-item--30")
+                                a(href="#", class="flex-container")
+                                    img(src="../dummy/kitchen/7.jpg")
+                                a(href="#", class="link link-black flex-name") Халюж – чебуреки с адыгейским сыром
+                                div(class="flex-text") Очень вкусные пирожки с адыгейским сыром, мягкие внутри и хрустящие снаружи, по форме – маленькие чебуреки. Особенно хороши они с пылу с жару – сочные и воздушные!

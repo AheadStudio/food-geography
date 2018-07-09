@@ -258,6 +258,9 @@ body.region-fixed
 
 		text-transform uppercase
 
+		&.active
+			color #fff
+
 .header-form
 	max-width 235px
 	min-width 200px
@@ -439,6 +442,7 @@ body.region-fixed
 		max-width 640px
 		margin 0 auto
 
+
 /** //dispatch **/
 
 
@@ -534,6 +538,9 @@ body.region-fixed
 
 .link-black
 	color #4a4a4a
+
+.link-send
+	color $colorSand
 
 .link-dark
 	color #1A1A1A
@@ -674,10 +681,27 @@ body.region-fixed
 		border-radius 5px
 		background #fff
 		color #4a4a4a
-		transition border-radius 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94)
 
-	.form-item:focus
-		border-radius 15px
+		border 1px solid transparent
+
+		transition border-radius 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94), border-color 0.3s $transitionAnimation, background 0.3s $transitionAnimation
+
+		&.error
+			border-color #ff0303
+
+		&:hover
+			border-radius 15px
+			background #dbdbdb
+
+		&:focus
+			border-radius 15px
+
+	label.error
+		display block
+		font-size 14px
+		margin-top 5px
+
+		color #ff0303
 
 /** //form **/
 
@@ -717,6 +741,11 @@ body.region-fixed
 		line-height 36px
 		font-size 28px
 		font-family "LeksaProItalic"
+
+	h4
+		color #4A4A4A
+		line-height 34px
+		font-size 24px
 
 	p
 		margin-bottom 25px
@@ -763,6 +792,42 @@ body.region-fixed
 
 			font-size 18px
 			color #4c4c4c
+
+	ul
+		display block
+		margin-bottom 30px
+
+		li
+			position relative
+			display block
+			padding-left 40px
+			box-sizing border-box
+			margin-bottom 20px
+
+			font-size 18px
+			font-family "LeksaPro"
+
+			color #4c4c4c
+
+			&:before
+				content "\2022"
+				position absolute
+				left 10px
+				top -2px
+
+	strong
+		font-weight 600
+	b
+		font-weight 600
+	i
+		font-style italic
+
+	figure
+		display block
+
+	figcaption
+		margin-top 20px
+		font-size 14px
 
 .slider-container
 	position relative
@@ -1389,6 +1454,10 @@ body.region-fixed
 		margin-bottom 70px
 		text-align center
 
+.home-records
+	.flex-list
+		max-width 1140px
+		margin 0 auto
 .home-records-list
 	display flex
 	align-items end
@@ -2135,6 +2204,9 @@ body.region-fixed
 
 		border-bottom 1px solid #929292
 
+		&--notborder
+			border-bottom none
+
 		.products-shops-title
 			margin-bottom 50px
 
@@ -2172,3 +2244,98 @@ body.region-fixed
 
 			.products-link
 				white-space nowrap
+
+.about
+	padding-bottom 130px
+
+	.slider-container
+		.slider-nav-counter
+			bottom 35px
+
+	.slider--one
+		margin-bottom 85px
+
+		.owl-nav
+			bottom -30px
+
+			width 200px
+
+			margin 0 auto
+
+	h1
+		margin-bottom 20px
+		text-align center
+
+	h3
+		text-align center
+		margin-bottom 60px
+
+	h4
+		max-width 80%
+		margin 0 auto
+		padding 50px 0 60px 0
+		box-sizing border-box
+
+		text-align center
+
+	.slider
+		.owl-item
+			.slider-item-holder
+				&:before
+					padding-top 50%
+
+	.about-connection
+		max-width 80%
+		margin 90px auto 0 auto
+		line-height 34px
+
+		font-size 24px
+
+		text-align center
+
+.quality
+	padding-top 100px
+
+	h1
+		margin-bottom 20px
+		text-align center
+
+	h3
+		text-align center
+		margin-bottom 60px
+
+	h4
+		max-width 80%
+		margin 0 auto
+		padding 50px 0 60px 0
+		box-sizing border-box
+
+		text-align center
+
+.certificates
+	margin-top 100px
+	padding 85px 0 115px 0
+
+	.certificates-title
+		margin-bottom 85px
+		line-height 26px
+		font-size 28px
+		text-align center
+		color #000
+
+	.certificates-list
+		display flex
+		justify-content flex-start
+		align-items flex-start
+		flex-wrap wrap
+
+		.certificates-item
+			max-width 20%
+			margin-right 6.6666%
+
+			&:nth-child(4n)
+			&:last-child
+				margin-right 0
+
+			img
+				width 100%

@@ -27,36 +27,45 @@
             "name": "Главная",
             "progress": {
                 "desktop": "100",
-                "tablet": "100",
-                "mobile": "100"
+                "tablet": "0",
+                "mobile": "0"
             }
         },
-        "regions": {
-            "name": "Регионы",
-            "progress": {
-                "desktop": "100",
-                "tablet": "100",
-                "mobile": "100"
-            }
-        },
-        "regions-load": {
-            "name": "Регионы-Подгрузка",
-            "progress": {
-                "desktop": "100",
-                "tablet": "100",
-                "mobile": "100"
-            }
-        },
-        "regions-detail": {
-            "name": "Регион: детальная",
+        "about": {
+            "name": "О проекте",
             "progress": {
                 "desktop": "100",
                 "tablet": "0",
                 "mobile": "0"
             }
         },
-        "regions-geography": {
-            "name": "Регион: география",
+        "quality": {
+            "name": "Качество",
+            "progress": {
+                "desktop": "100",
+                "tablet": "0",
+                "mobile": "0"
+            }
+        },
+        "regions": {
+            "name": "Регионы",
+            "progress": {
+                "desktop": "100",
+                "tablet": "0",
+                "mobile": "0"
+            }
+        },
+        "regions-load": {
+            "name": "Регионы (подгрузка)",
+            "progress": {
+                "desktop": "100",
+                "tablet": "0",
+                "mobile": "0"
+            },
+            "fordev": true
+        },
+        "regions-detail": {
+            "name": "Регион: детальная",
             "progress": {
                 "desktop": "100",
                 "tablet": "0",
@@ -79,16 +88,49 @@
                 "mobile": "0"
             }
         },
-        "products-load": {
-            "name": "Регион: продукты(подгрузка)",
+        "regions-culture": {
+            "name": "Регион: культура и обычаи",
             "progress": {
                 "desktop": "100",
                 "tablet": "0",
                 "mobile": "0"
             }
         },
+        "regions-kitchen": {
+            "name": "Регион: кухня",
+            "progress": {
+                "desktop": "100",
+                "tablet": "0",
+                "mobile": "0"
+            }
+        },
+        "products-load": {
+            "name": "Регион: продукты(подгрузка)",
+            "progress": {
+                "desktop": "100",
+                "tablet": "0",
+                "mobile": "0"
+            },
+            "fordev": true
+        },
         "product-card": {
             "name": "Карточка продукта",
+            "progress": {
+                "desktop": "100",
+                "tablet": "0",
+                "mobile": "0"
+            }
+        },
+        "culture-card": {
+            "name": "Карточка культуры",
+            "progress": {
+                "desktop": "100",
+                "tablet": "0",
+                "mobile": "0"
+            }
+        },
+        "sights-card": {
+            "name": "Карточка достопримечательности",
             "progress": {
                 "desktop": "100",
                 "tablet": "0",

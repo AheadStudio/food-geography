@@ -21,11 +21,11 @@ html(lang="ru", class="no-js", prefix="og:http://ogp.me/ns#")
 			title: info.title,
 			description: info.description,
 			url: info.productionUrl,
-			image: info.image
+			image: "../i/og.jpg"
 		}) 
 		+webIcons({
 			favicon: {
-				src: "i/favicon.ico"
+				src: "../i/favicon.ico"
 			},
 			appleTouchIcon: [
 				{
@@ -81,22 +81,22 @@ html(lang="ru", class="no-js", prefix="og:http://ogp.me/ns#")
 						{
 							name: "О проекте",
 							href: "about.html",
-							linkClass: "link link--white active",
+							linkClass: page.code == "about" ? "link link--white active" : "link link--white",
 							title: "",
 						}, {
 							name: "Регионы",
 							href: "regions.html",
-							linkClass: "link link--white",
+							linkClass: page.code == "regions" ? "link link--white active" : "link link--white",
 							title: "",
 						}, {
 							name: "Продукты",
-							href: "products.html",
-							linkClass: "link link--white",
+							href: "regions-products.html",
+							linkClass: page.code == "regions-products" ? "link link--white active" : "link link--white",
 							title: "",
 						}, {
 							name: "Качество",
 							href: "quality.html",
-							linkClass: "link link--white",
+							linkClass:  page.code == "quality" ? "link link--white active" : "link link--white",
 							title: "",
 						}
 					]
@@ -119,7 +119,7 @@ html(lang="ru", class="no-js", prefix="og:http://ogp.me/ns#")
 			form(class="form")
 				div(class="form-row")
 					div(class="form-row--60")
-						input(type="text", placeholder="Ваш е-майл", class="form-item form--text")
+						input(type="email", id="email", placeholder="Ваш е-майл", class="form-item form--text", data-error="Ваш Email", aria-required="true", required)
 					div(class="form-row--40")
 						button(type="submit", class="button button--dark form-send") Отправить
 		
@@ -193,6 +193,8 @@ html(lang="ru", class="no-js", prefix="og:http://ogp.me/ns#")
 				src: "http://api-maps.yandex.ru/2.0/?load=package.full&amp;lang=ru-RU"
 			}, {
 			    src: "https://maps.googleapis.com/maps/api/js?key=AIzaSyDOtcx9Sm_hunFMGzh4eqe_XRkFUYMWIao&amp;amp;sensor=true"
+			}, {
+			    src: "../js/plugins/jquery.validate.min.js"
 			}, {
 			    src: "../js/plugins/owl.carousel.js"
 			}, {

@@ -1,0 +1,40 @@
+extends ../templates/base
+
+block content
+    div(class="content-top")
+        div(class="region-section")
+            div(class="region-section-bcg")
+                img(src="../dummy/regions/regions-img.jpg")
+            div(class="region-section-logo")
+                include ../../prod/svg/regions-logo-white.svg
+            div(class="region-section-name") Адыгея
+            div(class="page-inner page-inner--w2")
+                div(class="region-section-container")
+                    div(class="page-text")
+                        h1 Культура и обычаи
+                        div(class="region-section-showmap")
+                            button(class="button button--white region-section-button", data-goto="#map")
+                                span(class="button-svg")
+                                    include ../../prod/svg/point.svg
+                                span(class="button-text") на карте
+                    
+                    div(class="region-section-list")    
+                        div(class="flex-list")
+                            div(class="flex-item flex-item--30")
+                                a(href="culture-card.html", class="flex-container")
+                                    img(src="../dummy/news/news_7.jpg")
+                                div(class="flex-date") 5 февраля 2018
+                                a(href="culture-card.html", class="link link-black flex-name") Гостеприимство
+                                div(class="flex-text") Гостеприимство считалось одной из основных добродетелей адыгов.
+                            div(class="flex-item flex-item--30")
+                                a(href="culture-card.html", class="flex-container")
+                                    img(src="../dummy/news/news_12.jpg")
+                                div(class="flex-date") 31 января 2018
+                                a(href="#", class="link link-black flex-name") Серебряный ритон
+                                div(class="flex-text") Адыгейский аул Уляп получил мировую известность благодаря кургану № 4-1982 (одному из 11 Уляпских курганов) в котором советским археологом А.М. Лесковым был найден знаменитый серебряный ритон.
+                            div(class="flex-item flex-item--30")
+                                a(href="culture-card.html", class="flex-container")
+                                    img(src="../dummy/news/news_8.png")
+                                div(class="flex-date") 1 февраля 2018
+                                a(href="culture-card.html", class="link link-black flex-name") Традиционное жилище
+                                div(class="flex-text") Традиционное адыгское жилище представляло собой прямоугольный дом с двумя входами.                        
