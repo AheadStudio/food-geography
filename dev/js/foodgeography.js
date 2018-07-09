@@ -456,10 +456,10 @@
 
 					$owlSliderFull.owlCarousel({
 						margin: 50,
-						//loop: true,
-						autoWidth: true,
+						loop: true,
+						autoWidth: false,
 						nav: true,
-						smartSpeed: 1500,
+						smartSpeed: 600,
 						dots: false,
 						lazyLoad: true,
 						lazyLoadEager: 1,
@@ -478,10 +478,10 @@
 								items: 2,
 							},
 							1200: {
-								items: 4,
+								items: 3,
 							},
 							1600: {
-								items: 5,
+								items: 3,
 							}
 						}
 					});
