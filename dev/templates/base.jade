@@ -165,8 +165,9 @@ html(lang="ru", class="no-js", prefix="og:http://ogp.me/ns#")
 		
 		div(class="body-preloader")
 			div(class="body-preloader-bcg")
-			div(class="body-preloader-container")
-				include ../../prod/svg/logo_white.svg
+			if page.code != "home"
+				div(class="body-preloader-container")
+					include ../../prod/svg/logo.svg
 		
 				
 		footer(class="page-footer", itemscope, itemtype="http://schema.org/WPFooter")

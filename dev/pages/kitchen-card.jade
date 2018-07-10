@@ -1,0 +1,72 @@
+extends ../templates/base
+
+block content
+    div(class="content-top")
+        div(class="products-detail")
+            div(class="page-inner page-inner--w3")
+                div(class="page-text")
+                    div(class="slider-container")
+                        div(class="slider slider--one owl-carousel")
+                            div(class="slider-item")
+                                div(class="slider-item-holder")
+                                    img(class="owl-lazy", data-src="../dummy/products/1_full.jpg", src="../dummy/products/1_full.jpg")
+                            div(class="slider-item")
+                                div(class="slider-item-holder")
+                                    img(class="owl-lazy", data-src="../dummy/products/1_full.jpg", src="../dummy/products/1_full.jpg")
+                            div(class="slider-item")
+                                div(class="slider-item-holder")
+                                    img(class="owl-lazy", data-src="../dummy/products/1_full.jpg", src="../dummy/products/1_full.jpg")
+                        div(class="slider-nav-counter")
+                            span(class="slider-nav-counter-current")
+                            span(class="slider-nav-counter-divider") / 
+                            span(class="slider-nav-counter-all") 
+                    div(class="page-inner page-inner--w4")
+                        h1 Адыгейский сыр
+                        div(class="products-information")
+                            p Адыги с древнейших времён вырабатывают кисломолочные и сычужные сыры, вкусные, полезные и практичные в хранении.
+                            p К сычужным сырам относится брынза из овечьего молока. Однако главным национальным видом сыра был и остаётся кисломолочный сыр из коровьего молока. Именно этот сыр и называется "адыгейским". В отличие от плотного сычужного сыра, кисломолочный — мягкий и нежный, буквально тающий во рту.
+                            p Свежий (белый) адыгейский сыр — незаменимая основа для быстрых и легких в приготовлении национальных блюд, таких как поджаренный сыр с луком и красным молотым перцем. Свежий сыр служит начинкой для различных мучных изделий, в том числе маленьких сырных чебуреков и вареников с адыгейским сыром.
+                            p Особый вид адыгейского сыра — копчёный сыр. Теперь его готовят в специальных коптильнях, а раньше – в дымоходе домашнего очага. Копчение придаёт сыру приятный вкус и неповторимый аромат. Такой сыр может храниться месяцами в прохладном проветриваемом месте.
+                            p Также изготавливают сушёный (вяленый) сыр с неограниченным сроком хранения. Важно то, что в любой момент сыр можно подать нежданным гостям с хлебом и чаем, пока готовятся основные блюда. Ведь среди прочих достоинств адыгейской хозяйки немаловажным считается умение быстро накрыть стол в любой непредвиденной ситуации. 
+                            div(class="region-tags")
+                                div(class="region-tags-title") Теги
+                                a(href="#", class="link link-dark link-black--bottom region-tags-name") Адыгейский сыр
+                                a(href="#", class="link link-dark link-black--bottom region-tags-name") Адыгея
+                            div(class="social-block")
+                                a(href="#", class="link social-item")
+                                    div(class="social-item-icon")
+                                        include ../../prod/svg/fb.svg
+                                    div(class="social-item-count") 23
+                                a(href="#", class="link social-item")
+                                    div(class="social-item-icon")
+                                        include ../../prod/svg/vk.svg
+                                    div(class="social-item-count") 341
+                                a(href="#", class="link social-item")
+                                    div(class="social-item-icon")
+                                        include ../../prod/svg/tw.svg
+                                    div(class="social-item-count") 10
+            div(class="region-section-similar", style="background: #fafafa;")
+                div(class="page-inner page-inner--w2")
+                    div(class="region-section-similar-more") 
+                        div(class="region-section-similar-title") Еще по теме
+                        div(class="region-section-similar-container")
+                            div(class="region-section-similar-all") Все из категории
+                            a(href="regions-products.html", class="link link-black link-black--bottom-reverse region-section-similar-category") Адыгея: Кухня 
+                    div(class="flex-list")
+                        div(class="flex-item flex-item--30")
+                            a(href="#", class="flex-container")
+                                img(src="../dummy/kitchen/1.jpg")
+                            a(href="#", class="link link-black flex-name") Адыгейский сыр
+                            div(class="flex-text") Адыги с древнейших времён вырабатывают кисломолочные и сычужные сыры, вкусные, полезные и практичные в хранении.
+                        
+                        div(class="flex-item flex-item--30")
+                            a(href="#", class="flex-container")
+                                img(src="../dummy/kitchen/2.jpg")
+                            a(href="#", class="link link-black flex-name") Щху – кислое молоко
+                            div(class="flex-text") Самым известным и популярным кисломолочным продуктом адыгейской кухни, без которого не обходится ни один стол, является кислое молоко – щху.
+                            
+                        div(class="flex-item flex-item--30")
+                            a(href="#", class="flex-container")
+                                img(src="../dummy/kitchen/3.jpg")
+                            a(href="#", class="link link-black flex-name") Бульон для щипс
+                            div(class="flex-text") В адыгейской кухне щипс является «блюдом №1» и наряду с адыгейским сыром считается «визитной карточкой» национальной кулинарии.

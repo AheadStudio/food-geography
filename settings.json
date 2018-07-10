@@ -104,6 +104,22 @@
                 "mobile": "0"
             }
         },
+        "regions-about": {
+            "name": "Регион: информация",
+            "progress": {
+                "desktop": "100",
+                "tablet": "0",
+                "mobile": "0"
+            }
+        },
+        "regions-history": {
+            "name": "Регион: история",
+            "progress": {
+                "desktop": "100",
+                "tablet": "0",
+                "mobile": "0"
+            }
+        },
         "products-load": {
             "name": "Регион: продукты(подгрузка)",
             "progress": {
@@ -131,6 +147,14 @@
         },
         "sights-card": {
             "name": "Карточка достопримечательности",
+            "progress": {
+                "desktop": "100",
+                "tablet": "0",
+                "mobile": "0"
+            }
+        },
+        "kitchen-card": {
+            "name": "Карточка кухни",
             "progress": {
                 "desktop": "100",
                 "tablet": "0",
