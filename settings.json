@@ -160,6 +160,14 @@
                 "tablet": "0",
                 "mobile": "0"
             }
+        },
+        "page-404": {
+            "name": "404",
+            "progress": {
+                "desktop": "100",
+                "tablet": "0",
+                "mobile": "0"
+            }
         }
     },
     "paths": {

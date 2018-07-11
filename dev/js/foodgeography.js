@@ -141,31 +141,42 @@
 							move = true,
 							$container = $(".region-detail-fixed");
 
-						if ($container.length > 0) {
-							var $nameDirectory = $container.find(".region-detail-name"),
-								nameDirectoryTop = $nameDirectory.offset().top,
-								nameDirectoryLeft = $nameDirectory.offset().left,
-								$firstItem = $container.find(".region-detail-sections-item"),
-								blockOffsetTop = $container.offset().top;
-								firstItemX = $firstItem.offset().left;
-								firstItemY = $firstItem.offset().top;
+						if ($sel.window.width() > "750") {
+							if ($container.length > 0) {
+								var $nameDirectory = $container.find(".region-detail-name"),
+									nameDirectoryTop = $nameDirectory.offset().top,
+									nameDirectoryLeft = $nameDirectory.offset().left,
+									blockOffsetTop = $container.offset().top;
 
-							$sel.window.on("scroll", function() {
-								var	offsetTop = $sel.window.scrollTop();
 
-								if (offsetTop >= blockOffsetTop-60) {
-									$nameDirectory.css("transform", "translate("+Number(firstItemX-nameDirectoryLeft-95)+"px,"+Number(firstItemY-nameDirectoryTop-112)+"px)");
-									$sel.body.addClass("region-fixed");
-									setTimeout(function() {
-										$sel.body.addClass("region-fixed--show");
-									},300)
-								} else {
-									$sel.body.removeClass("region-fixed--show");
-									$sel.body.removeClass("region-fixed");
-									$nameDirectory.css("transform", "translate(0,0)");
-								}
+								$sel.window.on("scroll", function() {
+									var	offsetTop = $sel.window.scrollTop();
 
-							});
+									if (offsetTop >= blockOffsetTop-60) {
+										if (!$sel.body.hasClass("region-fixed")) {
+											var $firstItem = $container.find(".region-detail-sections-item:first"),
+												firstItemX = $firstItem.offset().left,
+												firstItemY = $firstItem.offset().top;
+										}
+
+										$sel.body.addClass("region-fixed");
+										$nameDirectory.css("transform", "translate(" + Number(firstItemX-nameDirectoryLeft-70) + "px, 3px)");
+
+										setTimeout(function() {
+											if ($sel.body.hasClass("region-fixed")) {
+												$sel.body.addClass("region-fixed--show");
+											}
+										}, 300);
+
+									} else {
+
+										$sel.body.removeClass("region-fixed--show");
+										$sel.body.removeClass("region-fixed");
+										$nameDirectory.css("transform", "translate(0,0)");
+									}
+
+								});
+							}
 						}
 
 					})
@@ -568,12 +579,13 @@
 
 						setTimeout(function() {
 							self.preloaderContainer.addClass("hide");
-							$sel.body.removeClass("hide-logo");
 						}, 2000);
 
 						setTimeout(function() {
-							$sel.body.removeClass("open-menu");
-						}, 2400);
+							$sel.body.removeClass("show-logo");
+							$sel.body.addClass("hide-logo");
+							//$sel.body.removeClass("open-menu");
+						}, 2600);
 
 						setTimeout(function() {
 							self.preloaderContainer.remove();
@@ -840,6 +852,49 @@
 			},
 
 
+			animationLoadingPage: {
+
+				loadItems: {},
+
+				init: function() {
+					var self = this,
+						$domLoadItems = $sel.body.find("[data-load]");
+
+					self.loadItems = $domLoadItems;
+					self.loadPage();
+				},
+
+				loadPage: function() {
+					var self = this,
+						timer = 3000;
+
+					$sel.window.on("load", function() {
+
+						self.loadItems.each(function() {
+							var el = $(this);
+
+							el.addClass("element-loading");
+							el.addClass(el.data("loadEffect"));
+
+							setTimeout(function functionName() {
+								el.addClass("active-load");
+							}, timer);
+
+							setTimeout(function functionName() {
+								el.removeClass("element-loading");
+								el.removeClass(el.data("loadEffect"));
+								el.removeClass("active-load");
+							}, timer + 1000);
+
+							timer += 100;
+						});
+
+					});
+
+				},
+
+			},
+
 
 
 		};
@@ -864,6 +919,8 @@
 	FOODGEOGRAPHY.sliders.init();
 
 	FOODGEOGRAPHY.popup.init();
+
+	FOODGEOGRAPHY.animationLoadingPage.init();
 
 	FOODGEOGRAPHY.ajaxLoader();
 

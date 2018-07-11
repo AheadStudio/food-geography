@@ -3,9 +3,9 @@ extends ../templates/base
 block content
     div(class="content-top")
         div(class="regions")
-            div(class="page-text")
+            div(class="page-text", data-load, data-load-effect="opacity")
                 h1(class="center") Регионы
-            div(class="regions-toggle")
+            div(class="regions-toggle", data-load, data-load-effect="opacity")
                 button(class="regions-button button--sand active active-tab", data-tab="tab_1")
                     span(class="button-svg")
                         include ../../prod/svg/point.svg
@@ -15,7 +15,7 @@ block content
                         include ../../prod/svg/grid.svg
                     span(class="button-text") списком
             div(class="regions-tabs")
-                div(class="regions-tab", data-item="tab_1")
+                div(class="regions-tab", data-item="tab_1", data-load, data-load-effect="zoom-opacity")
                     div(class="regions-map")
                         div(id="mapGoogle", data-lat="64.32109853", data-lng="96.1502769", data-zoom="5", class="map")
                 div(class="regions-tab", data-item="tab_2")

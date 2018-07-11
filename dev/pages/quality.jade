@@ -2,7 +2,7 @@ extends ../templates/base
 
 block content
     div(class="content-top")
-        div(class="quality")
+        div(class="quality", data-load, data-load-effect="bottom-opacity")
             div(class="page-inner page-inner--w4")
                 div(class="page-text")
                     h1 Качество
@@ -12,7 +12,7 @@ block content
                     p В случае, если для инспекции предоставляется несколько производств от одного поставщика, то к базовой стоимости добавляется 5000 руб. за каждое инспектируемое производство. 
                     p В случае, если поставщик по каким-то причинам не может полноценно заполнить план управления, к стоимости сертификации добавляется 3000 руб. за дополнительную работу инспектора и эксперта.
                     p С начальными требованиями к поставщикам можно ознакомиться по 
-                        a(href="#", class="link link-send link--sand-bottom-reverse")ссылке.
+                        a(href="#", class="link link-send link--sand-bottom-reverse") ссылке.
             div(class="certificates", style="background: #fafafa;")
                 div(class="page-inner page-inner--w2")
                     div(class="certificates-title") Сертификаты

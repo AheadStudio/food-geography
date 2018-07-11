@@ -3,12 +3,12 @@ extends ../templates/base
 block content
     div(class="content-top")
         div(class="region-detail")
-            div(class="region-detail-logo")
+            div(class="region-detail-logo", data-load, data-load-effect="opacity")
                 include ../../prod/svg/regions-logo.svg
-            div(class="region-detail-back")
+            div(class="region-detail-back", data-load, data-load-effect="opacity")
                 a(href="regions.html", class="link link-black link-black--bottom-reverse") Регионы
             
-            div(class="region-detail-fixed")
+            div(class="region-detail-fixed", data-load, data-load-effect="opacity")
                 div(class="region-detail-name") Адыгея
                 
                 div(class="region-detail-sections")
@@ -18,7 +18,7 @@ block content
                     a(href="#", data-goto=".region-culture", data-goto-margintop="120", class="link link-black link-black--bottom-reverse region-detail-sections-item") Культура и обычаи
                     a(href="#", data-goto=".region-kitchen", data-goto-margintop="120", class="link link-black link-black--bottom-reverse region-detail-sections-item") Кухня
                     
-            div(class="region-container")
+            div(class="region-container", data-load, data-load-effect="bottom-opacity")
                 img(src="../dummy/regions/regions-img.jpg", class="region-img")
                 
             div(class="region-about")

@@ -1,0 +1,13 @@
+extends ../templates/base
+
+block content
+    div(class="page-404")
+        div(class="page-404-container")
+            div(class="page-404-img")
+                include ../../prod/svg/logo.svg
+            div(class="page-text")
+                h1 404
+                h2 Страница не найдена
+                h3 Вернуться на
+                    a(href="home.html", class="link link-white link--white-bottom-reverse") &#160;главную страницу&#160;
+                    | сайта

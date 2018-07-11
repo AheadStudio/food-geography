@@ -1,0 +1,37 @@
+@import "nib"
+$transitionAnimation = cubic-bezier(0.43, 0.5, 0.87, 0.90);
+
+.element-loading.bottom-opacity
+    opacity 0
+    transform translateY(20px)
+
+    transition all 0.3s $transitionAnimation
+
+    &.active-load
+        opacity 1
+        transform translateY(0)
+
+.element-loading.vintage
+    background-color black
+    background-blend-mode luminosity
+
+    transition all 0.6s $transitionAnimation
+
+    &.active-load
+        background-color transparent
+
+.element-loading.zoom-opacity
+    opacity 0
+    transform scale(0.9)
+    transition all 0.8s $transitionAnimation
+
+    &.active-load
+        opacity 1
+        transform scale(1)
+
+.element-loading.opacity
+    opacity 0
+    transition all 0.6s $transitionAnimation
+
+    &.active-load
+        opacity 1
