@@ -27,40 +27,40 @@
             "name": "Главная",
             "progress": {
                 "desktop": "100",
-                "tablet": "0",
-                "mobile": "0"
+                "tablet": "100",
+                "mobile": "100"
             }
         },
         "about": {
             "name": "О проекте",
             "progress": {
                 "desktop": "100",
-                "tablet": "0",
-                "mobile": "0"
+                "tablet": "100",
+                "mobile": "100"
             }
         },
         "quality": {
             "name": "Качество",
             "progress": {
                 "desktop": "100",
-                "tablet": "0",
-                "mobile": "0"
+                "tablet": "100",
+                "mobile": "100"
             }
         },
         "regions": {
             "name": "Регионы",
             "progress": {
                 "desktop": "100",
-                "tablet": "0",
-                "mobile": "0"
+                "tablet": "100",
+                "mobile": "100"
             }
         },
         "regions-load": {
             "name": "Регионы (подгрузка)",
             "progress": {
                 "desktop": "100",
-                "tablet": "0",
-                "mobile": "0"
+                "tablet": "100",
+                "mobile": "100"
             },
             "fordev": true
         },
@@ -68,64 +68,64 @@
             "name": "Регион: детальная",
             "progress": {
                 "desktop": "100",
-                "tablet": "0",
-                "mobile": "0"
+                "tablet": "100",
+                "mobile": "100"
             }
         },
         "regions-sights": {
             "name": "Регион: достопримечательности",
             "progress": {
                 "desktop": "100",
-                "tablet": "0",
-                "mobile": "0"
+                "tablet": "100",
+                "mobile": "100"
             }
         },
         "regions-products": {
             "name": "Регион: продукты",
             "progress": {
                 "desktop": "100",
-                "tablet": "0",
-                "mobile": "0"
+                "tablet": "100",
+                "mobile": "100"
             }
         },
         "regions-culture": {
             "name": "Регион: культура и обычаи",
             "progress": {
                 "desktop": "100",
-                "tablet": "0",
-                "mobile": "0"
+                "tablet": "100",
+                "mobile": "100"
             }
         },
         "regions-kitchen": {
             "name": "Регион: кухня",
             "progress": {
                 "desktop": "100",
-                "tablet": "0",
-                "mobile": "0"
+                "tablet": "100",
+                "mobile": "100"
             }
         },
         "regions-about": {
             "name": "Регион: информация",
             "progress": {
                 "desktop": "100",
-                "tablet": "0",
-                "mobile": "0"
+                "tablet": "100",
+                "mobile": "100"
             }
         },
         "regions-history": {
             "name": "Регион: история",
             "progress": {
                 "desktop": "100",
-                "tablet": "0",
-                "mobile": "0"
+                "tablet": "100",
+                "mobile": "100"
             }
         },
         "products-load": {
             "name": "Регион: продукты(подгрузка)",
             "progress": {
                 "desktop": "100",
-                "tablet": "0",
-                "mobile": "0"
+                "tablet": "100",
+                "mobile": "100"
             },
             "fordev": true
         },
@@ -133,40 +133,40 @@
             "name": "Карточка продукта",
             "progress": {
                 "desktop": "100",
-                "tablet": "0",
-                "mobile": "0"
+                "tablet": "100",
+                "mobile": "100"
             }
         },
         "culture-card": {
             "name": "Карточка культуры",
             "progress": {
                 "desktop": "100",
-                "tablet": "0",
-                "mobile": "0"
+                "tablet": "100",
+                "mobile": "100"
             }
         },
         "sights-card": {
             "name": "Карточка достопримечательности",
             "progress": {
                 "desktop": "100",
-                "tablet": "0",
-                "mobile": "0"
+                "tablet": "100",
+                "mobile": "100"
             }
         },
         "kitchen-card": {
             "name": "Карточка кухни",
             "progress": {
                 "desktop": "100",
-                "tablet": "0",
-                "mobile": "0"
+                "tablet": "100",
+                "mobile": "100"
             }
         },
         "page-404": {
             "name": "404",
             "progress": {
                 "desktop": "100",
-                "tablet": "0",
-                "mobile": "0"
+                "tablet": "100",
+                "mobile": "100"
             }
         }
     },
