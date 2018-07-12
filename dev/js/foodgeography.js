@@ -574,6 +574,7 @@
 
 					$sel.body.addClass("show-logo");
 					self.preloaderContainer.addClass("active");
+					$sel.body.addClass("open-menu");
 
 					$sel.window.on("load", function() {
 
@@ -584,7 +585,7 @@
 						setTimeout(function() {
 							$sel.body.removeClass("show-logo");
 							$sel.body.addClass("hide-logo");
-							//$sel.body.removeClass("open-menu");
+							$sel.body.removeClass("open-menu");
 						}, 2600);
 
 						setTimeout(function() {

@@ -3,12 +3,12 @@ extends ../templates/base
 block content
     div(class="content-top")
         div(class="region-section")
-            div(class="region-section-bcg")
+            div(class="region-section-bcg", data-load, data-load-effect="zoom-opacity")
                 img(src="../dummy/regions/regions-img.jpg")
-            div(class="region-section-logo")
+            div(class="region-section-logo", data-load, data-load-effect="opacity")
                 include ../../prod/svg/regions-logo-white.svg
-            div(class="region-section-name") Адыгея
-            div(class="page-inner page-inner--w3")
+            div(class="region-section-name", data-load, data-load-effect="opacity") Адыгея
+            div(class="page-inner page-inner--w3", data-load, data-load-effect="bottom-opacity")
                 div(class="region-section-container")
                     div(class="page-text")
                         div(class="region-section-prop")
@@ -26,7 +26,7 @@ block content
                                 span(class="button-text") на карте
                         div(class="region-section-info")
                             img(src="../dummy/news/news_7.jpg")
-                            h2 Гостеприимство считалось одной из основных добродетелей адыгов. К числу основополагающих принци¬пов гостеприимства можно отнести:
+                            h2 Гостеприимство считалось одной из основных добродетелей адыгов. К числу основополагающих принципов гостеприимства можно отнести:
                             p К числу основополагающих принци¬пов гостеприимства можно отнести:
                             ul
                                 li Сакральный характер гостеприимства: гость считался посланником бога.
