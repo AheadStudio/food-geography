@@ -1,4 +1,5 @@
-<svg id="Слой_1" data-name="Слой 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 80">
-  <title>fb</title>
-  <path d="M40.37,41.28H29.32V74.16H16.14V41.28H5.08V30.23H16.14v-8.5c0-9.78,6.8-14.88,16.16-14.88,4.68,0,8.5.43,9.78.43V17.47h-6.8c-5.1,0-6.38,2.13-6.38,5.53v7.23H41.65Z" fill="#c69c6d"/>
+<svg version="1.1" id="Слой_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 38 68.6" style="enable-background:new 0 0 38 68.6;" xml:space="preserve">
+<path class="st0" fill="#C69C6D" d="M35.9,35.2h-11v32.9H11.6V35.2H0.6v-11h11.1v-8.5c0-9.8,6.8-14.9,16.2-14.9c4.7,0,8.5,0.4,9.8,0.4v10.2h-6.8
+	c-5.1,0-6.4,2.1-6.4,5.5v7.2h12.8L35.9,35.2z"/>
 </svg>

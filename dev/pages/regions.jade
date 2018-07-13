@@ -5,20 +5,20 @@ block content
         div(class="regions")
             div(class="page-text", data-load, data-load-effect="opacity")
                 h1(class="center") Регионы
-            div(class="regions-toggle", data-load, data-load-effect="opacity")
-                button(class="regions-button button--sand active active-tab", data-tab="tab_1")
+            div(class="toggle-items", data-load, data-load-effect="opacity")
+                button(class="toggle-button button--sand active active-tab", data-tab="tab_1")
                     span(class="button-svg")
                         include ../../prod/svg/point.svg
                     span(class="button-text") на карте
-                button(class="regions-button button--sand", data-tab="tab_2")
+                button(class="toggle-button button--sand", data-tab="tab_2")
                     span(class="button-svg")
                         include ../../prod/svg/grid.svg
                     span(class="button-text") списком
-            div(class="regions-tabs")
-                div(class="regions-tab", data-item="tab_1", data-load, data-load-effect="zoom-opacity")
-                    div(class="regions-map")
+            div(class="tabs")
+                div(class="tab", data-item="tab_1", data-load, data-load-effect="zoom-opacity")
+                    div(class="map-container")
                         div(id="mapGoogle", data-lat="64.32109853", data-lng="96.1502769", data-zoom="5", class="map")
-                div(class="regions-tab", data-item="tab_2")
+                div(class="tab", data-item="tab_2")
                     div(class="page-inner page-inner--w2")
                         div(class="regions-list-container")
                             div(class="regions-list", id="regions-list-load")

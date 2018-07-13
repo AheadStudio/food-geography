@@ -12,32 +12,42 @@ block content
                 div(class="region-section-container")
                     div(class="page-text")
                         h1 Достопримечательности
-                        div(class="region-section-showmap")
-                            button(class="button button--white region-section-button", data-goto="#map")
+                        div(class="toggle-items", data-load, data-load-effect="opacity")
+                            button(class="toggle-button button--sand active active-tab", data-tab="tab_11")
+                                span(class="button-svg")
+                                    include ../../prod/svg/grid.svg
+                                span(class="button-text") списком
+                            button(class="toggle-button button--sand", data-tab="tab_22")
                                 span(class="button-svg")
                                     include ../../prod/svg/point.svg
                                 span(class="button-text") на карте
+                            
                     
-                    div(class="region-section-list")    
-                        div(class="flex-list")
-                            div(class="flex-item flex-item--30")
-                                a(href="sights-card.html", class="flex-container")
-                                    img(src="../dummy/sights/sights_5.jpg")
-                                a(href="sights-card.html", class="link link-black flex-name") Пещера Даховская
-                                div(class="flex-text") Пещера Даховская находится неподалеку от одноименной станицы в Адыгее. Еще эту пещеру называют Грязной.
-                            div(class="flex-item flex-item--30")
-                                a(href="sights-card.html", class="flex-container")
-                                    img(src="../dummy/sights/sights_4.jpg")
-                                a(href="sights-card.html", class="link link-black flex-name") Легенда о водопаде Сердце Руфабго
-                                div(class="flex-text") Недалеко от поселка Хаджох в республике Адыгея, на месте впадения Руфабго в реку Белую лежит огромная каменная глыба, перегородившая этот горный ручей. 
-                            div(class="flex-item flex-item--30")
-                                a(href="sights-card.html", class="flex-container")
-                                    img(src="../dummy/sights/sights_2.jpg")
-                                a(href="sights-card.html", class="link link-black flex-name") Гора Фишт
-                                div(class="flex-text") Одно из самых известных и красивых мест Кавказа – горный массив в западной части Главного Кавказского хребта, образованный тремя вершинами: Фишт (2867,7 м), высшая точка плато Лаго-Наки, Пшехо-Су (2743 м) и Оштен (2804 м).
-                            div(class="flex-item flex-item--30")
-                                a(href="sights-card.html", class="flex-container")
-                                    img(src="../dummy/sights/sights_6.jpg")
-                                a(href="sights-card.html", class="link link-black flex-name") Хаджохская теснина
-                                div(class="flex-text") Каждого гостя Адыгеи обязательно везут сюда, чтобы показать это удивительное чудо природы.
+                    div(class="region-section-list")
+                        div(class="tabs")
+                            div(class="tab", data-item="tab_11")
+                                div(class="flex-list")
+                                    div(class="flex-item flex-item--30")
+                                        a(href="sights-card.html", class="flex-container")
+                                            img(src="../dummy/sights/sights_5.jpg")
+                                        a(href="sights-card.html", class="link link-black flex-name") Пещера Даховская
+                                        div(class="flex-text") Пещера Даховская находится неподалеку от одноименной станицы в Адыгее. Еще эту пещеру называют Грязной.
+                                    div(class="flex-item flex-item--30")
+                                        a(href="sights-card.html", class="flex-container")
+                                            img(src="../dummy/sights/sights_4.jpg")
+                                        a(href="sights-card.html", class="link link-black flex-name") Легенда о водопаде Сердце Руфабго
+                                        div(class="flex-text") Недалеко от поселка Хаджох в республике Адыгея, на месте впадения Руфабго в реку Белую лежит огромная каменная глыба, перегородившая этот горный ручей. 
+                                    div(class="flex-item flex-item--30")
+                                        a(href="sights-card.html", class="flex-container")
+                                            img(src="../dummy/sights/sights_2.jpg")
+                                        a(href="sights-card.html", class="link link-black flex-name") Гора Фишт
+                                        div(class="flex-text") Одно из самых известных и красивых мест Кавказа – горный массив в западной части Главного Кавказского хребта, образованный тремя вершинами: Фишт (2867,7 м), высшая точка плато Лаго-Наки, Пшехо-Су (2743 м) и Оштен (2804 м).
+                                    div(class="flex-item flex-item--30")
+                                        a(href="sights-card.html", class="flex-container")
+                                            img(src="../dummy/sights/sights_6.jpg")
+                                        a(href="sights-card.html", class="link link-black flex-name") Хаджохская теснина
+                                        div(class="flex-text") Каждого гостя Адыгеи обязательно везут сюда, чтобы показать это удивительное чудо природы.
+                            div(class="tab", data-item="tab_22", data-load, data-load-effect="zoom-opacity")
+                                div(class="map-container")
+                                    div(id="mapGoogle", data-lat="64.32109853", data-lng="96.1502769", data-zoom="5", class="map")
                         

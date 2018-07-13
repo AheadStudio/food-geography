@@ -539,16 +539,24 @@
 							'<svg data-name="Слой 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 80"><path d="M40.61 80.82l3.52-3.52-33.89-33.89h109.62v-5H10.24L44.13 4.54 40.61 1 4.23 37.4.71 40.92l3.52 3.52z" fill="#211300"/></svg>',
 							'<svg data-name="Слой 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 119.15 79.8"><path d="M79.29-.02l-3.56 3.54 33.88 33.89H0v5h109.61L75.73 76.28l3.56 3.52 36.38-36.38 3.52-3.52-3.52-3.52z" fill="#211300"/></svg>'
 						],
-						onChange: function (el) {
-							var current = $(el.currentTarget).find(".owl-item:not(.cloned)").index($(".owl-item.active:not(.cloned)")) + 1,
-								all = $(el.currentTarget).find(".owl-item:not(.cloned)").length,
+						onInitialized: function (el) {
+							var currentSlide = el.item.index + 1,
+								allSlide = el.item.count,
 								$parent = $(el.currentTarget).closest(".slider-container"),
 								$currentItem = $parent.find(".slider-nav-counter-current");
 								$allItem = $parent.find(".slider-nav-counter-all");
 
-							$currentItem.text(current);
-							$allItem.text(all);
+							$currentItem.text(currentSlide);
+							$allItem.text(allSlide);
 						}
+					});
+					$owlSliderOne.on("changed.owl.carousel", function(el){
+						var currentSlide = el.item.index + 1,
+							$parent = $(el.currentTarget).closest(".slider-container"),
+							$currentItem = $parent.find(".slider-nav-counter-current");
+							$allItem = $parent.find(".slider-nav-counter-all");
+
+						$currentItem.text(currentSlide);
 					});
 
 				}
@@ -565,16 +573,18 @@
 
 					self.preloaderContainer = $(".body-preloader");
 
-					self.hidePreloader();
+					self.showHidePreloader();
 				},
 
 
-				hidePreloader: function() {
+				showHidePreloader: function() {
 					var self = this;
 
 					$sel.body.addClass("show-logo");
 					self.preloaderContainer.addClass("active");
 					$sel.body.addClass("open-menu");
+
+					FOODGEOGRAPHY.animationLoadingPage.animateSvgLogo();
 
 					$sel.window.on("load", function() {
 
@@ -701,7 +711,8 @@
 								var $toggleEl = $(this),
 									toggleName = $toggleEl.data("toggleLink"),
 									toggleLinkTextNew = $toggleEl.attr("data-toggle-text"),
-									toggleLinkTextOld = $toggleEl.text();
+									toggleLinkTextOld = $toggleEl.text(),
+									$points = $sel.body.find("[data-toggle-text-points='"+toggleName+"']")
 									$container = $sel.body.find("[data-toggle-text='"+toggleName+"']");
 
 								if ($toggleEl.hasClass("active")) {
@@ -709,6 +720,10 @@
 									$toggleEl.text(toggleLinkTextNew);
 
 									$container.removeClass("active-animation");
+
+									if ($points) {
+										$points.css("display", "inline");
+									}
 
 									setTimeout(function() {
 										$toggleEl.removeClass("active");
@@ -721,6 +736,10 @@
 
 									$toggleEl.attr("data-toggle-text", toggleLinkTextOld);
 									$toggleEl.text(toggleLinkTextNew);
+
+									if ($points) {
+										$points.css("display", "none");
+									}
 
 									setTimeout(function() {
 										$container.addClass("active-animation");
@@ -891,6 +910,15 @@
 						});
 
 					});
+
+				},
+
+				animateSvgLogo: function() {
+					var $elSvg = $("#logo-preloader");
+					
+					if ($elSvg.length > 0) {
+						new Vivus("logo-preloader", {duration: 200}, function() {});
+					}
 
 				},
 
