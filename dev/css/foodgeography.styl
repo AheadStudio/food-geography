@@ -92,18 +92,20 @@ body.open-menu
 
 	.body-preloader-bcg
 		position absolute
-		top 0
+		top 50%
 		right 0
 		bottom 0
-		left 0
+		left 50%
 
 		display block
-		width 100%
-		height 100vh
+		width 300px
+		height 300px
+
+		margin-left -150px
+		margin-top -150px
 
 		background #333333
-
-		transform: translateY(-100%);
+		border-radius 50%
 
 		opacity 0
 
@@ -133,7 +135,7 @@ body.open-menu
 	&.active
 		.body-preloader-bcg
 			opacity 1
-			transform translateY(0)
+			transform scale(10)
 
 	&.active
 		.body-preloader-container
@@ -148,7 +150,7 @@ body.open-menu
 			transition-delay 0s
 
 		.body-preloader-bcg
-			transform translateY(100%)
+			opacity 0
 
 body
 	&.show-logo
@@ -208,6 +210,13 @@ body.region-fixed--show
 		.region-detail-sections-item
 			font-family "HarmoniaSansProCyrRegular"
 			color #fff
+
+			&:after
+				background #fff
+
+			&:hover
+				&:after
+					background #fff
 
 
 /*** //Settings ***/
@@ -270,7 +279,6 @@ body.region-fixed--show
 
 .fixed-header
 	.page-header
-		box-shadow 0px -15px 25px 15px rgb(51, 51, 51, 0.8)
 		background #333
 
 .header-logo--mini
@@ -286,13 +294,38 @@ body.region-fixed--show
 			width 35px
 			margin-right 15px
 
+			svg
+				path
+					&[fill="#c69c6d"]
+						transition fill 0.3s $transitionAnimation
+
 		&:nth-child(2)
 			width 130px
+
+			svg
+				path
+					&[fill="#c69c6d"]
+						transition fill 0.3s $transitionAnimation
 
 		svg
 			display block
 			width 100%
 
+	&:hover
+		.header-logo-icon
+			&:nth-child(1)
+				svg
+					path
+						&[fill="#c69c6d"]
+							fill #fff
+
+			&:nth-child(2)
+				width 130px
+
+				svg
+					path
+						&[fill="#c69c6d"]
+							fill #fff
 .header-menu
 	max-width 470px
 	width 100%
@@ -561,9 +594,6 @@ body.region-fixed--show
 			display block
 			max-width 20px
 			height 20px
-
-			transition transform 0.3s $transitionAnimation
-
 			svg
 				display block
 				width 100%
@@ -573,8 +603,6 @@ body.region-fixed--show
 					transition fill 0.3s $transitionAnimation
 
 			&:hover
-				transform translateY(-2.5px)
-
 				svg
 					path
 						fill #fff
@@ -618,7 +646,7 @@ body.region-fixed--show
 .link-black
 	color #4a4a4a
 
-.link-send
+.link-sand
 	color $colorSand
 
 .link-dark
@@ -642,6 +670,27 @@ body.region-fixed--show
 		&:after
 			opacity 0
 			transform translateY(5px)
+
+.link-black--bottom-color
+	position relative
+
+	&:after
+		content ""
+		position absolute
+		top 100%
+		left 0
+		width 100%
+		height 1px
+		background #4a4a4a
+
+		transition background 0.3s $transitionAnimation
+
+	&:hover
+		color $colorSand
+
+		&:after
+			background $colorSand
+
 
 
 .link-text-show--left
@@ -839,6 +888,13 @@ body.region-fixed--show
 	&:hover
 		color $colorSand
 
+.link--sand
+	h2
+		transition color 0.3s $transitionAnimation, color 0.3s $transitionAnimation
+
+		&:hover
+			color $colorSand
+
 .button
 	width 100%
 
@@ -861,8 +917,7 @@ body.region-fixed--show
 	color #fff
 
 	&:hover
-		opacity 0.8
-		border-radius 15px
+		background #000
 
 .button--white
 	border 2px solid transparent
@@ -920,14 +975,10 @@ body.region-fixed--show
 		transition border-radius 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94), border-color 0.3s $transitionAnimation, background 0.3s $transitionAnimation
 
 		&.error
-			border-color #ff0303
+			background #f7d6d6
 
 		&:hover
-			border-radius 15px
-			background #dbdbdb
-
-		&:focus
-			border-radius 15px
+			background #fff
 
 	label.error
 		position absolute
@@ -1215,13 +1266,21 @@ body.region-fixed--show
 					path
 						stroke-width 4px
 
+						&[fill="none"]
+							transition stroke 0.3s $transitionAnimation
+
 						&.arrow
-							transition transform 0.3s $transitionAnimation
+							transition transform 0.3s $transitionAnimation, fill 0.3s $transitionAnimation
+
 				&:hover
 					svg
 						path
+
+							&[fill="none"]
+								stroke $colorSand
+
 							&.arrow
-								transform translateX(-15px)
+								fill $colorSand
 
 			.owl-next
 				position absolute
@@ -1241,13 +1300,21 @@ body.region-fixed--show
 					path
 						stroke-width 4px
 
+						&[fill="none"]
+							transition stroke 0.3s $transitionAnimation
+
 						&.arrow
-							transition transform 0.3s $transitionAnimation
+							transition transform 0.3s $transitionAnimation, fill 0.3s $transitionAnimation
+
 				&:hover
 					svg
 						path
+
+							&[fill="none"]
+								stroke $colorSand
+
 							&.arrow
-								transform translateX(15px)
+								fill $colorSand
 
 	&--one
 		.owl-item
@@ -1270,14 +1337,18 @@ body.region-fixed--show
 				display block
 				width 30px
 
-				transition opacity 0.3s $transitionAnimation
-
 				svg
 					display block
 					width 100%
 
+					path
+						transition fill 0.3s $transitionAnimation
+
+
 				&:hover
-					opacity 0.6
+					svg
+						path
+							fill $colorSand
 
 			.owl-next
 				position absolute
@@ -1287,14 +1358,18 @@ body.region-fixed--show
 				display block
 				width 30px
 
-				transition opacity 0.3s $transitionAnimation
-
 				svg
 					display block
 					width 100%
 
+					path
+						transition fill 0.3s $transitionAnimation
+
+
 				&:hover
-					opacity 0.6
+					svg
+						path
+							fill $colorSand
 
 
 /** //region **/
@@ -1426,7 +1501,7 @@ body.region-fixed--show
 				display block
 				padding-top 75%
 
-			&:after
+			/*&:after
 				content ""
 				position absolute
 
@@ -1444,7 +1519,7 @@ body.region-fixed--show
 
 				transform translate3d(0,70%,0)
 
-				transition opacity 0.3s $transitionAnimation, transform 0.3s $transitionAnimation
+				transition opacity 0.3s $transitionAnimation, transform 0.3s $transitionAnimation*/
 
 		.flex-name
 			display block
@@ -1455,7 +1530,7 @@ body.region-fixed--show
 
 			text-align center
 
-			transition opacity 0.3s $transitionAnimation
+			transition color 0.3s $transitionAnimation
 
 			color #000
 
@@ -1493,12 +1568,12 @@ body.region-fixed--show
 				img
 					transform scale(1.1)
 
-				&:after
+				/*&:after
 					opacity 1
-					transform translate3d(0,20%,0)
+					transform translate3d(0,20%,0)*/
 
 			.flex-name
-				opacity 0.6
+				color $colorSand
 
 
 	&--products
@@ -1553,8 +1628,13 @@ body.region-fixed--show
 		font-weight 600
 		color #1A1A1A
 
+		transition color 0.3s $transitionAnimation
+
 		&:last-child
 			margin-right 0
+
+		&:hover
+			color $colorSand
 
 /** //region tags **/
 
@@ -1969,7 +2049,7 @@ body.region-fixed--show
 		font-size 34px
 		text-align left
 
-		transition transform 0.3s $transitionAnimation
+		transition color 0.3s $transitionAnimation
 
 	&:hover
 		.regions-container
@@ -1986,7 +2066,7 @@ body.region-fixed--show
 				transform scale(1)
 
 		.regions-name
-			transform translateX(5%)
+			color $colorSand
 
 
 /** //regions **/
@@ -2209,10 +2289,10 @@ body.region-fixed--show
 
 			svg
 				path
-					fill $colorMain
+					fill #fff
 
 			.social-item-count
-				color $colorMain
+				color #fff
 
 
 
@@ -2259,6 +2339,19 @@ body.region-fixed--show
 		padding-top 55px
 		margin 0 auto 35px auto
 
+		svg
+			display block
+			width 100%
+
+			path[fill="#fff"]
+				transition fill 0.3s $transitionAnimation
+
+		&:hover
+			svg
+				path[fill="#fff"]
+					fill $colorSand
+
+
 	.region-section-name
 		display block
 		width 100%
@@ -2269,6 +2362,11 @@ body.region-fixed--show
 		font-size 54px
 
 		color #ffffff
+
+		transition color 0.3s $transitionAnimation
+
+		&:hover
+			color $colorSand
 
 	.region-section-container
 		padding 60px 20px 80px 20px
@@ -2496,6 +2594,9 @@ body.region-fixed--show
 			opacity 1
 			transform scale(1)
 
+		.products-type
+			white-space nowrap
+
 	.products-shops
 		padding-bottom 40px
 		margin-bottom 50px
@@ -2666,7 +2767,7 @@ body.region-fixed--show
 			&:hover
 				transform scale(1.05)
 				box-shadow 0px 0px 0px 10px rgba(255,255,255,1) 1px 11px 15px 10px rgba(0,0,0,0.4)
-				z-index 100
+				z-index 90
 				opacity 1
 
 .page-404
@@ -2730,3 +2831,27 @@ body.region-fixed--show
 			text-align center
 
 			color #ffffff
+
+
+.region-tooltip
+	display block
+
+	.region-tooltip-container
+		display block
+		height 100px
+		margin-bottom 15px
+		background-size contain
+		background-repeat no-repeat
+
+
+	.region-tooltip-name
+		display block
+		margin-bottom 10px
+		font-size 24px
+		color #000
+
+	.region-tooltip-section-item
+		display block
+		margin-bottom 10px
+		font-size 18px
+		color #4A4A4A

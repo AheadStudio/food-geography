@@ -220,87 +220,159 @@
 
 
 			maps: {
-				googleMap: function() {
-					$("#mapGoogle", $sel.body).each(function() {
-						var $map = $(this),
-							lng = parseFloat($map.data("lng"), 10) || 0,
-							lat = parseFloat($map.data("lat"), 10) || 0,
-							zoom = parseInt($map.data("zoom"));
+				googleMap: {
 
-						var options = {
-							center: new google.maps.LatLng(lat, lng),
-							zoom: zoom,
-							mapTypeControl: false,
-							panControl: false,
-							zoomControl: true,
-							zoomControlOptions: {
-								style: google.maps.ZoomControlStyle.LARGE,
-								position: google.maps.ControlPosition.TOP_RIGHT
-							},
-							scaleControl: true,
-							streetViewControl: true,
-							streetViewControlOptions: {
-								position: google.maps.ControlPosition.TOP_RIGHT
-							},
-							mapTypeId: google.maps.MapTypeId.ROADMAP,
-							styles: [
-								{"featureType": "landscape", "stylers": [
-									{"saturation": -100},
-									{"lightness": 0},
-									{"visibility": "on"}
-								]},
-								{"featureType": "poi", "stylers": [
-									{"saturation": -300},
-									{"lightness": -10},
-									{"visibility": "simplified"}
-								]},
-								{"featureType": "road.highway", "stylers": [
-									{"saturation": -100},
-									{"visibility": "simplified"}
-								]},
-								{"featureType": "road.arterial", "stylers": [
-									{"saturation": -100},
-									{"lightness": 0},
-									{"visibility": "on"}
-								]},
-								{"featureType": "road.local", "stylers": [
-									{"saturation": -100},
-									{"lightness": 0},
-									{"visibility": "on"}
-								]},
-								{"featureType": "transit", "stylers": [
-									{"saturation": -100},
-									{"visibility": "simplified"}
-								]},
-								{"featureType": "administrative.province", "stylers": [
-									{"visibility": "off"}
-								]},
-								{"featureType": "water", "elementType": "labels", "stylers": [
-									{"visibility": "on"},
-									{"lightness": -25},
-									{"saturation": -100}
-								]},
-								{"featureType": "water", "elementType": "geometry", "stylers": [
-									{"hue": "#ffff00"},
-									{"lightness": -25},
-									{"saturation": -97}
-								]}
-							]
-						};
+					init: function() {
+						var self =  this;
 
-						var iconMap= {
-							url: $map.data("icon"),
-							size: new google.maps.Size(45, 65),
-						};
-						var api = new google.maps.Map($map[0], options);
-						var point = new google.maps.Marker({
-							position: new google.maps.LatLng(lat, lng),
-							map: api,
-							icon: $map.data("icon")
+						self.startGoogle();
+					},
+
+					startGoogle: function() {
+						var self = this;
+
+						$("#mapGoogle", $sel.body).each(function() {
+							var $map = $(this),
+								lng = parseFloat($map.data("lng"), 10) || 0,
+								lat = parseFloat($map.data("lat"), 10) || 0,
+								zoom = parseInt($map.data("zoom"));
+
+							var options = {
+								center: new google.maps.LatLng(lat, lng),
+								zoom: zoom,
+								mapTypeControl: false,
+								panControl: false,
+								zoomControl: true,
+								zoomControlOptions: {
+									style: google.maps.ZoomControlStyle.LARGE,
+									position: google.maps.ControlPosition.TOP_RIGHT
+								},
+								scaleControl: true,
+								streetViewControl: true,
+								streetViewControlOptions: {
+									position: google.maps.ControlPosition.TOP_RIGHT
+								},
+								mapTypeId: google.maps.MapTypeId.ROADMAP,
+								styles: [
+									{"featureType": "landscape", "stylers": [
+										{"saturation": -100},
+										{"lightness": 0},
+										{"visibility": "on"}
+									]},
+									{"featureType": "poi", "stylers": [
+										{"saturation": -300},
+										{"lightness": -10},
+										{"visibility": "simplified"}
+									]},
+									{"featureType": "road.highway", "stylers": [
+										{"saturation": -100},
+										{"visibility": "simplified"}
+									]},
+									{"featureType": "road.arterial", "stylers": [
+										{"saturation": -100},
+										{"lightness": 0},
+										{"visibility": "on"}
+									]},
+									{"featureType": "road.local", "stylers": [
+										{"saturation": -100},
+										{"lightness": 0},
+										{"visibility": "on"}
+									]},
+									{"featureType": "transit", "stylers": [
+										{"saturation": -100},
+										{"visibility": "simplified"}
+									]},
+									{"featureType": "administrative.province", "stylers": [
+										{"visibility": "off"}
+									]},
+									{"featureType": "water", "elementType": "labels", "stylers": [
+										{"visibility": "on"},
+										{"lightness": -25},
+										{"saturation": -100}
+									]},
+									{"featureType": "water", "elementType": "geometry", "stylers": [
+										{"hue": "#ffff00"},
+										{"lightness": -25},
+										{"saturation": -97}
+									]}
+								]
+							};
+
+							var iconMap= {
+								url: $map.data("icon"),
+								size: new google.maps.Size(45, 65),
+							};
+
+							var map = new google.maps.Map($map[0], options);
+
+							var marker = new google.maps.Marker({
+								position: new google.maps.LatLng(lat, lng),
+								map: map,
+								icon: $map.data("icon")
+							});
+
+							var infoRegion = $map.data("info");
+
+							var infoBubbleContent =
+								'<div class="region-tooltip">' +
+    								'<a href="'+infoRegion.link+'" class="region-tooltip-container" style="background-image: url('+infoRegion.icon+')"></a>' +
+							        '<a href="'+infoRegion.link+'" class="link region-tooltip-name">' + infoRegion.name + '</a>' +
+									'<div class="region-tooltip-section">' +
+										'<a href="'+infoRegion.link+'" class="link region-tooltip-section-item">О регионе</a>' +
+										'<a href="'+infoRegion.link+'" class="link region-tooltip-section-item">История</a>' +
+										'<a href="'+infoRegion.link+'" class="link region-tooltip-section-item">Достопримечательности</a>' +
+										'<a href="'+infoRegion.link+'" class="link region-tooltip-section-item">Культура и обычаи</a>' +
+										'<a href="'+infoRegion.link+'" class="link region-tooltip-section-item">Кухня</a>' +
+										'<a href="'+infoRegion.link+'" class="link region-tooltip-section-item">Продукты</a>' +
+									'</a>'+
+								'</div>';
+
+							infoBubble = new InfoBubble({
+								maxWidth: "300px",
+								width: "100%",
+								maxHeight: "100%",
+								shadowStyle: 0,
+								content: infoBubbleContent,
+								map: map,
+								padding: "25px 75px",
+								backgroundColor: "#fff",
+								borderRadius: 0,
+								borderWidth: 1,
+								borderColor: '#a9a9a9',
+								disableAutoPan: true,
+								hideCloseButton: true,
+								arrowPosition: 30,
+								arrowSize: 0,
+								backgroundClassName: "region-tooltip-class",
+							});
+
+
+							google.maps.event.addListener(marker, 'click', function() {
+								if (!infoBubble.isOpen()) {
+									infoBubble.open(map, marker);
+								}
+							});
+
+
+							google.maps.event.addListener(map, 'click', function() {
+								infoBubble.close();
+							});
+
 						});
 
-					});
+					},
+
+
+					fromLatLngToPoint: function(latLng, map) {
+						var topRight = map.getProjection().fromLatLngToPoint(map.getBounds().getNorthEast());
+						var bottomLeft = map.getProjection().fromLatLngToPoint(map.getBounds().getSouthWest());
+						var scale = Math.pow(2, map.getZoom());
+						var worldPoint = map.getProjection().fromLatLngToPoint(latLng);
+						return new google.maps.Point((worldPoint.x - bottomLeft.x) * scale, (worldPoint.y - topRight.y) * scale);
+					}
+
 				},
+
 				yandexMap: {
 					$map: false,
 					map: false,
@@ -516,10 +588,10 @@
 								items: 2,
 							},
 							1200: {
-								items: 3,
+								items: 2,
 							},
 							1600: {
-								items: 3,
+								items: 2,
 							}
 						}
 					});
@@ -915,7 +987,7 @@
 
 				animateSvgLogo: function() {
 					var $elSvg = $("#logo-preloader");
-					
+
 					if ($elSvg.length > 0) {
 						new Vivus("logo-preloader", {duration: 200}, function() {});
 					}
@@ -936,7 +1008,7 @@
 	FOODGEOGRAPHY.goEl();
 	FOODGEOGRAPHY.header.init();
 
-	FOODGEOGRAPHY.maps.googleMap();
+	FOODGEOGRAPHY.maps.googleMap.init();
 
 	FOODGEOGRAPHY.forms.init();
 

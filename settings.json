@@ -72,6 +72,14 @@
                 "mobile": "100"
             }
         },
+        "products": {
+            "name": "Продукты",
+            "progress": {
+                "desktop": "100",
+                "tablet": "100",
+                "mobile": "100"
+            }
+        },
         "regions-sights": {
             "name": "Регион: достопримечательности",
             "progress": {
